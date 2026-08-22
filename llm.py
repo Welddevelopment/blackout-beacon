@@ -102,31 +102,73 @@ def _tokens(text):
     return set(_WORD_RE.findall(text.lower()))
 
 
+def _score_card(card, q_lower, q_tok):
+    score = 0
+    for kw in card["keywords"]:
+        kw_l = kw.lower().strip()
+        if kw_l and kw_l in q_lower:
+            score += 5  # whole keyword phrase appears in the question
+        score += 2 * len(_tokens(kw_l) & q_tok)
+    score += 4 * len(_tokens(card["title"]) & q_tok)
+    score += 2 * len(_tokens(card["summary"]) & q_tok)
+    score += 1 * len(_tokens(card["content"]) & q_tok)
+    return score
+
+
+def _is_area_card(card):
+    return card["id"] == "local-help-points" or card["id"].startswith("local-help-points-")
+
+
 def select_cards(question, cards=None, k=4):
     """Keyword/substring scoring over title+keywords+summary+content.
+
+    Area cards ("local-help-points*", one per borough/neighbourhood) compete
+    only with each other: the question's place mention picks the right one,
+    falling back to the BEACON_AREA env slug, then the generic card. Exactly
+    one area card is included so distant boroughs never crowd the answer.
     Always includes the 'emergency-numbers' card if it exists."""
     if cards is None:
         cards = load_cards()
     q_lower = question.lower()
     q_tok = _tokens(question)
-    scored = []
-    for card in cards:
-        score = 0
-        for kw in card["keywords"]:
-            kw_l = kw.lower().strip()
-            if kw_l and kw_l in q_lower:
-                score += 5  # whole keyword phrase appears in the question
-            score += 2 * len(_tokens(kw_l) & q_tok)
-        score += 4 * len(_tokens(card["title"]) & q_tok)
-        score += 2 * len(_tokens(card["summary"]) & q_tok)
-        score += 1 * len(_tokens(card["content"]) & q_tok)
-        scored.append((score, card))
-    scored.sort(key=lambda pair: -pair[0])
-    picked = [card for score, card in scored if score > 0][:k]
+
+    general = [c for c in cards if not _is_area_card(c)]
+    area = [c for c in cards if _is_area_card(c)]
+
+    scored = sorted(((_score_card(c, q_lower, q_tok), c) for c in general),
+                    key=lambda pair: -pair[0])
+    # Phrasebooks share vocabulary with many questions (e.g. "hospital" in
+    # Spanish); demand a decisive match before they claim a grounding slot.
+    picked = [card for score, card in scored
+              if score > (8 if card["category"] == "language" else 0)][:k]
+
+    # Pick exactly one area card: question mention > BEACON_AREA env > generic.
+    area_pick = None
+    if area:
+        a_scored = sorted(((_score_card(c, q_lower, q_tok), c) for c in area),
+                          key=lambda pair: -pair[0])
+        if a_scored[0][0] > 0:
+            area_pick = a_scored[0][1]
+        else:
+            default_slug = os.environ.get("BEACON_AREA", "kensington-chelsea")
+            for c in area:
+                if c["id"] == "local-help-points-" + default_slug:
+                    area_pick = c
+                    break
+            if area_pick is None:
+                for c in area:
+                    if c["id"] == "local-help-points":
+                        area_pick = c
+                        break
+    if area_pick is not None:
+        if len(picked) >= k and picked:
+            picked.pop()
+        picked.append(area_pick)
+
     if not any(c["id"] == ALWAYS_INCLUDE_CARD_ID for c in picked):
         for card in cards:
             if card["id"] == ALWAYS_INCLUDE_CARD_ID:
-                if len(picked) >= k and picked:
+                if len(picked) >= k + 1 and picked:
                     picked.pop()  # drop weakest match to make room
                 picked.append(card)
                 break
