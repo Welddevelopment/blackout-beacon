@@ -112,10 +112,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-
       </div>
     </div>
     <form class="searchrow" id="pcform" autocomplete="off">
-      <input id="pc" type="text" inputmode="text" autocomplete="postal-code" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="search" placeholder="Postcode, e.g. SW7 or E8 4PH" aria-label="Postcode">
+      <input id="pc" type="text" inputmode="text" autocomplete="postal-code" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="search" placeholder="Postcode, e.g. SW7 2AZ &mdash; or just SW7" aria-label="Postcode">
       <button type="submit" id="go">Find A&amp;E</button>
     </form>
-    <p class="hint" id="hint">Type a London postcode &mdash; just the first part works (SW7, N1, SE15&hellip;)</p>
+    <p class="hint" id="hint">Type a London postcode &mdash; full like <b>SW7 2AZ</b> for the exact spot, or just the first part (SW7, N1&hellip;)</p>
     <nav class="layers" id="layers" aria-label="Map layers" hidden></nav>
   </div>
 
@@ -462,38 +462,81 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-
     }
   }
 
+  /* district name for an outward code, from the client-side table (display only) */
+  function outcodeArea(oc) {
+    var s = String(oc || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (!s || !state.postcodes) { return ''; }
+    var loc = lookupOutcode(s);
+    return loc ? (loc.area || '') : '';
+  }
+
   function search(raw) {
     if (!state.postcodes || !state.hospitals) {
       hint('Still loading map data&hellip; try again in a second.', true);
       return;
     }
-    var oc = parseOutcode(raw);
-    if (!oc) {
-      hint('That doesn&rsquo;t look like a postcode. Try the first part only &mdash; like <b>SW7</b> or <b>E8</b>.', true);
+    var q = String(raw || '').trim();
+    if (!q) {
+      hint('Type a postcode first &mdash; like <b>SW7 2AZ</b>, or just <b>SW7</b>.', true);
       return;
     }
-    var loc = lookupOutcode(oc);
-    if (!loc) {
-      hint('<b>' + esc(oc) + '</b> isn&rsquo;t in this map&rsquo;s London coverage. Try a nearby London postcode (SW7, N1, SE15&hellip;).', true);
-      return;
-    }
-    hint('<b>' + esc(loc.code) + '</b>' + (loc.area ? ' &mdash; ' + esc(loc.area) : '') + '. Nearest A&amp;E departments below.');
 
-    /* nearest 3 general A&Es (specialist eye/children units excluded from top-3) */
-    var ranked = [], i, h, km;
-    for (i = 0; i < state.hospitals.length; i++) {
-      h = state.hospitals[i];
-      if (h.note) { continue; }
-      km = haversineKm(loc, h);
-      ranked.push({ h: h, km: km });
-    }
-    ranked.sort(function (a, b) { return a.km - b.km; });
-    var top = ranked.slice(0, 3);
+    /* Unit-precision lookup first: the sqlite-backed /api/postcode endpoint
+       resolves full postcodes to an exact point. Anything that isn't a clean
+       200-JSON hit (404 unknown, endpoint not shipped yet, captive 302 —
+       getJSON already rejects redirects/non-JSON) falls back to the
+       client-side outward-code table below. Degrade, never break. */
+    getJSON('/api/postcode?q=' + encodeURIComponent(q), function (r) {
+      if (r && typeof r.lat === 'number' && typeof r.lon === 'number') {
+        found({
+          code: r.postcode || q.toUpperCase(),
+          lat: r.lat, lon: r.lon,
+          precision: r.precision === 'unit' ? 'unit' : 'outcode',
+          area: outcodeArea(r.outcode || r.postcode)
+        });
+      } else {
+        fallbackOutward();
+      }
+    }, fallbackOutward);
 
-    renderList(loc, top);
-    renderMap(loc, top);
-    routeAll(loc, top);
-    try { $('pc').blur(); } catch (e) {}
+    function fallbackOutward() {
+      var oc = parseOutcode(q);
+      if (!oc) {
+        hint('That doesn&rsquo;t look like a postcode. Try <b>SW7 2AZ</b>, or just the first part &mdash; <b>SW7</b>.', true);
+        return;
+      }
+      var loc = lookupOutcode(oc);
+      if (!loc) {
+        hint('<b>' + esc(oc) + '</b> isn&rsquo;t in this map&rsquo;s London coverage. Try a nearby London postcode (SW7, N1, SE15&hellip;).', true);
+        return;
+      }
+      loc.precision = 'outcode';
+      found(loc);
+    }
+
+    function found(loc) {
+      if (loc.precision === 'unit') {
+        hint('<b>' + esc(loc.code) + '</b> &mdash; exact location. Nearest A&amp;E departments below.');
+      } else {
+        hint('<b>' + esc(loc.code) + '</b>' + (loc.area ? ' &mdash; ' + esc(loc.area) : '') + '. Nearest A&amp;E departments below.');
+      }
+
+      /* nearest 3 general A&Es (specialist eye/children units excluded from top-3) */
+      var ranked = [], i, h, km;
+      for (i = 0; i < state.hospitals.length; i++) {
+        h = state.hospitals[i];
+        if (h.note) { continue; }
+        km = haversineKm(loc, h);
+        ranked.push({ h: h, km: km });
+      }
+      ranked.sort(function (a, b) { return a.km - b.km; });
+      var top = ranked.slice(0, 3);
+
+      renderList(loc, top);
+      renderMap(loc, top);
+      routeAll(loc, top);
+      try { $('pc').blur(); } catch (e) {}
+    }
   }
 
   function renderList(loc, top) {
@@ -555,7 +598,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-
     /* the results sheet has just (re)appeared and shrinks the map container;
        resize first so fitBounds targets the final viewport */
     state.map.resize();
-    state.map.fitBounds(b, { padding: 48, maxZoom: 14.5 });
+    /* unit-precision hits land on a street corner, not a district blob */
+    state.map.fitBounds(b, { padding: 48, maxZoom: loc.precision === 'unit' ? 15.5 : 14.5 });
   }
 
   function connFeature(loc, h, kind, idx) {
