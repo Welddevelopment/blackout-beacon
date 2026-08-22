@@ -218,6 +218,8 @@ class Beacon(BaseHTTPRequestHandler):
             p = parse_qs(query)
             f_lat, f_lon = (float(x) for x in p["from"][0].split(","))
             t_lat, t_lon = (float(x) for x in p["to"][0].split(","))
+            if not all(map(math.isfinite, (f_lat, f_lon, t_lat, t_lon))):
+                raise ValueError("non-finite coordinate")  # nan/inf crash int()
         except (KeyError, IndexError, ValueError):
             return self._send_json({"error": "bad params"}, status=400)
         try:
