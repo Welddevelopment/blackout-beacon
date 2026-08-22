@@ -257,6 +257,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-
         loadPoiLayers();
         if (state.pendingRender) {       // user searched before tiles were ready
           renderMap(state.pendingRender[0], state.pendingRender[1]);
+          routeAll(state.pendingRender[0], state.pendingRender[1]); // re-upgrade lines the replay just reset
           state.pendingRender = null;
         }
       });
