@@ -119,7 +119,17 @@ def _is_area_card(card):
     return card["id"] == "local-help-points" or card["id"].startswith("local-help-points-")
 
 
-def select_cards(question, cards=None, k=4):
+_LANG_NAMES = {
+    "es": ("spanish", "español", "espanol"),
+    "fr": ("french", "français", "francais"),
+    "ar": ("arabic", "عربي", "العربية"),
+    "zh": ("chinese", "mandarin", "中文"),
+    "pl": ("polish", "polski"),
+    "ro": ("romanian", "română", "romana"),
+}
+
+
+def select_cards(question, cards=None, k=4, lang=None):
     """Keyword/substring scoring over title+keywords+summary+content.
 
     Area cards ("local-help-points*", one per borough/neighbourhood) compete
@@ -132,15 +142,35 @@ def select_cards(question, cards=None, k=4):
     q_lower = question.lower()
     q_tok = _tokens(question)
 
-    general = [c for c in cards if not _is_area_card(c)]
+    general = [c for c in cards
+               if not _is_area_card(c) and c["category"] != "language"]
     area = [c for c in cards if _is_area_card(c)]
+    phrase = [c for c in cards if c["category"] == "language"]
 
     scored = sorted(((_score_card(c, q_lower, q_tok), c) for c in general),
                     key=lambda pair: -pair[0])
-    # Phrasebooks share vocabulary with many questions (e.g. "hospital" in
-    # Spanish); demand a decisive match before they claim a grounding slot.
-    picked = [card for score, card in scored
-              if score > (8 if card["category"] == "language" else 0)][:k]
+    picked = [card for score, card in scored if score > 0][:k]
+
+    # Phrasebooks contain translations of common emergency questions, so they
+    # match almost anything. Include at most ONE, and only on an explicit
+    # language signal: the question names a language, or the UI language
+    # isn't English.
+    phrase_pick = None
+    for c in phrase:
+        code = c.get("lang") or c["id"].rsplit("-", 1)[-1]
+        names = _LANG_NAMES.get(code, ())
+        if any(n in q_lower for n in names):
+            phrase_pick = c
+            break
+    if phrase_pick is None and lang and lang != "en":
+        for c in phrase:
+            if (c.get("lang") or c["id"].rsplit("-", 1)[-1]) == lang:
+                phrase_pick = c
+                break
+    if phrase_pick is not None:
+        if len(picked) >= k and picked:
+            picked.pop()
+        picked.append(phrase_pick)
 
     # Pick exactly one area card: question mention > BEACON_AREA env > generic.
     area_pick = None
@@ -277,7 +307,7 @@ def ask_stream(question, lang="en", k=4):
     try:
         _assert_loopback(OLLAMA_URL)
         cards = load_cards()
-        picked = select_cards(question, cards, k=k)
+        picked = select_cards(question, cards, k=k, lang=lang)
         yield ("start", {"cards": [{"id": c["id"], "title": c["title"]} for c in picked]})
 
         body = json.dumps({
