@@ -17,6 +17,7 @@ Stdlib only. Run via ./run.sh (ports 53/80 need root).
 Dev mode:  BEACON_HTTP_PORT=8080 BEACON_DNS=0 python3 beacon_server.py
 """
 import json
+import math
 import os
 import socket
 import struct
@@ -27,6 +28,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlsplit, parse_qs, unquote
 
 import llm
+import routes
 
 # ---------------------------------------------------------------- config
 
@@ -211,6 +213,21 @@ class Beacon(BaseHTTPRequestHandler):
 
     # -- routing ---------------------------------------------------------
 
+    def _api_route(self, query):
+        try:
+            p = parse_qs(query)
+            f_lat, f_lon = (float(x) for x in p["from"][0].split(","))
+            t_lat, t_lon = (float(x) for x in p["to"][0].split(","))
+        except (KeyError, IndexError, ValueError):
+            return self._send_json({"error": "bad params"}, status=400)
+        try:
+            r = routes.route(f_lat, f_lon, t_lat, t_lon)
+        except Exception:
+            r = None  # graph missing/corrupt -> same contract as out-of-coverage
+        self._log("route" if r is not None else "404 route")
+        return (self._send_json(r) if r is not None
+                else self._send_json({"error": "outside coverage"}, status=404))
+
     def _route(self):
         note_client(self.client_address[0])
         path = urlsplit(self.path).path or "/"
@@ -236,6 +253,8 @@ class Beacon(BaseHTTPRequestHandler):
             return self._api_cards()
         if path == "/api/ask":
             return self._api_ask(query)
+        if path == "/api/route":
+            return self._api_route(query)
         if path.startswith("/static/"):
             return self._serve_tree(STATIC_DIR, path[len("/static/"):])
         if path.startswith("/data/"):
@@ -450,6 +469,11 @@ def main():
     log(f"[beacon] allowed hosts: {sorted(ALLOWED_HOSTS)} (+ anything containing 'localhost')")
     if DNS_ENABLED:
         threading.Thread(target=dns_server, daemon=True).start()
+    try:
+        routes.load_graph()  # 0.14s warm-up so the first map route has zero jitter
+        log("[routes] walking graph preloaded")
+    except Exception as exc:
+        log(f"[routes] graph unavailable ({exc!r}) - /api/route will 404")
     srv = ThreadingHTTPServer(("0.0.0.0", HTTP_PORT), Beacon)
     srv.daemon_threads = True
     log(f"[http] listening on :{HTTP_PORT}")
