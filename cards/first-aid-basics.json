@@ -1,0 +1,19 @@
+{
+  "id": "first-aid-basics",
+  "title": "First Aid Basics and Primary Survey",
+  "category": "medical",
+  "summary": "Step-by-step guidance for conducting a primary survey, managing bleeding, burns, shock, and seizures.",
+  "content": "1. PRIMARY SURVEY (DR ABC):\n- Danger: Ensure the scene is safe for you and the casualty before approaching.\n- Response: Gently shake shoulders and ask loudly, 'Are you alright?'\n- Airway: Tilt the head back gently and lift the chin to open the airway.\n- Breathing: Look, listen, and feel for normal breathing for up to 10 seconds. (If unresponsive and not breathing normally, start CPR immediately and call 999).\n- Circulation: Check for severe, uncontrolled bleeding.\n\n2. RECOVERY POSITION: If unresponsive but breathing normally, place them on their side with the top leg bent at a right angle and head tilted back to keep the airway clear. Monitor breathing continuously.\n\n3. SEVERE BLEEDING: Apply direct, firm pressure over the wound using a clean cloth or sterile dressing. Maintain constant pressure. If blood soaks through, add another pad on top—do not remove the first layer. Call 999.\n\n4. BURNS AND SCALDS: Cool the burn immediately under cold running water for at least 20 full minutes. Remove jewellery or loose clothing near the burn unless stuck to the skin. Cover loosely with clean cling film or a clean plastic bag. Never apply ice, butter, oils, or creams.\n\n5. SHOCK (CIRCULATORY): Keep the person lying flat, elevate their legs above heart level if no fractures are suspected, and keep them warm with coats or blankets. Do not give food or drink. Call 999.\n\n6. SEIZURES: Protect the person from surrounding hazards. Cushion their head with something soft. Do not restrain them, and never place anything in their mouth. Time the seizure. Call 999 if the seizure lasts longer than 5 minutes, is their first seizure, or repeats.",
+  "keywords": [
+    "first aid",
+    "dr abc",
+    "bleeding",
+    "burns",
+    "shock",
+    "seizure",
+    "recovery position",
+    "unconscious"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

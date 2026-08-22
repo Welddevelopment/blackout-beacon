@@ -1,0 +1,19 @@
+{
+  "id": "safe-drinking-water",
+  "title": "Emergency Safe Drinking Water",
+  "category": "water",
+  "summary": "Water rationing, purification techniques, contamination risks, and municipal bottled water distribution.",
+  "content": "1. DAILY REQUIREMENTS: Store and allocate a minimum of 2 to 3 litres of clean water per person per day for drinking and basic sanitation. In hot weather or illness, increase this to 4 litres.\n\n2. BOILING WATER (MOST EFFECTIVE):\n- Bring tap or source water to a vigorous rolling boil for 1 full minute.\n- Allow water to cool naturally before drinking.\n- Boiling kills pathogenic bacteria, viruses, and parasites. Keep boiled water covered in clean containers.\n\n3. CHEMICAL DISINFECTION (EMERGENCY BACKUP):\n- If boiling is impossible, use plain, unscented household bleach (containing sodium hypochlorite with no additives or perfumes - verify locally).\n- Add 2 drops of bleach per 1 litre of clear water (or 4 drops if water is cloudy).\n- Mix thoroughly and allow it to stand undisturbed for at least 30 minutes. The water should have a slight chlorine scent. If no scent, repeat and wait another 15 minutes.\n\n4. WHAT NEVER TO DRINK:\n- Never drink floodwater, stagnant pond water, or water from central heating radiators, boilers, or toilet tanks containing chemical tablets.\n- Do not drink seawater, alcohol, or urine.\n\n5. WATER STATIONS (LONDON):\n- Thames Water provides emergency bottled water collection points during prolonged supply loss in South Kensington (verify locally).\n- Check local council alerts or listen to local radio for temporary bowser and water tanker locations.\n- Bring sturdy containers or rucksacks to collection points to transport bottled supplies back to your residence.",
+  "keywords": [
+    "water",
+    "boil water",
+    "water purification",
+    "thames water",
+    "drinking water",
+    "bleach disinfection",
+    "safe water",
+    "rationing"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

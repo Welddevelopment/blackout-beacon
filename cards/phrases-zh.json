@@ -1,0 +1,20 @@
+{
+  "id": "phrases-zh",
+  "title": "Emergency Phrases: English <-> Chinese (Simplified)",
+  "category": "language",
+  "summary": "Essential emergency bilingual communication phrases in English and Simplified Chinese with Pinyin pronunciations.",
+  "content": "Show this screen and point directly to the relevant phrase to communicate with emergency responders, healthcare staff, or residents during a crisis.\n\n1. EN: Help! Please help me. | CH: 救命！请帮帮我。(Jiùmìng! Qǐng bāng bang wǒ.)\n2. EN: Please call an ambulance / the police (999 or 112). | CH: 请叫救护车 / 请报警 (999 或 112)。(Qǐng jiào jiùhùchē / qǐng bàojǐng.)\n3. EN: I am hurt / injured and need medical care. | CH: 我受伤了，需要医疗救助。(Wǒ shòushāng le, xūyào yīliáo jiùzhù.)\n4. EN: I have a medical condition (heart disease / diabetes). | CH: 我有基础病（心脏病 / 糖尿病）。(Wǒ yǒu jīchǔbìng: xīnzàngbìng / tángniàobìng.)\n5. EN: Where is the nearest hospital or emergency department? | CH: 最近的医院或急诊室在哪里？(Zuì jìn de yīyuàn huò jízhěnshì zài nǎlǐ?)\n6. EN: I need clean drinking water and food. | CH: 我需要干净的饮用水和食物。(Wǒ xūyào gānjìng de yǐnyòngshuǐ hé shíwù.)\n7. EN: The power is out / there is no electricity. | CH: 停电了。(Tíngdiàn le.)\n8. EN: Is this tap water safe to drink? | CH: 这里的自来水可以安全饮用吗？(Zhèlǐ de zìláishuǐ kěyǐ ānquán yǐnyòng ma?)\n9. EN: I urgently need my prescription medication. | CH: 我急需我的处方药。(Wǒ jíxū wǒ de chǔfāng yào.)\n10. EN: Do you speak English / Chinese? | CH: 你会说英语 / 中文吗？(Nǐ huì shuō Yīngyǔ / Zhōngwén ma?)\n\nPractical tips: Speak slowly, stay calm, and point directly to the line on this screen. Use clear gestures, show prescription containers, or point directly to the location of pain. When calling UK emergency services on 999 or 112, state 'Mandarin' or 'Cantonese' immediately so the operator can connect an interpreter.",
+  "keywords": [
+    "chinese",
+    "mandarin",
+    "translation",
+    "phrases",
+    "interpreter",
+    "ambulance",
+    "hospital",
+    "medication",
+    "help"
+  ],
+  "lang": "zh",
+  "source": "gemini"
+}

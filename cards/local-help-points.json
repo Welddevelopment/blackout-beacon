@@ -1,0 +1,19 @@
+{
+  "id": "local-help-points",
+  "title": "South Kensington Local Medical and Support Points",
+  "category": "local",
+  "summary": "Designated 24-hour A&E hospitals, secondary trauma centres, and local supply points in and around South Kensington.",
+  "content": "1. NEAREST 24-HOUR ACCIDENT & EMERGENCY (A&E) HOSPITALS:\n- Chelsea and Westminster Hospital: 369 Fulham Road, London, SW10 9NH (approx. 1.2 miles southwest - verify locally). Provides 24/7 emergency medical care and urgent treatment.\n- St Mary's Hospital: Praed Street, Paddington, London, W2 1NY (approx. 1.8 miles north - verify locally). Major trauma centre with 24/7 full A&E services.\n\n2. ALTERNATIVE MAJOR HOSPITALS (A&E):\n- Charing Cross Hospital: Fulham Palace Road, Hammersmith, London, W6 8RF (approx. 2.5 miles west - verify locally). 24/7 A&E and acute medical services.\n- St Thomas' Hospital: Westminster Bridge Road, London, SE1 7EH (approx. 3.2 miles east - verify locally). Full 24/7 emergency department opposite Parliament.\n\n3. LOCAL PHARMACIES & MINOR AILMENTS:\n- High-street community pharmacies (e.g. Boots, local independent chemists on Old Brompton Road / Brompton Road - verify locally) provide over-the-counter medication, first-aid items, and minor illness advice when open.\n\n4. ESSENTIAL SUPPLIES AND INFORMATION HUBS:\n- Large local supermarkets (e.g. Sainsbury's on Cromwell Road, Waitrose on Gloucester Road - verify locally) serve as primary points for non-perishable food, bottled water supplies, and public community noticeboards during widespread outages.\n\n5. IMPORTANT NOTICE: In major disasters or power outages, hospital operating procedures, transport links, and commercial opening hours may be disrupted. Verify status locally before travelling.",
+  "keywords": [
+    "south kensington",
+    "hospital",
+    "a&e",
+    "chelsea and westminster",
+    "st marys",
+    "pharmacy",
+    "emergency department",
+    "supermarket"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

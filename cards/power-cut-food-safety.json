@@ -1,0 +1,19 @@
+{
+  "id": "power-cut-food-safety",
+  "title": "Food Safety and Cooking During Power Cuts",
+  "category": "power",
+  "summary": "Managing refrigerated and frozen food during an outage, refreezing rules, and carbon monoxide precautions.",
+  "content": "1. KEEP APPLIANCE DOORS CLOSED:\n- An unopened refrigerator keeps perishable food safe for approximately 4 hours.\n- A full, unopened freezer maintains safe temperatures for approximately 48 hours (24 hours if half-full).\n- Open doors only when absolutely necessary and close immediately.\n\n2. DISCARDING SPOILED FOOD:\n- Discard perishable foods (raw/cooked meat, fish, dairy, eggs, cooked pasta, and leftovers) if the fridge has been without power for over 4 hours or if items reach 8°C or higher for more than 2 hours.\n- Never taste food to determine if it is safe. When in doubt, throw it out.\n\n3. UK FOOD STANDARDS AGENCY (FSA) REFREEZING GUIDANCE:\n- Once power returns, check frozen goods.\n- Food that still contains visible ice crystals or remains below 4°C can be safely refrozen or cooked immediately.\n- If food has fully defrosted, reaches room temperature, or shows signs of spoilage, discard it immediately. Defrosted raw meat can be safely frozen only after it has been fully cooked through.\n\n4. SAFE COOKING AND CARBON MONOXIDE DANGER:\n- NEVER use outdoor camping stoves, gas canisters, charcoal BBQs, or patio heaters inside homes, flats, garages, or enclosed balconies.\n- Indoor use produces invisible, odourless carbon monoxide (CO) fumes which are rapidly lethal.\n- Consume ready-to-eat canned goods, dried fruit, nuts, and non-perishable pantry items if safe outdoor cooking is unavailable.",
+  "keywords": [
+    "fridge",
+    "freezer",
+    "food safety",
+    "power cut",
+    "spoilage",
+    "carbon monoxide",
+    "no power",
+    "fsa refreezing"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "phrases-fr",
+  "title": "Emergency Phrases: English <-> French",
+  "category": "language",
+  "summary": "Essential bilingual English-French emergency phrases to facilitate urgent communication with responders or residents.",
+  "content": "Show this screen and point directly to the phrases below to communicate essential needs with responders or local residents during an emergency.\n\n1. EN: Help! / Please help me. | FR: Au secours ! / Aidez-moi, s'il vous plaît.\n2. EN: I need an ambulance / the police (Call 999 or 112). | FR: J'ai besoin d'une ambulance / de la police (Appelez le 999 ou le 112).\n3. EN: I am hurt / injured / bleeding. | FR: Je suis blessé(e) / Je saigne.\n4. EN: I have a medical condition (diabetic / heart condition). | FR: J'ai un problème médical (diabétique / problème cardiaque).\n5. EN: Where is the nearest hospital or emergency room? | FR: Où est l'hôpital ou le service des urgences le plus proche ? (verify locally)\n6. EN: I need drinking water / food. | FR: J'ai besoin d'eau potable / de nourriture.\n7. EN: The power is out / There is no electricity. | FR: Il y a une coupure de courant / Il n'y a plus d'électricité.\n8. EN: Is the tap water safe to drink? | FR: L'eau du robinet est-elle potable ?\n9. EN: I need my medication urgently. | FR: J'ai besoin de mes médicaments de toute urgence.\n10. EN: Do you speak English? / I do not speak French. | FR: Parlez-vous anglais ? / Je ne parle pas français.\n\nCommunication tip: Speak slowly, use clear hand gestures, show empty medication packaging or write critical details (such as dosage, names, and allergies) clearly on paper.",
+  "keywords": [
+    "french",
+    "français",
+    "phrases",
+    "translation",
+    "emergency words",
+    "ambulance",
+    "doctor",
+    "hospital"
+  ],
+  "lang": "fr",
+  "source": "gemini"
+}

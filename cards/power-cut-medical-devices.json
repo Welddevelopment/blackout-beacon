@@ -1,0 +1,20 @@
+{
+  "id": "power-cut-medical-devices",
+  "title": "Medical Devices and Insulin During Power Cuts",
+  "category": "power",
+  "summary": "Managing power-dependent medical equipment, battery backups, Priority Services Register, and insulin storage.",
+  "content": "1. PRIORITY SERVICES REGISTER (PSR):\n- Register ahead of emergencies with UK Power Networks (via dialling 105 - verify locally) and your energy supplier if you rely on medical equipment.\n- PSR provides advance notice of planned cuts and prioritized emergency support during outages.\n\n2. ELECTRICAL MEDICAL EQUIPMENT (VENTILATORS, DIALYSIS, OXYGEN, CPAP, WHEELCHAIRS):\n- Keep essential backup batteries fully charged and store manual override tools (e.g. manual bag valves, manual wheelchair wheels) in a designated, accessible spot.\n- Identify alternative charging locations nearby (hospitals, designated community hubs).\n- Contact your medical equipment supplier immediately using emergency numbers on the device casing.\n\n3. INSULIN STORAGE GUIDANCE:\n- Unopened insulin is ideally stored refrigerated between 2°C and 8°C.\n- In-use insulin or insulin during a power outage remains safe and stable at room temperature (below 25°C to 30°C) for up to 28 days.\n- Keep your refrigerator door shut to maintain cool internal temperatures.\n- If temperatures exceed 30°C, store insulin in an insulated cool bag or evaporative cooling pouch.\n- NEVER let insulin freeze (do not place directly against frozen ice blocks). DISCARD any insulin that has frozen, even if thawed, as its potency is destroyed.\n\n4. WHEN TO CALL 999:\n- Call 999 immediately if life-support equipment fails, backup batteries run out, or a patient experiences severe respiratory distress, unresponsiveness, or life-threatening symptoms.",
+  "keywords": [
+    "insulin",
+    "medical equipment",
+    "ventilator",
+    "oxygen",
+    "power cut",
+    "dialysis",
+    "priority services register",
+    "cpap",
+    "fridge"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}
