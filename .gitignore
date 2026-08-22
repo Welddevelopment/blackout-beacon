@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 .DS_Store
 nohup.out
+# 134 MB basemap extract — over GitHub's 100 MB hard limit.
+# Regeneration command: data/README.md
+data/london.pmtiles

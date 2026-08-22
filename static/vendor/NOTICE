@@ -1,0 +1,35 @@
+Vendored third-party assets for the Blackout Beacon offline map (/map).
+Everything in this directory is served locally — no CDN, no internet at
+serve time. Downloaded during the briefing phase (2026-08-22).
+
+maplibre-gl.js, maplibre-gl.css
+  MapLibre GL JS v4.7.1 (pinned: last WebGL1-compatible major, for old phones)
+  https://github.com/maplibre/maplibre-gl-js
+  License: BSD-3-Clause
+
+pmtiles.js
+  PMTiles JS v4.5.0 (UMD build, global `pmtiles`)
+  https://github.com/protomaps/PMTiles
+  License: BSD-3-Clause
+
+basemaps.js
+  @protomaps/basemaps v5.7.2 (UMD build, global `basemaps`)
+  Generates the MapLibre style layers for the Protomaps basemap
+  (flavor: dark). Verified compatible with the vendored tileset
+  (source-layer names match data/london.pmtiles, schema 4.15.2).
+  https://github.com/protomaps/basemaps
+  License: BSD-3-Clause
+
+fonts/
+  Glyph PBFs from https://github.com/protomaps/basemaps-assets
+  Stacks: Noto Sans Regular, Noto Sans Medium, Noto Sans Italic,
+  Noto Sans Devanagari Regular v1 (all stacks referenced by the style).
+  Fonts: Noto Sans — SIL Open Font License 1.1 (see fonts/OFL.txt)
+
+sprites/v4/
+  "dark" flavor spritesheets from protomaps/basemaps-assets
+  License: BSD-3-Clause (part of the basemaps project)
+
+Map data (data/london.pmtiles):
+  (c) OpenStreetMap contributors (ODbL) + Natural Earth.
+  Attribution is displayed on the map UI.
