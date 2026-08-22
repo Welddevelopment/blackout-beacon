@@ -1,0 +1,20 @@
+{
+  "id": "phrases-tr",
+  "title": "Emergency Phrases: English <-> Turkish",
+  "category": "language",
+  "summary": "Essential English-Turkish emergency phrases to show responders or residents during a crisis.",
+  "content": "Show this screen directly to emergency responders or residents and point to the phrase you need.\n\n1. EN: Help! / I need emergency help. | TU: İmdat! / Acil yardıma ihtiyacım var.\n2. EN: Please call an ambulance / the police (999 or 112). | TU: Lütfen bir ambulans / polis çağırın (999 veya 112).\n3. EN: I am hurt / injured / bleeding. | TU: Yaralandım / Kanamam var.\n4. EN: I have a heart condition / I am diabetic. | TU: Kalp rahatsızlığım var / Şeker (diyabet) hastasıyım.\n5. EN: Where is the nearest hospital or medical centre? | TU: En yakın hastane veya sağlık merkezi nerede?\n6. EN: I need clean drinking water and food. | TU: Temiz içme suyuna ve yiyeceğe ihtiyacım var.\n7. EN: The power and electricity are out here. | TU: Burada elektrikler kesildi / Enerji yok.\n8. EN: Is the tap water safe to drink? | TU: Musluk suyu içmek için güvenli mi?\n9. EN: I urgently need my prescription medication. | TU: Acilen reçeteli ilacıma ihtiyacım var.\n10. EN: Do you speak English? / Do you speak Turkish? | TU: İngilizce biliyor musunuz? / Türkçe biliyor musunuz?\n\nCommunication tip: Point directly to the relevant text on screen if speech is difficult. Speak slowly and calmly, and use physical gestures (such as pointing to where it hurts or indicating numbers with your fingers) to assist understanding. For life-threatening emergencies in London, dial 999 or 112. Major hospitals serving South Kensington include Chelsea and Westminster Hospital on Fulham Road (verify locally).",
+  "keywords": [
+    "turkish",
+    "turkce",
+    "phrases",
+    "translation",
+    "ambulance",
+    "hospital",
+    "language",
+    "help",
+    "imdat"
+  ],
+  "lang": "tr",
+  "source": "gemini"
+}

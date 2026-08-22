@@ -1,0 +1,19 @@
+{
+  "id": "phrases-bn",
+  "title": "Emergency Phrases: English <-> Bengali",
+  "category": "language",
+  "summary": "Essential emergency and medical communication phrases in English and Bengali with phonetic transliteration.",
+  "content": "Show this card directly on your phone screen to communicate with first responders, volunteers, or neighbours during an emergency.\n\n1. EN: Help! I need help. | BE: সাহায্য করুন! আমার সাহায্য দরকার। (Sahajjo korun! Amar sahajjo dorkar.)\n2. EN: Call an ambulance / the police (999 or 112). | BE: একটি অ্যাম্বুলেন্স / পুলিশ ডাকুন (৯৯৯ বা ১১২)। (Ekti ambulance / police dakun (999 ba 112).)\n3. EN: I am hurt / injured. | BE: আমি আহত / চোট পেয়েছি। (Ami ahato / chot peyechi.)\n4. EN: I have a heart condition / I have diabetes. | BE: আমার হৃদরোগ আছে / আমার ডায়াবেটিস আছে। (Amar hridrog ache / amar diabetes ache.)\n5. EN: Where is the nearest hospital? | BE: সবচেয়ে কাছের হাসপাতালটি কোথায়? (Shobcheye kacher hashpatalti kothay?)\n6. EN: I need clean water and food. | BE: আমার নিরাপদ পানি এবং খাবার প্রয়োজন। (Amar nirapod pani ebong khabar proyojon.)\n7. EN: The power is out. | BE: বিদ্যুৎ চলে গেছে / বিদ্যুৎ নেই। (Bidyut chole geche / bidyut nei.)\n8. EN: Is the tap water safe to drink? | BE: কলের পানি কি পানের জন্য নিরাপদ? (Koler pani ki paner jonno nirapod?)\n9. EN: I need my medication urgently. | BE: আমার জরুরি ওষুধ দরকার। (Amar joruri oshudh dorkar.)\n10. EN: Do you speak English? | BE: আপনি কি ইংরেজি বলতে পারেন? (Apni ki Ingreji bolte paren?)\n\nTip: If spoken communication is difficult, point directly to the relevant line on the screen. Speak slowly and calmly, use natural gestures or hand signals, and write down essential details such as names, allergies, or phone numbers on paper. Nearby major emergency departments include Chelsea and Westminster Hospital (verify locally).",
+  "keywords": [
+    "bengali",
+    "bangla",
+    "phrases",
+    "translation",
+    "language",
+    "interpreter",
+    "hospital",
+    "help"
+  ],
+  "lang": "bn",
+  "source": "gemini"
+}

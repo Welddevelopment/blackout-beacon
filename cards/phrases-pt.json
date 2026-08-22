@@ -1,0 +1,19 @@
+{
+  "id": "phrases-pt",
+  "title": "Emergency Phrases: English <-> Portuguese",
+  "category": "language",
+  "summary": "Essential Portuguese-English emergency phrases for communicating with responders and residents during a crisis.",
+  "content": "Show this screen to emergency responders or bystanders and point directly to the relevant line if you cannot communicate verbally. 1. EN: Help me / I need help. | PT: Socorro / Preciso de ajuda. 2. EN: Please call an ambulance / the police on 999. | PT: Por favor, chame uma ambulância / a polícia pelo 999. 3. EN: I am hurt / I am bleeding. | PT: Estou ferido(a) / Estou a sangrar. 4. EN: I have a medical condition (I am diabetic / I have a heart condition). | PT: Tenho uma condição médica (sou diabético(a) / tenho problemas cardíacos). 5. EN: Where is the nearest hospital? | PT: Onde fica o hospital mais próximo? (Major emergency hospitals in the area include Chelsea and Westminster Hospital and St Mary's Hospital - verify locally). 6. EN: I need clean drinking water and food. | PT: Preciso de água potável e comida. 7. EN: The power is out and there is no heat. | PT: Ocorreu um corte de energia e estamos sem aquecimento. 8. EN: Is the tap water safe to drink? | PT: A água da torneira é própria para beber? 9. EN: I need my vital medication. | PT: Preciso dos meus medicamentos essenciais. 10. EN: Do you speak English? / I do not speak English. | PT: Fala inglês? / Eu não falo inglês. Communication tips: Speak slowly and calmly. Point clearly to the phrases above. Use basic universal hand gestures to indicate locations of pain, number of affected people, or urgent physical hazards if verbal understanding fails.",
+  "keywords": [
+    "portuguese",
+    "portugues",
+    "traducao",
+    "ajuda",
+    "socorro",
+    "language",
+    "phrases",
+    "translation"
+  ],
+  "lang": "pt",
+  "source": "gemini"
+}
