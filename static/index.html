@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#041207">
+<meta name="format-detection" content="telephone=no">
+<title>Beacon — Offline Emergency Assistant</title>
+<style>
+:root{
+  --bg:#041207;
+  --line:rgba(74,222,128,.22);
+  --line-strong:rgba(74,222,128,.45);
+  --green:#4ade80;
+  --green-soft:#bbf7d0;
+  --green-tint:rgba(74,222,128,.08);
+  --red:#ef4444;
+  --red-tint:rgba(239,68,68,.13);
+  --text:#f0fdf4;
+  --muted:rgba(220,252,231,.62);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(120% 55% at 50% -8%, #0b3a1d 0%, rgba(11,58,29,0) 62%);
+  background-repeat:no-repeat;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.5;
+  min-height:100vh;
+}
+.wrap{max-width:560px;margin:0 auto;padding:22px 16px calc(28px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button:disabled{opacity:.4;pointer-events:none}
+
+header h1{font-size:30px;font-weight:800;letter-spacing:.12em}
+.subtitle{margin-top:2px;font-size:15px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(74,222,128,.05);font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--green-soft)}
+.chip-live{text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.briefed{margin-top:10px;font-size:13px;color:var(--muted)}
+
+.langs{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:22px;padding-bottom:4px}
+.lang{flex:0 0 auto;min-height:44px;padding:0 17px;border:1px solid var(--line);border-radius:999px;font-size:15px;font-weight:600;color:var(--text)}
+.lang.sel{background:var(--green);border-color:var(--green);color:#052e16;font-weight:700}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.panic{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:98px;padding:14px 10px;border:1px solid var(--line);border-radius:16px;background:var(--green-tint);font-size:15px;font-weight:600;line-height:1.3;text-align:center}
+.panic .ico{font-size:30px;line-height:1}
+.panic:active{transform:scale(.97);background:rgba(74,222,128,.16)}
+.panic.danger{background:var(--red-tint);border-color:rgba(239,68,68,.55)}
+.panic.danger:active{background:rgba(239,68,68,.24)}
+
+.askrow{display:flex;gap:10px;margin-top:14px}
+#q{flex:1;min-width:0;height:58px;padding:0 16px;font-family:inherit;font-size:16px;color:var(--text);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;outline:none;-webkit-appearance:none;appearance:none}
+#q:focus{border-color:var(--line-strong)}
+#q::placeholder{color:var(--muted)}
+#send{height:58px;padding:0 20px;background:var(--green);color:#052e16;font-size:16px;font-weight:700;border-radius:14px;white-space:nowrap}
+#send:active{transform:scale(.97)}
+
+.answerwrap{margin-top:22px}
+.queue{padding:14px 16px;border:1px solid var(--line-strong);border-radius:14px;background:var(--green-tint);font-size:15px;color:var(--green-soft);margin-bottom:12px}
+.cards{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.card{padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(74,222,128,.05);font-size:13px;color:var(--green-soft)}
+.asked{margin-bottom:8px;font-size:13px;color:var(--muted)}
+.answer{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.025);font-size:17px;line-height:1.65;overflow-wrap:break-word;word-wrap:break-word}
+.answer>:first-child{margin-top:0}
+.answer>:last-child{margin-bottom:0}
+.answer p{margin:10px 0}
+.answer h3{margin:16px 0 6px;font-size:19px;color:var(--green-soft)}
+.answer h4{margin:14px 0 4px;font-size:17px;color:var(--green-soft)}
+.answer ol,.answer ul{margin:10px 0;padding-inline-start:24px}
+.answer li{margin:6px 0}
+.answer strong{font-weight:700;color:var(--green-soft)}
+.cursor{display:inline-block;color:var(--green);font-weight:400;animation:blink 1s steps(2,start) infinite}
+@keyframes blink{50%{opacity:0}}
+.err{color:#fecaca}
+
+footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--muted)}
+footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(220,252,231,.4)}
+
+@media (prefers-reduced-motion:reduce){.dot,.cursor{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>📡 BEACON</h1>
+  <p class="subtitle" id="subtitle">Offline Emergency Assistant</p>
+  <div class="chips">
+    <span class="chip chip-live"><span class="dot"></span>OFFLINE — SERVING LOCALLY</span>
+    <span class="chip" id="chip-model" hidden></span>
+    <span class="chip" id="chip-clients" hidden></span>
+  </div>
+  <p class="briefed" id="briefed" hidden></p>
+</header>
+
+<main>
+  <nav class="langs" id="langs" aria-label="Language">
+    <button type="button" class="lang sel" data-lang="en">EN</button>
+    <button type="button" class="lang" data-lang="es">ES</button>
+    <button type="button" class="lang" data-lang="fr">FR</button>
+    <button type="button" class="lang" data-lang="ar">AR</button>
+    <button type="button" class="lang" data-lang="zh">中文</button>
+    <button type="button" class="lang" data-lang="pl">PL</button>
+    <button type="button" class="lang" data-lang="ro">RO</button>
+  </nav>
+
+  <section class="grid" id="grid">
+    <button type="button" class="panic danger" data-key="medical"><span class="ico">🚑</span><span class="lbl">Medical emergency</span></button>
+    <button type="button" class="panic" data-key="firstaid"><span class="ico">🩹</span><span class="lbl">First aid</span></button>
+    <button type="button" class="panic" data-key="water"><span class="ico">💧</span><span class="lbl">Safe water</span></button>
+    <button type="button" class="panic" data-key="power"><span class="ico">🔌</span><span class="lbl">Power cut</span></button>
+    <button type="button" class="panic" data-key="warm"><span class="ico">🥶</span><span class="lbl">Stay warm</span></button>
+    <button type="button" class="panic" data-key="help"><span class="ico">🏥</span><span class="lbl">Find help nearby</span></button>
+  </section>
+
+  <form class="askrow" id="askform" autocomplete="off">
+    <input id="q" type="text" dir="auto" autocomplete="off" autocapitalize="sentences" enterkeyhint="send" placeholder="Type your question…">
+    <button type="submit" id="send">Ask Beacon</button>
+  </form>
+
+  <section class="answerwrap" id="answerwrap" hidden>
+    <div class="queue" id="queue" hidden></div>
+    <p class="asked" id="asked"></p>
+    <div class="cards" id="cards" hidden></div>
+    <div class="answer" id="answer" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Bytes sent to the internet: <strong>0</strong> · Everything runs on this laptop</p>
+  <p class="tiny">Blackout Beacon — Gemma 4 on-device</p>
+</footer>
+
+<noscript><p style="margin-top:16px;color:#fecaca">Beacon needs JavaScript enabled.</p></noscript>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var I18N = {
+    en: {
+      subtitle: 'Offline Emergency Assistant',
+      placeholder: 'Type your question…',
+      ask: 'Ask Beacon',
+      queue: 'You’re in line — position {n}. Answers come to everyone, one at a time.',
+      error: 'Something went wrong — please try again.',
+      b: {
+        medical:  ['Medical emergency', 'What should I do in a medical emergency? Give me clear step-by-step instructions.'],
+        firstaid: ['First aid', 'Give me basic first aid instructions for common injuries.'],
+        water:    ['Safe water', 'How do I make water safe to drink without power?'],
+        power:    ['Power cut', 'What should I do during a power cut? How do I stay safe?'],
+        warm:     ['Stay warm', 'How do I stay warm safely without electricity?'],
+        help:     ['Find help nearby', 'Where can I find help, shelter, or emergency services nearby?']
+      }
+    },
+    es: {
+      subtitle: 'Asistente de emergencia sin conexión',
+      placeholder: 'Escribe tu pregunta…',
+      ask: 'Preguntar',
+      queue: 'Estás en la fila — posición {n}. Las respuestas llegan a todos, una a la vez.',
+      error: 'Algo salió mal — inténtalo de nuevo.',
+      b: {
+        medical:  ['Emergencia médica', '¿Qué debo hacer en una emergencia médica? Dame instrucciones claras paso a paso.'],
+        firstaid: ['Primeros auxilios', 'Dame instrucciones básicas de primeros auxilios para lesiones comunes.'],
+        water:    ['Agua potable', '¿Cómo hago que el agua sea segura para beber sin electricidad?'],
+        power:    ['Corte de luz', '¿Qué debo hacer durante un corte de luz? ¿Cómo me mantengo a salvo?'],
+        warm:     ['Mantener el calor', '¿Cómo me mantengo caliente de forma segura sin electricidad?'],
+        help:     ['Ayuda cercana', '¿Dónde puedo encontrar ayuda, refugio o servicios de emergencia cerca de aquí?']
+      }
+    },
+    fr: {
+      subtitle: 'Assistant d’urgence hors ligne',
+      placeholder: 'Écrivez votre question…',
+      ask: 'Demander',
+      queue: 'Vous êtes dans la file — position {n}. Les réponses arrivent à tous, une à la fois.',
+      error: 'Une erreur est survenue — veuillez réessayer.',
+      b: {
+        medical:  ['Urgence médicale', 'Que faire en cas d’urgence médicale ? Donnez-moi des instructions claires, étape par étape.'],
+        firstaid: ['Premiers secours', 'Donnez-moi les gestes de premiers secours pour les blessures courantes.'],
+        water:    ['Eau potable', 'Comment rendre l’eau potable sans électricité ?'],
+        power:    ['Coupure de courant', 'Que faire pendant une coupure de courant ? Comment rester en sécurité ?'],
+        warm:     ['Rester au chaud', 'Comment rester au chaud en toute sécurité sans électricité ?'],
+        help:     ['Trouver de l’aide', 'Où trouver de l’aide, un abri ou les services d’urgence à proximité ?']
+      }
+    },
+    ar: {
+      subtitle: 'مساعد الطوارئ دون اتصال',
+      placeholder: 'اكتب سؤالك…',
+      ask: 'اسأل بيكون',
+      queue: 'أنت في الطابور — الموقع {n}. تصل الإجابات إلى الجميع، واحدة تلو الأخرى.',
+      error: 'حدث خطأ ما — حاول مرة أخرى.',
+      b: {
+        medical:  ['طوارئ طبية', 'ماذا أفعل في حالة طوارئ طبية؟ أعطني تعليمات واضحة خطوة بخطوة.'],
+        firstaid: ['إسعافات أولية', 'أعطني تعليمات الإسعافات الأولية الأساسية للإصابات الشائعة.'],
+        water:    ['مياه صالحة للشرب', 'كيف أجعل الماء صالحًا للشرب دون كهرباء؟'],
+        power:    ['انقطاع الكهرباء', 'ماذا أفعل أثناء انقطاع الكهرباء؟ كيف أبقى آمنًا؟'],
+        warm:     ['البقاء دافئًا', 'كيف أبقى دافئًا بأمان دون كهرباء؟'],
+        help:     ['إيجاد مساعدة قريبة', 'أين أجد المساعدة أو المأوى أو خدمات الطوارئ القريبة؟']
+      }
+    },
+    zh: {
+      subtitle: '离线应急助手',
+      placeholder: '输入您的问题…',
+      ask: '询问 Beacon',
+      queue: '您正在排队 — 第 {n} 位。回答会依次发给每个人。',
+      error: '出了点问题 — 请重试。',
+      b: {
+        medical:  ['医疗急救', '遇到医疗紧急情况我该怎么办？请给出清晰的分步说明。'],
+        firstaid: ['急救处理', '请告诉我常见外伤的基本急救方法。'],
+        water:    ['安全饮水', '停电时如何让水变得可以安全饮用？'],
+        power:    ['停电应对', '停电期间我该怎么办？如何保证安全？'],
+        warm:     ['保暖', '没有电的情况下如何安全保暖？'],
+        help:     ['附近求助', '附近哪里可以找到帮助、避难所或急救服务？']
+      }
+    },
+    pl: {
+      subtitle: 'Awaryjny asystent offline',
+      placeholder: 'Wpisz swoje pytanie…',
+      ask: 'Zapytaj',
+      queue: 'Jesteś w kolejce — pozycja {n}. Odpowiedzi trafiają do wszystkich, po kolei.',
+      error: 'Coś poszło nie tak — spróbuj ponownie.',
+      b: {
+        medical:  ['Nagły wypadek', 'Co robić w nagłym wypadku medycznym? Podaj jasne instrukcje krok po kroku.'],
+        firstaid: ['Pierwsza pomoc', 'Podaj podstawowe zasady pierwszej pomocy przy typowych urazach.'],
+        water:    ['Bezpieczna woda', 'Jak uzdatnić wodę do picia bez prądu?'],
+        power:    ['Brak prądu', 'Co robić podczas przerwy w dostawie prądu? Jak zachować bezpieczeństwo?'],
+        warm:     ['Jak się ogrzać', 'Jak bezpiecznie się ogrzać bez prądu?'],
+        help:     ['Znajdź pomoc', 'Gdzie w pobliżu znajdę pomoc, schronienie lub służby ratunkowe?']
+      }
+    },
+    ro: {
+      subtitle: 'Asistent de urgență offline',
+      placeholder: 'Scrie întrebarea ta…',
+      ask: 'Întreabă',
+      queue: 'Ești la coadă — poziția {n}. Răspunsurile ajung la toți, pe rând.',
+      error: 'Ceva n-a mers bine — încearcă din nou.',
+      b: {
+        medical:  ['Urgență medicală', 'Ce să fac într-o urgență medicală? Dă-mi instrucțiuni clare, pas cu pas.'],
+        firstaid: ['Prim ajutor', 'Dă-mi instrucțiuni de bază de prim ajutor pentru răni obișnuite.'],
+        water:    ['Apă potabilă', 'Cum fac apa sigură de băut fără curent electric?'],
+        power:    ['Pană de curent', 'Ce să fac în timpul unei pene de curent? Cum rămân în siguranță?'],
+        warm:     ['Păstrează căldura', 'Cum mă încălzesc în siguranță fără electricitate?'],
+        help:     ['Găsește ajutor', 'Unde găsesc ajutor, adăpost sau servicii de urgență în apropiere?']
+      }
+    }
+  };
+
+  var CURSOR = '<span class="cursor">▍</span>';
+  var state = { lang: 'en', busy: false, es: null, raw: '', done: true };
+
+  function $(id) { return document.getElementById(id); }
+  function t() { return I18N[state.lang] || I18N.en; }
+  function safeParse(s) { try { return JSON.parse(s); } catch (e) { return null; } }
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  /* ---- markdown-lite: **bold**, # headers, numbered + bulleted lists ---- */
+  function inlineMd(s) {
+    return s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  }
+  function renderMd(src) {
+    var lines = escapeHtml(src).split(/\r?\n/);
+    var out = [], list = null, i, s, m;
+    function closeList() { if (list) { out.push('</' + list + '>'); list = null; } }
+    for (i = 0; i < lines.length; i++) {
+      s = lines[i].replace(/^\s+/, '').replace(/\s+$/, '');
+      if (!s) { closeList(); continue; }
+      m = s.match(/^(#{1,3})\s+(.*)$/);
+      if (m) {
+        closeList();
+        out.push(m[1].length === 1 ? '<h3>' + inlineMd(m[2]) + '</h3>' : '<h4>' + inlineMd(m[2]) + '</h4>');
+        continue;
+      }
+      m = s.match(/^(\d+)[.)]\s+(.*)$/);
+      if (m) {
+        if (list !== 'ol') { closeList(); out.push('<ol start="' + m[1] + '">'); list = 'ol'; }
+        out.push('<li>' + inlineMd(m[2]) + '</li>');
+        continue;
+      }
+      m = s.match(/^[-*•]\s+(.*)$/);
+      if (m) {
+        if (list !== 'ul') { closeList(); out.push('<ul>'); list = 'ul'; }
+        out.push('<li>' + inlineMd(m[1]) + '</li>');
+        continue;
+      }
+      closeList();
+      out.push('<p>' + inlineMd(s) + '</p>');
+    }
+    closeList();
+    return out.join('');
+  }
+
+  /* ---- rendering helpers ---- */
+  function nearBottom() {
+    var doc = document.documentElement;
+    var y = window.pageYOffset || doc.scrollTop || 0;
+    return y + window.innerHeight >= doc.scrollHeight - 220;
+  }
+  function paint(cursor) {
+    $('answer').innerHTML = (state.raw ? renderMd(state.raw) : '') + (cursor ? CURSOR : '');
+    if (cursor && nearBottom()) {
+      window.scrollTo(0, document.documentElement.scrollHeight);
+    }
+  }
+  function setBusy(b) {
+    state.busy = b;
+    var btns = document.querySelectorAll('.panic');
+    for (var i = 0; i < btns.length; i++) { btns[i].disabled = b; }
+    $('q').disabled = b;
+    $('send').disabled = b;
+  }
+  function showQueue(n) {
+    $('queue').textContent = '⏳ ' + t().queue.replace('{n}', String(n));
+    $('queue').hidden = false;
+  }
+
+  /* ---- ask via SSE ---- */
+  function finish(err) {
+    state.done = true;
+    if (state.es) { try { state.es.close(); } catch (e) {} state.es = null; }
+    $('queue').hidden = true;
+    if (err) {
+      $('answer').innerHTML = (state.raw ? renderMd(state.raw) : '') +
+        '<p class="err">⚠️ ' + escapeHtml(err) + '</p>';
+    } else if (state.raw) {
+      paint(false);
+    } else {
+      $('answer').innerHTML = '<p class="err">' + escapeHtml(t().error) + '</p>';
+    }
+    setBusy(false);
+  }
+
+  function ask(q) {
+    if (state.busy || !q) { return; }
+    if (!window.EventSource) {
+      $('answerwrap').hidden = false;
+      $('answer').innerHTML = '<p class="err">' + escapeHtml(t().error) + '</p>';
+      return;
+    }
+    state.raw = '';
+    state.done = false;
+    setBusy(true);
+
+    $('answerwrap').hidden = false;
+    $('queue').hidden = true;
+    var cardsEl = $('cards');
+    cardsEl.hidden = true;
+    cardsEl.innerHTML = '';
+    $('asked').textContent = q;
+    paint(true);
+    try { $('q').blur(); } catch (e0) {}
+    try { $('answerwrap').scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e1) {}
+
+    var es = new EventSource('/api/ask?q=' + encodeURIComponent(q) + '&lang=' + encodeURIComponent(state.lang));
+    state.es = es;
+
+    es.addEventListener('queued', function (e) {
+      var d = safeParse(e.data);
+      if (d && d.position != null) { showQueue(d.position); }
+    });
+
+    es.addEventListener('start', function (e) {
+      $('queue').hidden = true;
+      var d = safeParse(e.data);
+      if (d && d.cards && d.cards.length) {
+        var html = '';
+        for (var i = 0; i < d.cards.length; i++) {
+          html += '<span class="card">📋 ' + escapeHtml(d.cards[i].title || '') + '</span>';
+        }
+        cardsEl.innerHTML = html;
+        cardsEl.hidden = false;
+      }
+    });
+
+    es.addEventListener('token', function (e) {
+      var d = safeParse(e.data);
+      if (d && d.text) {
+        if (!$('queue').hidden) { $('queue').hidden = true; }
+        state.raw += d.text;
+        paint(true);
+      }
+    });
+
+    es.addEventListener('done', function () {
+      if (!state.done) { finish(null); }
+    });
+
+    /* Catches both server-sent `event: error` (has e.data) and transport
+       failures (no data). Either way: stop, close, never auto-reconnect. */
+    es.addEventListener('error', function (e) {
+      if (state.done) { return; }
+      var d = (e && typeof e.data === 'string') ? safeParse(e.data) : null;
+      finish((d && d.message) ? d.message : t().error);
+    });
+  }
+
+  /* ---- language ---- */
+  function setLang(code) {
+    if (!I18N[code]) { code = 'en'; }
+    state.lang = code;
+    try { localStorage.setItem('beacon_lang', code); } catch (e) {}
+    document.documentElement.lang = code;
+
+    var pills = document.querySelectorAll('.lang');
+    for (var i = 0; i < pills.length; i++) {
+      pills[i].className = (pills[i].getAttribute('data-lang') === code) ? 'lang sel' : 'lang';
+    }
+    var tr = t();
+    $('subtitle').textContent = tr.subtitle;
+    $('q').setAttribute('placeholder', tr.placeholder);
+    $('send').textContent = tr.ask;
+    var btns = document.querySelectorAll('.panic');
+    for (var j = 0; j < btns.length; j++) {
+      var key = btns[j].getAttribute('data-key');
+      if (tr.b[key]) { btns[j].querySelector('.lbl').textContent = tr.b[key][0]; }
+    }
+    $('answerwrap').setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
+  }
+
+  /* ---- status chips ---- */
+  function fmtClients(n) {
+    return n === 1 ? '1 phone connected' : String(n) + ' phones connected';
+  }
+  function poll() {
+    fetch('/api/status', { cache: 'no-store' }).then(function (r) {
+      return r.json();
+    }).then(function (s) {
+      if (!s) { return; }
+      if (s.model) {
+        $('chip-model').textContent = s.model;
+        $('chip-model').hidden = false;
+      }
+      if (typeof s.clients === 'number') {
+        $('chip-clients').textContent = fmtClients(s.clients);
+        $('chip-clients').hidden = false;
+      }
+      var parts = [];
+      if (s.briefed_at) { parts.push('Briefed ' + s.briefed_at); }
+      if (s.location) { parts.push(s.location); }
+      if (parts.length) {
+        $('briefed').textContent = parts.join(' · ');
+        $('briefed').hidden = false;
+      } else {
+        $('briefed').hidden = true;
+      }
+    })['catch'](function () { /* keep last known chips */ });
+  }
+
+  /* ---- wire up ---- */
+  var pills = document.querySelectorAll('.lang');
+  for (var i = 0; i < pills.length; i++) {
+    pills[i].addEventListener('click', function () {
+      if (!state.busy) { setLang(this.getAttribute('data-lang')); }
+    });
+  }
+  var panics = document.querySelectorAll('.panic');
+  for (var j = 0; j < panics.length; j++) {
+    panics[j].addEventListener('click', function () {
+      var key = this.getAttribute('data-key');
+      var tr = t();
+      if (tr.b[key]) { ask(tr.b[key][1]); }
+    });
+  }
+  $('askform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = $('q').value.replace(/^\s+|\s+$/g, '');
+    if (q) { ask(q); }
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('beacon_lang'); } catch (e) {}
+  setLang(saved || 'en');
+
+  poll();
+  setInterval(poll, 10000);
+})();
+</script>
+</body>
+</html>
