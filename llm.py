@@ -167,11 +167,6 @@ def select_cards(question, cards=None, k=4, lang=None):
             if (c.get("lang") or c["id"].rsplit("-", 1)[-1]) == lang:
                 phrase_pick = c
                 break
-    if phrase_pick is not None:
-        if len(picked) >= k and picked:
-            picked.pop()
-        picked.append(phrase_pick)
-
     # Pick exactly one area card: question mention > BEACON_AREA env > generic.
     area_pick = None
     if area:
@@ -190,19 +185,16 @@ def select_cards(question, cards=None, k=4, lang=None):
                     if c["id"] == "local-help-points":
                         area_pick = c
                         break
-    if area_pick is not None:
-        if len(picked) >= k and picked:
-            picked.pop()
-        picked.append(area_pick)
 
-    if not any(c["id"] == ALWAYS_INCLUDE_CARD_ID for c in picked):
+    # Assemble: reserved specials never evict each other — only weak generals.
+    specials = [c for c in (phrase_pick, area_pick) if c is not None]
+    if not any(c["id"] == ALWAYS_INCLUDE_CARD_ID for c in specials):
         for card in cards:
             if card["id"] == ALWAYS_INCLUDE_CARD_ID:
-                if len(picked) >= k + 1 and picked:
-                    picked.pop()  # drop weakest match to make room
-                picked.append(card)
+                specials.append(card)
                 break
-    return picked
+    room = max(k + 1 - len(specials), 1)
+    return picked[:room] + specials
 
 
 # ---------------------------------------------------------------- prompt
