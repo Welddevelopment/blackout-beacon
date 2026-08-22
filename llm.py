@@ -194,7 +194,12 @@ def select_cards(question, cards=None, k=4, lang=None):
                 specials.append(card)
                 break
     room = max(k + 1 - len(specials), 1)
-    return picked[:room] + specials
+    seen, out = set(), []
+    for c in picked[:room] + specials:
+        if c["id"] not in seen:
+            seen.add(c["id"])
+            out.append(c)
+    return out
 
 
 # ---------------------------------------------------------------- prompt
