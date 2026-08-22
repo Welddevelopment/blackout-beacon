@@ -1,0 +1,17 @@
+{
+  "format": "BBGRAPH1",
+  "source": "greater-london-latest.osm.pbf",
+  "built": "2026-08-22 15:41:15",
+  "nodes": 581702,
+  "halfedges": 1600118,
+  "edges": 800059,
+  "geometry_points": 2913902,
+  "bbox_lon_lat": [
+    -0.5177849999999999,
+    51.283228,
+    0.336925,
+    51.698643
+  ],
+  "file_mb": 52.7,
+  "build_seconds": 16.0
+}

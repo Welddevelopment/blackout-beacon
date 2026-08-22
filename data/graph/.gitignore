@@ -1,0 +1,2 @@
+# raw OSM extract is 128 MB (> GitHub 100 MB limit) - regenerate, don't commit
+*.osm.pbf

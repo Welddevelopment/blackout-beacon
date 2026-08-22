@@ -54,6 +54,12 @@ header h1{font-size:30px;font-weight:800;letter-spacing:.12em}
 .panic:active{transform:scale(.97);background:rgba(74,222,128,.16)}
 .panic.danger{background:var(--red-tint);border-color:rgba(239,68,68,.55)}
 .panic.danger:active{background:rgba(239,68,68,.24)}
+.panic.sel{border-color:var(--green);background:rgba(74,222,128,.16)}
+.panic.danger.sel{border-color:var(--red);background:rgba(239,68,68,.22)}
+.subs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.subhint{width:100%;font-size:13px;color:var(--muted);margin-bottom:2px}
+.sub{min-height:44px;padding:10px 15px;border:1px solid var(--line-strong);border-radius:999px;background:rgba(74,222,128,.10);font-size:15px;font-weight:600;color:var(--green-soft);text-align:left}
+.sub:active{transform:scale(.97);background:rgba(74,222,128,.2)}
 
 .askrow{display:flex;gap:10px;margin-top:14px}
 #q{flex:1;min-width:0;height:58px;padding:0 16px;font-family:inherit;font-size:16px;color:var(--text);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;outline:none;-webkit-appearance:none;appearance:none}
@@ -119,6 +125,8 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
     <button type="button" class="panic" data-key="warm" aria-label="Stay warm"><span class="ico">🥶</span><span class="lbl">Stay warm</span></button>
     <button type="button" class="panic" data-key="help" aria-label="Find help nearby"><span class="ico">🏥</span><span class="lbl">Find help nearby</span></button>
   </section>
+
+  <div class="subs" id="subs" hidden></div>
 
   <form class="askrow" id="askform" autocomplete="off">
     <input id="q" type="text" dir="auto" autocomplete="off" autocapitalize="sentences" enterkeyhint="send" placeholder="Type your question…">
@@ -424,6 +432,8 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
       if (tr.b[key]) { btns[j].querySelector('.lbl').textContent = tr.b[key][0]; btns[j].setAttribute('aria-label', tr.b[key][0]); }
     }
     $('answerwrap').setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
+    $('subs').setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
+    if (typeof renderBranch === 'function') { renderBranch(); }
   }
 
   /* ---- status chips ---- */
@@ -468,18 +478,229 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
       if (!state.busy) { setLang(this.getAttribute('data-lang')); }
     });
   }
+  /* ---- branch sub-options: tapping a card opens specifics, never auto-asks ---- */
+  var SUBS = {
+    en: { hint: 'Pick what fits — or just type your situation below.',
+      medical:  [['Someone collapsed', 'Someone has collapsed and is not responding. What do I do right now, step by step?'],
+                 ['Choking', 'Someone is choking and cannot breathe. Give me immediate step-by-step help.'],
+                 ['Severe bleeding', 'How do I stop severe bleeding right now?'],
+                 ['Chest pain', 'Someone has crushing chest pain. What do I do?']],
+      firstaid: [['Burns', 'How do I treat a burn without medical help nearby?'],
+                 ['Cuts & wounds', 'How do I clean and dress a wound properly?'],
+                 ['Broken bone', 'I think someone broke a bone. What should I do?'],
+                 ['Head injury', 'Someone hit their head. What signs should I watch for?']],
+      water:    [['Make water safe', 'How do I purify water so it is safe to drink?'],
+                 ['Is tap water safe?', 'Is tap water safe to drink during a blackout?'],
+                 ['Supply stopped', 'The water supply has stopped completely. What do I do?'],
+                 ['How much do we need?', 'How much drinking water does each person need per day?']],
+      power:    [['Fridge & food', 'Is the food in my fridge and freezer still safe to eat?'],
+                 ['Medical devices', 'A medical device at home needs power, like refrigerated insulin. What do I do?'],
+                 ['Light & heat safely', 'What are safe ways to light and heat my home during a power cut?'],
+                 ['Save phone battery', 'How do I make my phone battery last as long as possible?']],
+      warm:     [['No heating', 'How do I keep my home and family warm without any heating?'],
+                 ['Babies & elderly', 'How do I keep a baby or an elderly person warm safely?'],
+                 ['Hypothermia signs', 'What are the signs of hypothermia and what do I do about it?'],
+                 ['Sleeping safely', 'How do we sleep safely in a very cold home?']],
+      help:     [['Nearest A&E', 'Where is the nearest A&E hospital and how do I get there?'],
+                 ['Pharmacy', 'Where can I find a pharmacy near me?'],
+                 ['Shelter & warmth', 'Where can I find shelter or a warm public space nearby?'],
+                 ['Call for help', 'How do I contact emergency services right now?']] },
+    es: { hint: 'Elige lo que corresponda — o escribe tu situación abajo.',
+      medical:  [['Alguien se desmayó', 'Alguien se ha desmayado y no responde. ¿Qué hago ahora mismo, paso a paso?'],
+                 ['Atragantamiento', 'Alguien se está atragantando y no puede respirar. Ayuda inmediata paso a paso.'],
+                 ['Sangrado grave', '¿Cómo detengo un sangrado grave ahora mismo?'],
+                 ['Dolor de pecho', 'Alguien tiene un fuerte dolor de pecho. ¿Qué hago?']],
+      firstaid: [['Quemaduras', '¿Cómo trato una quemadura sin ayuda médica cerca?'],
+                 ['Cortes y heridas', '¿Cómo limpio y vendo una herida correctamente?'],
+                 ['Hueso roto', 'Creo que alguien se rompió un hueso. ¿Qué debo hacer?'],
+                 ['Golpe en la cabeza', 'Alguien se golpeó la cabeza. ¿Qué señales debo vigilar?']],
+      water:    [['Purificar agua', '¿Cómo purifico el agua para que sea segura para beber?'],
+                 ['¿Agua del grifo?', '¿Es seguro beber agua del grifo durante un apagón?'],
+                 ['Sin suministro', 'El suministro de agua se cortó por completo. ¿Qué hago?'],
+                 ['¿Cuánta necesitamos?', '¿Cuánta agua potable necesita cada persona al día?']],
+      power:    [['Nevera y comida', '¿La comida de mi nevera y congelador sigue siendo segura?'],
+                 ['Aparatos médicos', 'Un aparato médico en casa necesita electricidad, como insulina refrigerada. ¿Qué hago?'],
+                 ['Luz y calor seguros', '¿Cuáles son formas seguras de iluminar y calentar mi casa sin luz?'],
+                 ['Ahorrar batería', '¿Cómo hago que la batería de mi teléfono dure lo máximo posible?']],
+      warm:     [['Sin calefacción', '¿Cómo mantengo mi casa y mi familia calientes sin calefacción?'],
+                 ['Bebés y mayores', '¿Cómo mantengo caliente de forma segura a un bebé o una persona mayor?'],
+                 ['Señales de hipotermia', '¿Cuáles son las señales de hipotermia y qué hago?'],
+                 ['Dormir seguros', '¿Cómo dormimos seguros en una casa muy fría?']],
+      help:     [['Urgencias más cercanas', '¿Dónde están las urgencias (A&E) más cercanas y cómo llego?'],
+                 ['Farmacia', '¿Dónde encuentro una farmacia cerca de mí?'],
+                 ['Refugio y calor', '¿Dónde encuentro refugio o un espacio público cálido cerca?'],
+                 ['Pedir ayuda', '¿Cómo contacto a los servicios de emergencia ahora mismo?']] },
+    fr: { hint: 'Choisissez ce qui correspond — ou décrivez votre situation ci-dessous.',
+      medical:  [['Quelqu’un s’est effondré', 'Quelqu’un s’est effondré et ne répond pas. Que faire maintenant, étape par étape ?'],
+                 ['Étouffement', 'Quelqu’un s’étouffe et ne peut pas respirer. Aide immédiate étape par étape.'],
+                 ['Saignement grave', 'Comment arrêter un saignement grave immédiatement ?'],
+                 ['Douleur thoracique', 'Quelqu’un a une forte douleur à la poitrine. Que faire ?']],
+      firstaid: [['Brûlures', 'Comment soigner une brûlure sans aide médicale à proximité ?'],
+                 ['Coupures et plaies', 'Comment nettoyer et panser une plaie correctement ?'],
+                 ['Fracture', 'Je pense que quelqu’un s’est cassé un os. Que faire ?'],
+                 ['Traumatisme crânien', 'Quelqu’un s’est cogné la tête. Quels signes surveiller ?']],
+      water:    [['Purifier l’eau', 'Comment purifier l’eau pour qu’elle soit potable ?'],
+                 ['Eau du robinet ?', 'L’eau du robinet est-elle potable pendant une panne de courant ?'],
+                 ['Plus d’eau', 'L’alimentation en eau est complètement coupée. Que faire ?'],
+                 ['Quelle quantité ?', 'De combien d’eau potable chaque personne a-t-elle besoin par jour ?']],
+      power:    [['Frigo et nourriture', 'La nourriture de mon frigo et congélateur est-elle encore sûre ?'],
+                 ['Appareils médicaux', 'Un appareil médical à la maison a besoin d’électricité, comme l’insuline réfrigérée. Que faire ?'],
+                 ['S’éclairer et se chauffer', 'Quels sont les moyens sûrs de s’éclairer et se chauffer pendant une coupure ?'],
+                 ['Économiser la batterie', 'Comment faire durer la batterie de mon téléphone le plus longtemps possible ?']],
+      warm:     [['Sans chauffage', 'Comment garder ma maison et ma famille au chaud sans chauffage ?'],
+                 ['Bébés et personnes âgées', 'Comment garder un bébé ou une personne âgée au chaud en sécurité ?'],
+                 ['Signes d’hypothermie', 'Quels sont les signes d’hypothermie et que faire ?'],
+                 ['Dormir en sécurité', 'Comment dormir en sécurité dans une maison très froide ?']],
+      help:     [['Urgences les plus proches', 'Où sont les urgences les plus proches et comment y aller ?'],
+                 ['Pharmacie', 'Où trouver une pharmacie près de moi ?'],
+                 ['Abri et chaleur', 'Où trouver un abri ou un espace public chauffé à proximité ?'],
+                 ['Appeler les secours', 'Comment contacter les services d’urgence maintenant ?']] },
+    ar: { hint: 'اختر ما يناسبك — أو اكتب حالتك أدناه.',
+      medical:  [['شخص فقد الوعي', 'انهار شخص ولا يستجيب. ماذا أفعل الآن، خطوة بخطوة؟'],
+                 ['اختناق', 'شخص يختنق ولا يستطيع التنفس. ساعدني فورًا خطوة بخطوة.'],
+                 ['نزيف حاد', 'كيف أوقف نزيفًا حادًا الآن؟'],
+                 ['ألم في الصدر', 'شخص يعاني من ألم شديد في الصدر. ماذا أفعل؟']],
+      firstaid: [['حروق', 'كيف أعالج حرقًا دون مساعدة طبية قريبة؟'],
+                 ['جروح', 'كيف أنظف الجرح وأضمده بشكل صحيح؟'],
+                 ['كسر في العظام', 'أعتقد أن شخصًا كسر عظمة. ماذا أفعل؟'],
+                 ['إصابة في الرأس', 'ضرب شخص رأسه. ما العلامات التي يجب مراقبتها؟']],
+      water:    [['تنقية المياه', 'كيف أنقي الماء ليصبح صالحًا للشرب؟'],
+                 ['هل ماء الصنبور آمن؟', 'هل ماء الصنبور آمن للشرب أثناء انقطاع الكهرباء؟'],
+                 ['انقطع الماء', 'انقطع إمداد المياه تمامًا. ماذا أفعل؟'],
+                 ['كم نحتاج؟', 'كم يحتاج كل شخص من ماء الشرب يوميًا؟']],
+      power:    [['الثلاجة والطعام', 'هل الطعام في ثلاجتي والمجمد لا يزال آمنًا للأكل؟'],
+                 ['أجهزة طبية', 'جهاز طبي في المنزل يحتاج كهرباء، مثل الأنسولين المبرد. ماذا أفعل؟'],
+                 ['إضاءة وتدفئة آمنة', 'ما الطرق الآمنة للإضاءة والتدفئة أثناء انقطاع الكهرباء؟'],
+                 ['توفير البطارية', 'كيف أجعل بطارية هاتفي تدوم أطول فترة ممكنة؟']],
+      warm:     [['بدون تدفئة', 'كيف أبقي منزلي وعائلتي دافئين دون أي تدفئة؟'],
+                 ['الرضع وكبار السن', 'كيف أبقي رضيعًا أو شخصًا مسنًا دافئًا بأمان؟'],
+                 ['علامات انخفاض الحرارة', 'ما علامات انخفاض حرارة الجسم وماذا أفعل؟'],
+                 ['النوم بأمان', 'كيف ننام بأمان في منزل شديد البرودة؟']],
+      help:     [['أقرب طوارئ', 'أين أقرب مستشفى طوارئ وكيف أصل إليه؟'],
+                 ['صيدلية', 'أين أجد صيدلية قريبة مني؟'],
+                 ['مأوى ودفء', 'أين أجد مأوى أو مكانًا عامًا دافئًا قريبًا؟'],
+                 ['طلب النجدة', 'كيف أتصل بخدمات الطوارئ الآن؟']] },
+    zh: { hint: '选择合适的选项 — 或在下方直接输入你的情况。',
+      medical:  [['有人晕倒', '有人晕倒且没有反应。我现在该怎么做？请一步一步告诉我。'],
+                 ['窒息', '有人被噎住无法呼吸。请立即一步一步指导我。'],
+                 ['大出血', '如何立即止住大出血？'],
+                 ['胸痛', '有人胸口剧痛。我该怎么办？']],
+      firstaid: [['烧烫伤', '附近没有医疗救助，如何处理烧烫伤？'],
+                 ['割伤和伤口', '如何正确清洁和包扎伤口？'],
+                 ['骨折', '我觉得有人骨折了。该怎么办？'],
+                 ['头部受伤', '有人撞到了头。需要注意哪些征兆？']],
+      water:    [['净化水', '如何净化水使其可以安全饮用？'],
+                 ['自来水安全吗？', '停电期间自来水可以安全饮用吗？'],
+                 ['停水了', '供水完全中断了。我该怎么办？'],
+                 ['需要多少水？', '每人每天需要多少饮用水？']],
+      power:    [['冰箱和食物', '我冰箱和冷冻柜里的食物还安全吗？'],
+                 ['医疗设备', '家里的医疗设备需要用电，比如冷藏胰岛素。我该怎么办？'],
+                 ['安全照明取暖', '停电期间有哪些安全的照明和取暖方式？'],
+                 ['省手机电量', '如何让手机电池尽可能耐用？']],
+      warm:     [['没有暖气', '没有任何暖气，如何让家和家人保持温暖？'],
+                 ['婴儿和老人', '如何安全地让婴儿或老人保持温暖？'],
+                 ['失温征兆', '失温有哪些征兆？该怎么办？'],
+                 ['安全过夜', '在很冷的房子里如何安全睡觉？']],
+      help:     [['最近的急诊', '最近的急诊医院在哪里？怎么去？'],
+                 ['药房', '在哪里能找到附近的药房？'],
+                 ['避难和取暖', '附近哪里有避难所或温暖的公共场所？'],
+                 ['呼叫救援', '现在如何联系紧急服务？']] },
+    pl: { hint: 'Wybierz, co pasuje — albo po prostu opisz swoją sytuację poniżej.',
+      medical:  [['Ktoś zemdlał', 'Ktoś upadł i nie reaguje. Co mam teraz robić, krok po kroku?'],
+                 ['Zadławienie', 'Ktoś się dławi i nie może oddychać. Natychmiastowa pomoc krok po kroku.'],
+                 ['Silne krwawienie', 'Jak natychmiast zatrzymać silne krwawienie?'],
+                 ['Ból w klatce', 'Ktoś ma silny ból w klatce piersiowej. Co robić?']],
+      firstaid: [['Oparzenia', 'Jak opatrzyć oparzenie bez pomocy medycznej w pobliżu?'],
+                 ['Rany i skaleczenia', 'Jak prawidłowo oczyścić i opatrzyć ranę?'],
+                 ['Złamanie', 'Chyba ktoś złamał kość. Co powinienem zrobić?'],
+                 ['Uraz głowy', 'Ktoś uderzył się w głowę. Na jakie objawy uważać?']],
+      water:    [['Uzdatnić wodę', 'Jak oczyścić wodę, żeby była zdatna do picia?'],
+                 ['Woda z kranu?', 'Czy woda z kranu jest bezpieczna podczas awarii prądu?'],
+                 ['Brak wody', 'Dostawa wody całkiem ustała. Co robić?'],
+                 ['Ile potrzebujemy?', 'Ile wody pitnej potrzebuje każda osoba dziennie?']],
+      power:    [['Lodówka i jedzenie', 'Czy jedzenie w lodówce i zamrażarce jest nadal bezpieczne?'],
+                 ['Sprzęt medyczny', 'Urządzenie medyczne w domu wymaga prądu, np. insulina w lodówce. Co robić?'],
+                 ['Światło i ciepło', 'Jakie są bezpieczne sposoby oświetlenia i ogrzewania domu bez prądu?'],
+                 ['Oszczędzać baterię', 'Jak sprawić, żeby bateria telefonu wytrzymała jak najdłużej?']],
+      warm:     [['Bez ogrzewania', 'Jak utrzymać ciepło w domu bez ogrzewania?'],
+                 ['Niemowlęta i seniorzy', 'Jak bezpiecznie ogrzać niemowlę lub osobę starszą?'],
+                 ['Objawy hipotermii', 'Jakie są objawy hipotermii i co wtedy robić?'],
+                 ['Bezpieczny sen', 'Jak bezpiecznie spać w bardzo zimnym domu?']],
+      help:     [['Najbliższy SOR', 'Gdzie jest najbliższy szpitalny oddział ratunkowy i jak tam dotrzeć?'],
+                 ['Apteka', 'Gdzie znajdę aptekę w pobliżu?'],
+                 ['Schronienie i ciepło', 'Gdzie znajdę schronienie lub ciepłe miejsce publiczne w pobliżu?'],
+                 ['Wezwać pomoc', 'Jak teraz skontaktować się ze służbami ratunkowymi?']] },
+    ro: { hint: 'Alege ce se potrivește — sau descrie situația ta mai jos.',
+      medical:  [['Cineva a leșinat', 'Cineva s-a prăbușit și nu răspunde. Ce fac acum, pas cu pas?'],
+                 ['Înec cu mâncare', 'Cineva se îneacă și nu poate respira. Ajutor imediat, pas cu pas.'],
+                 ['Sângerare gravă', 'Cum opresc imediat o sângerare gravă?'],
+                 ['Durere în piept', 'Cineva are dureri puternice în piept. Ce fac?']],
+      firstaid: [['Arsuri', 'Cum tratez o arsură fără ajutor medical în apropiere?'],
+                 ['Tăieturi și răni', 'Cum curăț și bandajez corect o rană?'],
+                 ['Os rupt', 'Cred că cineva și-a rupt un os. Ce ar trebui să fac?'],
+                 ['Lovitură la cap', 'Cineva s-a lovit la cap. Ce semne trebuie urmărite?']],
+      water:    [['Purificarea apei', 'Cum purific apa ca să fie sigură de băut?'],
+                 ['Apa de la robinet?', 'Este sigură apa de la robinet în timpul unei pene de curent?'],
+                 ['S-a oprit apa', 'Alimentarea cu apă s-a oprit complet. Ce fac?'],
+                 ['Câtă apă ne trebuie?', 'De câtă apă potabilă are nevoie fiecare persoană pe zi?']],
+      power:    [['Frigider și mâncare', 'Mâncarea din frigider și congelator mai este sigură?'],
+                 ['Dispozitive medicale', 'Un dispozitiv medical de acasă are nevoie de curent, cum ar fi insulina la rece. Ce fac?'],
+                 ['Lumină și căldură', 'Care sunt metodele sigure de iluminat și încălzit în timpul unei pene de curent?'],
+                 ['Economisirea bateriei', 'Cum fac bateria telefonului să reziste cât mai mult?']],
+      warm:     [['Fără încălzire', 'Cum îmi țin casa și familia la cald fără încălzire?'],
+                 ['Bebeluși și vârstnici', 'Cum țin în siguranță la cald un bebeluș sau o persoană în vârstă?'],
+                 ['Semne de hipotermie', 'Care sunt semnele hipotermiei și ce fac?'],
+                 ['Somn în siguranță', 'Cum dormim în siguranță într-o casă foarte rece?']],
+      help:     [['Cea mai apropiată urgență', 'Unde este cel mai apropiat spital de urgență și cum ajung acolo?'],
+                 ['Farmacie', 'Unde găsesc o farmacie în apropiere?'],
+                 ['Adăpost și căldură', 'Unde găsesc adăpost sau un spațiu public încălzit în apropiere?'],
+                 ['Chem ajutoare', 'Cum contactez acum serviciile de urgență?']] }
+  };
+
+  function renderBranch() {
+    var subs = $('subs');
+    var panics2 = document.querySelectorAll('.panic');
+    for (var m = 0; m < panics2.length; m++) {
+      var on = state.branch && panics2[m].getAttribute('data-key') === state.branch;
+      panics2[m].className = panics2[m].className.replace(' sel', '') + (on ? ' sel' : '');
+    }
+    if (!state.branch) { subs.hidden = true; subs.innerHTML = ''; return; }
+    var pack = SUBS[state.lang] || SUBS.en;
+    var list = pack[state.branch] || SUBS.en[state.branch] || [];
+    subs.innerHTML = '';
+    var hint = document.createElement('div');
+    hint.className = 'subhint';
+    hint.textContent = pack.hint || SUBS.en.hint;
+    subs.appendChild(hint);
+    for (var n = 0; n < list.length; n++) {
+      (function (item) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'sub';
+        b.textContent = item[0];
+        b.addEventListener('click', function () {
+          if (!state.busy) { state.branch = null; renderBranch(); ask(item[1]); }
+        });
+        subs.appendChild(b);
+      })(list[n]);
+    }
+    subs.hidden = false;
+  }
+
   var panics = document.querySelectorAll('.panic');
   for (var j = 0; j < panics.length; j++) {
     panics[j].addEventListener('click', function () {
+      if (state.busy) { return; }
       var key = this.getAttribute('data-key');
-      var tr = t();
-      if (tr.b[key]) { ask(tr.b[key][1]); }
+      state.branch = (state.branch === key) ? null : key;  // tap again to close
+      renderBranch();
+      if (state.branch) { $('q').focus(); }
     });
   }
   $('askform').addEventListener('submit', function (e) {
     e.preventDefault();
     var q = $('q').value.replace(/^\s+|\s+$/g, '');
-    if (q) { ask(q); }
+    if (q) { state.branch = null; renderBranch(); ask(q); }  // typing quietly overrides the branch
   });
 
   var saved = null;
