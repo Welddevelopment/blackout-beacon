@@ -18,7 +18,10 @@
     "cr7",
     "cr8",
     "se19",
-    "se25"
+    "se25",
+    "cr3",
+    "cr9",
+    "sw16"
   ],
   "lang": "en",
   "source": "gemini"

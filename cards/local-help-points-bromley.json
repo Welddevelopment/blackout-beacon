@@ -18,7 +18,12 @@
     "br5",
     "br6",
     "br7",
-    "se20"
+    "se20",
+    "br8",
+    "cr6",
+    "se12",
+    "se19",
+    "se26"
   ],
   "lang": "en",
   "source": "gemini"

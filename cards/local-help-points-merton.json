@@ -14,7 +14,9 @@
     "sw19",
     "sw20",
     "cr4",
-    "sm4"
+    "sm4",
+    "sw17",
+    "sw18"
   ],
   "lang": "en",
   "source": "gemini"

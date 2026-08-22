@@ -21,7 +21,11 @@
     "sw16",
     "se11",
     "se24",
-    "se27"
+    "se27",
+    "se1",
+    "se21",
+    "se5",
+    "sw12"
   ],
   "lang": "en",
   "source": "gemini"

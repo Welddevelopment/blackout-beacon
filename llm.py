@@ -212,15 +212,23 @@ def select_cards(question, cards=None, k=4, lang=None):
     area_pick = None
     if area:
         # Place-name evidence only (keywords + title) — content tokens like
-        # "water"/"hospital" appear in every area card and cause false matches.
+        # "water"/"hospital" appear in every area card and cause false matches,
+        # and some generated cards carry generic keywords ("hospital", "a&e")
+        # that would let a random borough outscore the user's actual one.
+        generic = {"hospital", "hospitals", "a&e", "ae", "nhs", "emergency",
+                   "urgent", "care", "pharmacy", "pharmacies", "help", "points",
+                   "london", "borough", "clinic", "medical", "police", "fire"}
+        title_stop = {"emergency", "help", "points", "london"}
         def _area_score(c):
             s = 0
             for kw in c["keywords"]:
                 kw_l = kw.lower().strip()
-                if kw_l and kw_l in q_lower:
+                if not kw_l or kw_l in generic:
+                    continue
+                if kw_l in q_lower:
                     s += 5
-                s += 2 * len(_tokens(kw_l) & q_tok)
-            s += 4 * len(_tokens(c["title"]) & q_tok)
+                s += 2 * len((_tokens(kw_l) - generic) & q_tok)
+            s += 4 * len((_tokens(c["title"]) - title_stop) & q_tok)
             return s
         a_scored = sorted(((_area_score(c), c) for c in area),
                           key=lambda pair: -pair[0])
