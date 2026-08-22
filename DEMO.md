@@ -112,3 +112,11 @@ If the toggle flips itself off: switch the source to `Ethernet Adapter (en4)`, t
 | Internet Sharing will not start | Re-run the `feth` one-liner (interfaces vanish on reboot), then retoggle. Then try en4/en5/en6 as the source. |
 | Phone silently leaves BEACON | Its auto-join to venue WiFi is on; disable it and rejoin. |
 | Total loss | `sudo ./run.sh` again, rejoin BEACON, http://192.168.2.1. Cold recovery is under two minutes; practising it once is worth it. |
+
+## Evidence kit (for the video edit)
+
+- `script -p evidence/briefing-run.rec` — replays the full Gemini briefing (cards forming live, real timing). Screen-record the replay; it is real output and needs no network.
+- `evidence/briefing-london-wave{1,2,3}.log` — the 153-card London expansion, one line per card.
+- `QA-REPORT.md` — ~130-check test matrix; show it briefly for the "we tested this" beat.
+- `git log --oneline` — timestamped build history on the public repo.
+- Server log during the live demo (stdout of ./run.sh) — every phone join and question scrolling live is strong B-roll.

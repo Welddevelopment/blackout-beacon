@@ -476,6 +476,17 @@ def main():
         log("[routes] walking graph preloaded")
     except Exception as exc:
         log(f"[routes] graph unavailable ({exc!r}) - /api/route will 404")
+
+    def _prewarm():
+        # Pull Gemma into Ollama's memory so the first phone's question
+        # streams immediately instead of paying the model-load cost.
+        try:
+            for _ in llm.ask_stream("ok", "en", k=1):
+                pass
+            log("[llm] model pre-warmed")
+        except Exception as exc:
+            log(f"[llm] pre-warm failed ({exc!r}) - first request will load the model")
+    threading.Thread(target=_prewarm, daemon=True).start()
     srv = ThreadingHTTPServer(("0.0.0.0", HTTP_PORT), Beacon)
     srv.daemon_threads = True
     log(f"[http] listening on :{HTTP_PORT}")
