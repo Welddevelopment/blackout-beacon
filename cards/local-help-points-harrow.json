@@ -1,0 +1,21 @@
+{
+  "id": "local-help-points-harrow",
+  "title": "Harrow Emergency Help Points",
+  "category": "local",
+  "summary": "Offline guide to emergency medical help points, urgent care, and local hazards in the London Borough of Harrow.",
+  "content": "For life-threatening emergencies, always dial 999 first (or 112). Call 105 for power cuts and 0800 111 999 for gas leaks.\n\n1. 24-Hour Emergency Hospitals\n- Northwick Park Hospital (24/7 A&E and Major Trauma Unit): Watford Road, Harrow, HA1 3UJ. From Harrow-on-the-Hill station: ~20 min walk northeast along Lowlands Road and Watford Road, or bus 182 or 186 directly to hospital grounds. From Northwick Park tube station: ~3 min walk across the footbridge directly into hospital grounds.\n- St Mary's Hospital (Nearest Major Trauma Centre for central/west): Praed Street, Paddington, W2 1NY. Take Metropolitan line south to Baker Street, then Bakerloo line to Paddington.\n\n2. Urgent Treatment Centres\n- Northwick Park Urgent Treatment Centre: Located at the front of Northwick Park Hospital, Watford Road, HA1 3UJ. Co-located with A&E for non-life-threatening urgent injuries and illnesses.\n- Pinn Medical Centre Walk-in Clinic: 37 Love Lane, Pinner, HA5 3EE. From Pinner station: ~3 min walk east via Love Lane.\n\n3. Local Environmental Hazards\n- Wealdstone Brook: High risk of surface-water and flash flooding along low-lying corridors through Harrow Weald, Wealdstone, and Kenton.\n- River Pinn: Flood risk along green belt corridors through Pinner, Hatch End, and Eastcote borders during sustained heavy rainfall.\n\n4. Essential Supplies\n- Large supermarkets and retail pharmacies along St Anns Road (Harrow Town Centre), High Street Wealdstone, and Uxbridge Road in Stanmore supply bottled water, first-aid kits, and over-the-counter medicines during local outages.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "harrow",
+    "wealdstone",
+    "pinner",
+    "stanmore",
+    "harrow on the hill",
+    "ha1",
+    "ha2",
+    "ha3",
+    "ha5",
+    "ha7"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

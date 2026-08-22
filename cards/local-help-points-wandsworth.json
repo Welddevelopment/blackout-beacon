@@ -1,0 +1,23 @@
+{
+  "id": "local-help-points-wandsworth",
+  "title": "Wandsworth Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency medical facilities, urgent care, hazard zones, and supply points in Wandsworth.",
+  "content": "For life-threatening emergencies, call 999 immediately.\n\n1. 24-Hour Emergency Hospitals (A&E):\n- St George's Hospital (Major Trauma Centre): Blackshaw Road, Tooting, SW17 0QT. From Tooting Broadway station: ~10 min walk southwest along Cranmer Terrace or bus 493 or G1 directly onto the hospital perimeter.\n\n2. Urgent Treatment Centres:\n- St George's Urgent Treatment Centre: Ground Floor, St James Wing, St George's Hospital, Blackshaw Road, SW17 0QT.\n- Queen Mary's Minor Injuries Unit: Roehampton Lane, Roehampton, SW15 5PN. From Putney station: bus 85, 170, or 430 southwest along Roehampton Lane.\n\n3. Local Hazard Notes:\n- River Wandle: Flood zones around Earlsfield, Summerstown, and the confluence at Wandsworth Town where the Wandle meets the Thames.\n- River Thames: Riverside low ground in Battersea and Putney embankment susceptible to tidal backwater during intense storms.\n\n4. Supplies:\n- Pharmacies and large supermarkets along Tooting High Street, Wandsworth High Street, Putney High Street, and St John's Road (Battersea) supply emergency water, basic medicines, and first-aid provisions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible (verify locally).",
+  "keywords": [
+    "wandsworth",
+    "battersea",
+    "putney",
+    "tooting",
+    "balham",
+    "wandsworth town",
+    "earlsfield",
+    "sw11",
+    "sw12",
+    "sw15",
+    "sw17",
+    "sw18"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

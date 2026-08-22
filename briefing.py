@@ -401,6 +401,13 @@ def write_cards(card_dicts: List[dict], briefing_model: str,
     """Idempotent overwrite: clear stale cards, write fresh set + meta.json."""
     CARDS_DIR.mkdir(exist_ok=True)
     for stale in CARDS_DIR.glob("*.json"):
+        # Preserve London area-coverage cards (local-help-points-<slug>.json):
+        # they are produced by the separate brief_areas.py pipeline, so a core
+        # re-brief must not wipe borough/neighbourhood coverage. The bare
+        # local-help-points.json IS part of the core set and is regenerated
+        # below, so it may be cleared like the rest.
+        if stale.name.startswith("local-help-points-"):
+            continue
         stale.unlink()
     for card in card_dicts:
         path = CARDS_DIR / f"{card['id']}.json"

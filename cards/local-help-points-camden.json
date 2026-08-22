@@ -1,0 +1,25 @@
+{
+  "id": "local-help-points-camden",
+  "title": "Camden Emergency Help Points",
+  "category": "local",
+  "summary": "Central emergency medical departments, urgent care clinics, subterranean drainage hazards, and supply streets in Camden.",
+  "content": "For life-threatening emergencies, call 999 or 112 immediately.\n\n1. Nearest 24-Hour A&E Hospitals\n- University College Hospital (UCH): 235 Euston Road, London NW1 2BU. From Warren Street station: ~2 min walk east along Euston Road (~150m); from Euston station: ~5 min walk west along Euston Road (~400m).\n- Royal Free Hospital: Pond Street, Hampstead NW3 2QG. From Hampstead Heath station: ~3 min walk north along South End Road and Pond Street (~250m); from Belsize Park station: ~12 min walk north-east via Fleet Road (~0.6 miles).\n- St Mary's Hospital (Major Trauma Centre): Praed Street, Paddington W2 1NY (~1.5 miles west of Bloomsbury via Euston Road and Marylebone Road).\n\n2. Urgent Treatment Centres\n- University College Hospital Urgent Treatment Centre: Ground Floor, Elizabeth Garrett Anderson Wing, Grafton Way, London WC1E 6DB. Immediate walking distance from UCH main building and Warren Street station.\n\n3. Local Hazards\n- Hidden River Fleet culvert route creates severe surface-water flash flood risk during heavy downpours, running from Hampstead Heath through Kentish Town, Camden Town, and King's Cross.\n\n4. Essential Supplies\n- Supermarkets and pharmacies along Camden High Street, Kentish Town Road, Tottenham Court Road, and Kilburn High Road supply bottled water, hygiene essentials, and batteries.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "camden",
+    "camden town",
+    "hampstead",
+    "kentish town",
+    "kings cross",
+    "holborn",
+    "bloomsbury",
+    "belsize park",
+    "nw1",
+    "nw3",
+    "nw5",
+    "wc1",
+    "n1c",
+    "n19"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

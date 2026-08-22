@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-bexley",
+  "title": "Bexley Emergency Help Points",
+  "category": "local",
+  "summary": "A&E hospitals, urgent care units, flood risks, and essential resource hubs in the London Borough of Bexley.",
+  "content": "For life-threatening emergencies, call 999 or 112 immediately.\n\n1. Nearest 24-Hour A&E Hospitals\n- Queen Elizabeth Hospital: Stadium Road, Woolwich SE18 4QH. From Bexleyheath clock tower: take bus 89 or 486 west towards Lewisham/North Greenwich (~30 mins).\n- Darent Valley Hospital: Darenth Wood Road, Dartford DA2 8DA. From Crayford station: take bus 96 east along Roman Way through Dartford town centre (~20 mins).\n\n2. Urgent Treatment Centres\n- Queen Mary's Hospital Urgent Treatment Centre: Frognal Avenue, Sidcup DA14 6LT. From Sidcup station: ~15 min walk south-east via Station Road, Elm Road, and Frognal Avenue (~0.8 miles), or take bus 160, 229, or 269 (~6 mins).\n- Erith Urgent Treatment Centre (Erith Hospital): Park Crescent, Erith DA8 3DG. From Erith station: ~10 min walk south via Avenue Road and Park Crescent (~0.5 miles), or take bus 99.\n\n3. Local Hazards\n- Tidal flood risk along the River Thames frontage at Erith, Belvedere, and Thamesmead.\n- Fluvial flood corridors along the River Cray (Crayford, Barnes Cray) and the River Shuttle (Bexley, Sidcup).\n\n4. Essential Supplies\n- High-street pharmacies and major food stores on Bexleyheath Broadway, Sidcup High Street, and Welling High Street supply water, first-aid goods, and baby supplies during outages.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "bexley",
+    "bexleyheath",
+    "sidcup",
+    "erith",
+    "welling",
+    "crayford",
+    "thamesmead",
+    "da5",
+    "da6",
+    "da7",
+    "da8",
+    "da14",
+    "da15",
+    "da16",
+    "se2"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

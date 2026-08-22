@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-barnet",
+  "title": "Barnet Emergency Help Points",
+  "category": "local",
+  "summary": "Key emergency medical facilities, urgent walk-in centres, local hazards, and supply points across Barnet.",
+  "content": "For life-threatening emergencies, call 999 or 112 immediately.\n\n1. Nearest 24-Hour A&E Hospitals\n- Barnet Hospital: Wellhouse Lane, Barnet EN5 3DJ. From High Barnet station: ~25 min walk west along Wood Street and Wellhouse Lane (~1.2 miles), or take bus 107 or 263 west (~8 mins).\n- Royal Free Hospital: Pond Street, Hampstead NW3 2QG. From Golders Green station: take bus 268 south-east along North End Road (~20 mins), or bus 210 towards Finsbury Park.\n\n2. Urgent Treatment Centres\n- Finchley Memorial Hospital Urgent Treatment Centre: Granville Road, Finchley N12 0JE. From Finchley Central station: ~20 min walk north-east via Ballards Lane and Granville Road, or take bus 460 (~10 mins).\n- Edgware Community Hospital Urgent Treatment Centre: Burnt Oak Broadway, Edgware HA8 0AD. From Burnt Oak station: ~10 min walk north along Burnt Oak Broadway (~0.5 miles), or take bus 32, 142, or 204.\n\n3. Local Hazards\n- Surface water flood risks concentrate around the Dollis Brook corridor running through Finchley and Mill Hill, and the Silk Stream catchment across Edgware and Hendon.\n\n4. Essential Supplies\n- Large supermarkets and pharmacies on Barnet High Street (EN5), Ballards Lane (N12), Golders Green Road (NW11), and Brent Street (NW4) provide emergency bottled water and medical supplies.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "barnet",
+    "finchley",
+    "hendon",
+    "golders green",
+    "edgware",
+    "mill hill",
+    "high barnet",
+    "n2",
+    "n3",
+    "n12",
+    "n20",
+    "nw4",
+    "nw7",
+    "nw11",
+    "en5"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

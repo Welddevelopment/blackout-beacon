@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-hillingdon",
+  "title": "Hillingdon Emergency Help Points",
+  "category": "local",
+  "summary": "Offline guide to emergency medical help points, urgent care, and local hazards in the London Borough of Hillingdon.",
+  "content": "For life-threatening emergencies, always dial 999 first (or 112). Call 105 for power cuts and 0800 111 999 for gas leaks.\n\n1. 24-Hour Emergency Hospitals\n- Hillingdon Hospital (24/7 A&E): Pield Heath Road, Uxbridge, UB8 3NN. From Uxbridge station: ~25 min walk south along Hillingdon Road and Colham Green Road, or bus U1, U2, U3, U4, or U7 directly to hospital forecourt.\n- St Mary's Hospital (Nearest Major Trauma Centre): Praed Street, Paddington, W2 1NY. Take Elizabeth Line from West Drayton/Hayes & Harlington to Paddington.\n\n2. Urgent Treatment Centres\n- Hillingdon Urgent Treatment Centre: Ground Floor, Hillingdon Hospital, Pield Heath Road, UB8 3NN. Next to the main emergency department.\n- Mount Vernon Urgent Treatment Centre: Rickmansworth Road, Northwood, HA6 2RN. From Northwood station: ~20 min walk west along Green Lane and Rickmansworth Road, or bus 282, 331, or H11 directly into Mount Vernon grounds.\n\n3. Local Environmental Hazards\n- River Colne and Frays River: Flood risks across the western boundary, particularly around West Drayton, Cowley, and Uxbridge Moor.\n- River Pinn: Flood plains running through Northwood, Ruislip, and Uxbridge north.\n- Grand Union Canal: Localised overflowing and bank overflow risk through Hayes and Yiewsley during persistent downpours.\n\n4. Essential Supplies\n- Large supermarkets and dispensing pharmacies along Uxbridge High Street, Station Road (Hayes), and High Street (Ruislip) supply bottled water, basic provisions, and over-the-counter medicines.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "hillingdon",
+    "uxbridge",
+    "hayes",
+    "ruislip",
+    "west drayton",
+    "northwood",
+    "heathrow",
+    "ub3",
+    "ub4",
+    "ub7",
+    "ub8",
+    "ub9",
+    "ub10",
+    "ha4",
+    "ha6"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

@@ -1,0 +1,47 @@
+==============================================================================
+  Blackout Beacon — London area briefing, wave 1 — 33 borough cards
+  model: gemini-3.7-flash
+==============================================================================
+[areas] batch 1/5 (7 areas): barking-dagenham, barnet, bexley, brent, bromley, camden, city-of-london
+  local-help-points-barking-dagenham          197w  Barking and Dagenham Emergency Help Points
+  local-help-points-barnet                    219w  Barnet Emergency Help Points
+  local-help-points-bexley                    213w  Bexley Emergency Help Points
+  local-help-points-brent                     216w  Brent Emergency Help Points
+  local-help-points-bromley                   201w  Bromley Emergency Help Points
+  local-help-points-camden                    213w  Camden Emergency Help Points
+  local-help-points-city-of-london            219w  City of London Emergency Help Points
+[areas] batch 2/5 (7 areas): croydon, ealing, enfield, greenwich, hackney, hammersmith-fulham, haringey
+  local-help-points-croydon                   235w  Croydon Emergency Help Points
+  local-help-points-ealing                    223w  Ealing Emergency Help Points
+  local-help-points-enfield                   250w  Enfield Emergency Help Points
+  local-help-points-greenwich                 236w  Greenwich Emergency Help Points
+  local-help-points-hackney                   213w  Hackney Emergency Help Points
+  local-help-points-hammersmith-fulham        257w  Hammersmith and Fulham Emergency Help Points
+  local-help-points-haringey                  234w  Haringey Emergency Help Points
+[areas] batch 3/5 (7 areas): harrow, havering, hillingdon, hounslow, islington, kensington-chelsea, kingston
+  local-help-points-harrow                    249w  Harrow Emergency Help Points
+  local-help-points-havering                  242w  Havering Emergency Help Points
+  local-help-points-hillingdon                239w  Hillingdon Emergency Help Points
+  local-help-points-hounslow                  236w  Hounslow Emergency Help Points
+  local-help-points-islington                 242w  Islington Emergency Help Points
+  local-help-points-kensington-chelsea        266w  Kensington and Chelsea Emergency Help Points
+  local-help-points-kingston                  241w  Kingston upon Thames Emergency Help Points
+[areas] batch 4/5 (6 areas): lambeth, lewisham, merton, newham, redbridge, richmond
+  local-help-points-lambeth                   218w  Lambeth Emergency Help Points
+  local-help-points-lewisham                  189w  Lewisham Emergency Help Points
+  local-help-points-merton                    194w  Merton Emergency Help Points
+  local-help-points-newham                    202w  Newham Emergency Help Points
+  local-help-points-redbridge                 215w  Redbridge Emergency Help Points
+  local-help-points-richmond                  203w  Richmond upon Thames Emergency Help Points
+[areas] batch 5/5 (6 areas): southwark, sutton, tower-hamlets, waltham-forest, wandsworth, westminster
+  local-help-points-southwark                 198w  Southwark Emergency Help Points
+  local-help-points-sutton                    178w  Sutton Emergency Help Points
+  local-help-points-tower-hamlets             149w  Tower Hamlets Emergency Help Points
+  local-help-points-waltham-forest            162w  Waltham Forest Emergency Help Points
+  local-help-points-wandsworth                177w  Wandsworth Emergency Help Points
+  local-help-points-westminster               192w  Westminster Emergency Help Points
+------------------------------------------------------------------------------
+[areas] wave 1 complete: 33/33 cards written
+[areas] validated 34 area card files against the Card schema
+[areas] meta.json: card_count=49 area_cards=34 location='London, UK — borough & neighbourhood coverage'
+[areas] no failures

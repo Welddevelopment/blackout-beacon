@@ -1,6 +1,7 @@
 {
-  "briefed_at": "2026-08-22T13:57:35.852032+00:00",
-  "location": "South Kensington, London, UK",
+  "briefed_at": "2026-08-22T14:29:02.595173+00:00",
+  "location": "London, UK — borough & neighbourhood coverage",
   "briefing_model": "gemini-3.7-flash",
-  "card_count": 16
+  "card_count": 49,
+  "area_cards": 34
 }

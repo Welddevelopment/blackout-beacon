@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-redbridge",
+  "title": "Redbridge Emergency Help Points",
+  "category": "local",
+  "summary": "Offline readiness guide for hospital A&E, urgent treatment centres, supply corridors, and flood hazards in Redbridge.",
+  "content": "For immediate, life-threatening medical emergencies, dial 999 or 112 before doing anything else. 1. Nearest 24-Hour A&E Hospitals: King George Hospital, Barley Lane, Goodmayes, Ilford, IG3 8YB. From Goodmayes Station: ~15 min walk north along Barley Lane, or bus 86 or 364. Whipps Cross Hospital, Whipps Cross Road, Leytonstone, E11 1NR. From Wanstead Station: ~20 min walk west along Hermon Hill and Snaresbrook Road, or bus 66 or W12. Queens Hospital (Major Trauma Network), Rom Valley Way, Romford, RM7 0AG. From Ilford Station: bus 86 east along High Road to Romford. 2. Urgent Treatment Centres: Barking Community Hospital Urgent Treatment Centre, Upney Lane, Barking, IG11 9LX. From Upney Station: ~8 min walk south along Upney Lane. Loxford Polyclinic Urgent Treatment Centre, 298 Ilford Lane, Ilford, IG1 2LR. From Ilford Station: ~15 min walk south along Ilford Lane, or bus EL1 or EL2. 3. Local Hazards: River Roding fluvial flood corridors impacting Woodford, Wanstead, and Ilford; Seven Kings Water and Cran Brook surface water flooding in low-lying residential roads. 4. Essential Supplies: Supermarkets and high-street chemists along Ilford High Road, Cranbrook Road in Gants Hill, George Lane in South Woodford, and Wanstead High Street can supply water, baby milk, and first-aid stock. Note: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "redbridge",
+    "ilford",
+    "wanstead",
+    "woodford",
+    "barkingside",
+    "gants hill",
+    "ig1",
+    "ig2",
+    "ig3",
+    "ig4",
+    "ig5",
+    "ig6",
+    "ig8",
+    "e11",
+    "e18"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

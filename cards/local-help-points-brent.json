@@ -1,0 +1,23 @@
+{
+  "id": "local-help-points-brent",
+  "title": "Brent Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency health facilities, urgent treatment locations, water hazard zones, and essential shops in Brent.",
+  "content": "For life-threatening emergencies, call 999 or 112 immediately.\n\n1. Nearest 24-Hour A&E Hospitals\n- Northwick Park Hospital: Watford Road, Harrow HA1 3UJ. From Wembley Central station: take bus 182 or 223 north along Watford Road (~25 mins), or drive 3 miles north-west.\n- St Mary's Hospital (Major Trauma Centre): Praed Street, Paddington W2 1NY. From Kilburn High Road station: take bus 16 or 98 south along Edgware Road directly towards Paddington (~25 mins).\n\n2. Urgent Treatment Centres\n- Central Middlesex Hospital Urgent Treatment Centre: Acton Lane, Park Royal NW10 7NS. From Harlesden station: ~15 min walk south along Acton Lane (~0.7 miles), or take bus 187, 224, or 260 (~5 mins).\n- Willesden Centre for Health and Care: Robson Avenue, Willesden NW10 3RY. From Willesden Green station: ~15 min walk west via High Road and Robson Avenue (~0.8 miles), or take bus 260 or 460.\n\n3. Local Hazards\n- Flood risk zones lie along the River Brent and Wealdstone Brook, particularly around Neasden, Wembley Stadium industrial lowlands, and surrounding the Brent Reservoir (Welsh Harp).\n\n4. Essential Supplies\n- Pharmacies and supermarkets situated along Wembley High Road, Kilburn High Road, and Harlesden High Street provide clean water, non-perishable rations, and basic medical supplies.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "brent",
+    "wembley",
+    "kilburn",
+    "willesden",
+    "harlesden",
+    "neasden",
+    "kingsbury",
+    "nw2",
+    "nw9",
+    "nw10",
+    "ha0",
+    "ha9"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

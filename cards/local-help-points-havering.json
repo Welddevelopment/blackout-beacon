@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-havering",
+  "title": "Havering Emergency Help Points",
+  "category": "local",
+  "summary": "Offline guide to emergency medical help points, urgent care, and local hazards in the London Borough of Havering.",
+  "content": "For life-threatening emergencies, always dial 999 first (or 112). Call 105 for power cuts and 0800 111 999 for gas leaks.\n\n1. 24-Hour Emergency Hospitals\n- Queen's Hospital (24/7 A&E and Hyper-Acute Stroke Unit): Rom Valley Way, Romford, RM7 0AG. From Romford station: ~12 min walk south along South Street and Rom Valley Way, or bus 5, 128, 175, or 498 directly to the main entrance.\n- The Royal London Hospital (Nearest Major Trauma Centre): Whitechapel Road, Whitechapel, E1 1FR. Accessible via Elizabeth Line from Romford directly to Whitechapel station.\n\n2. Urgent Treatment Centres\n- Queen's Urgent Treatment Centre: Rom Valley Way, Romford, RM7 0AG. Co-located beside Queen's Hospital A&E entrance.\n- Harold Wood Urgent Treatment Centre (Polyteck Clinic): The Drive, Harold Wood, RM3 0AR. From Harold Wood station: ~3 min walk west along Gubbins Lane and The Drive.\n\n3. Local Environmental Hazards\n- River Rom and River Beam: Surface water and river flood risks through Romford Town Centre, Collier Row, and downstream towards Dagenham.\n- River Ingrebourne: Flood corridors running through Hornchurch Country Park, Rainham, and Upminster.\n- Rainham Marshes and Thames Riverside: Low-lying tidal surge and heavy surface-water flood zones along Rainham industrial and residential waterfront.\n\n4. Essential Supplies\n- Large supermarkets and pharmacies along South Street (Romford), High Street (Hornchurch), and Station Road (Upminster) supply bottled water, basic medical supplies, and batteries during power disruptions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "havering",
+    "romford",
+    "hornchurch",
+    "upminster",
+    "rainham",
+    "collier row",
+    "rm1",
+    "rm2",
+    "rm3",
+    "rm5",
+    "rm7",
+    "rm11",
+    "rm12",
+    "rm13",
+    "rm14"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

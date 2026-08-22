@@ -1,0 +1,25 @@
+{
+  "id": "local-help-points-newham",
+  "title": "Newham Emergency Help Points",
+  "category": "local",
+  "summary": "Offline readiness guide for hospital A&E, urgent treatment centres, supply corridors, and flood hazards in Newham.",
+  "content": "For immediate, life-threatening medical emergencies, dial 999 or 112 before doing anything else. 1. Nearest 24-Hour A&E Hospitals: Newham University Hospital, Glen Road, Plaistow, E13 8SL. From Plaistow Station: ~20 min walk south along Balaam Street and Glen Road, or bus 241 or 262 towards Prince Regent. The Royal London Hospital (Major Trauma Centre), Whitechapel Road, E1 1FR. From Stratford Station: ~10 min on Elizabeth Line or Central Line west to Whitechapel, or bus 25 along Mile End Road. 2. Urgent Treatment Centres: Newham Urgent Treatment Centre, Newham University Hospital, Glen Road, Plaistow, E13 8SL. Vicarage Lane Urgent Treatment Centre, 10 Vicarage Lane, Stratford, E15 4ES. From Stratford Station: ~10 min walk east along Stratford Broadway and West Ham Lane to Vicarage Lane. 3. Local Hazards: River Thames and Royal Docks tidal surge risks across Canning Town, Custom House, and Silvertown; River Lea and Channelsea River flooding in West Ham and Stratford; low-lying drainage risks across Beckton. 4. Essential Supplies: Pharmacies and large retail outlets along Stratford Broadway, East Ham High Street North, and Canning Town Barking Road stock clean water, medication, and first-aid items during network outages. Note: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "newham",
+    "stratford",
+    "east ham",
+    "west ham",
+    "plaistow",
+    "canning town",
+    "forest gate",
+    "beckton",
+    "e6",
+    "e7",
+    "e12",
+    "e13",
+    "e15",
+    "e16"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-westminster",
+  "title": "Westminster Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency medical facilities, urgent care, hazard zones, and supply points in Westminster.",
+  "content": "For life-threatening emergencies, call 999 immediately.\n\n1. 24-Hour Emergency Hospitals (A&E):\n- St Mary's Hospital (Major Trauma Centre): Praed Street, Paddington, W2 1NY. From Paddington station: ~2 min walk south along Praed Street.\n- St Thomas' Hospital: Westminster Bridge Road, SE1 7EH (just across Westminster Bridge). From Westminster station: ~7 min walk southeast across Westminster Bridge.\n\n2. Urgent Treatment Centres:\n- St Mary's Urgent Treatment Centre: Ground Floor, South Wharf Road/Praed Street, W2 1NY (integrated with A&E entry).\n- Soho NHS Walk-in Centre: 1 Frith Street, Soho Square, W1D 3HZ. From Tottenham Court Road station: ~4 min walk west via Oxford Street and Soho Square.\n\n3. Local Hazard Notes:\n- Thames Tidal Risk: Embankment, Millbank, and Pimlico are low-lying areas at risk during severe tidal or storm surges.\n- Urban Density: Heavy pedestrian density, subsurface transport complexity, and high-rise commercial structures throughout Soho, Mayfair, and Victoria present evacuation bottlenecks during grid failure.\n\n4. Supplies:\n- Pharmacies and large supermarkets along Oxford Street, Strand, Victoria Street, and Edgware Road supply emergency water, basic medicines, and first-aid provisions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible (verify locally).",
+  "keywords": [
+    "westminster",
+    "paddington",
+    "marylebone",
+    "mayfair",
+    "soho",
+    "pimlico",
+    "victoria",
+    "st johns wood",
+    "maida vale",
+    "w1",
+    "w2",
+    "w9",
+    "nw1",
+    "nw8",
+    "sw1"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

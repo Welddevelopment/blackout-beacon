@@ -1,0 +1,23 @@
+{
+  "id": "local-help-points-islington",
+  "title": "Islington Emergency Help Points",
+  "category": "local",
+  "summary": "Offline guide to emergency medical help points, urgent care, and local hazards in the London Borough of Islington.",
+  "content": "For life-threatening emergencies, always dial 999 first (or 112). Call 105 for power cuts and 0800 111 999 for gas leaks.\n\n1. 24-Hour Emergency Hospitals\n- Whittington Hospital (24/7 A&E): Magdala Avenue, Archway, N19 5NF. From Archway tube station: ~5 min walk north along Highgate Hill and Dartmouth Park Hill to Magdala Avenue, or bus 143, 210, 263, or 271.\n- University College Hospital (24/7 A&E - South/West): 235 Euston Road, NW1 2BU. From Angel station: take Northern Line to King's Cross, then walk ~10 min west along Euston Road, or bus 30 or 73.\n- The Royal London Hospital (Major Trauma Centre): Whitechapel Road, E1 1FR.\n\n2. Urgent Treatment Centres\n- Whittington Urgent Treatment Centre: Magdala Avenue, N19 5NF. Located in the main entrance area beside the emergency department.\n- Angel Urgent Care / St Pancras Hospital Walk-in Centre (Nearby): St Pancras Hospital, 4 St Pancras Way, NW1 0PE.\n\n3. Local Environmental Hazards\n- Subterranean Rivers & Surface Runoff: Historical course of River Fleet causes intense surface-water and basement-level flash flooding around Clerkenwell, Farringdon, and lower Holloway during cloudbursts.\n- Regent's Canal corridor: Local overflow and water pooling around Angel tunnel portals and King's Cross border basins.\n\n4. Essential Supplies\n- Large grocery stores and pharmacies along Upper Street (Angel), Holloway Road (N7), and St John Street (Clerkenwell) supply emergency water containers, sanitation goods, and first-aid supplies.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "islington",
+    "angel",
+    "highbury",
+    "holloway",
+    "archway",
+    "finsbury park",
+    "clerkenwell",
+    "n1",
+    "n5",
+    "n7",
+    "n19",
+    "ec1"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

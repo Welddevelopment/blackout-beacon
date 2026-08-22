@@ -1,0 +1,21 @@
+{
+  "id": "local-help-points-sutton",
+  "title": "Sutton Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency medical facilities, urgent care, hazard zones, and supply points in Sutton.",
+  "content": "For life-threatening emergencies, call 999 immediately.\n\n1. 24-Hour Emergency Hospitals (A&E):\n- St Helier Hospital: Wrythe Lane, Carshalton, SM5 1AA. From Sutton station: ~30 min walk northeast, or bus 151 or 213 north along Angel Hill and Wrythe Lane directly to hospital grounds; from Carshalton station: ~20 min walk northwest via North Street and Wrythe Lane.\n- St George's Hospital (Major Trauma Centre): Blackshaw Road, Tooting, SW17 0QT. From Tooting Broadway station: ~10 min walk southwest along Cranmer Terrace or bus 493.\n\n2. Urgent Treatment Centres:\n- St Helier Urgent Treatment Centre: Next to A&E, Ground Floor, Wrythe Lane, Carshalton, SM5 1AA.\n\n3. Local Hazard Notes:\n- River Wandle: Flood zones near river springs and ponds in Carshalton Village, flowing north through Hackbridge.\n- Pyl Brook: Surface water flood risks through North Cheam and Worcester Park.\n\n4. Supplies:\n- Pharmacies and large supermarkets along Sutton High Street, Carshalton High Street, and Woodcote Road (Wallington) supply emergency water, basic medicines, and first-aid provisions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible (verify locally).",
+  "keywords": [
+    "sutton",
+    "carshalton",
+    "wallington",
+    "cheam",
+    "worcester park",
+    "sm1",
+    "sm2",
+    "sm3",
+    "sm5",
+    "sm6"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "local-help-points-tower-hamlets",
+  "title": "Tower Hamlets Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency medical facilities, urgent care, hazard zones, and supply points in Tower Hamlets.",
+  "content": "For life-threatening emergencies, call 999 immediately.\n\n1. 24-Hour Emergency Hospitals (A&E):\n- Royal London Hospital (Major Trauma Centre): Whitechapel Road, E1 1FR. From Whitechapel station: ~2 min walk south directly across Whitechapel Road.\n\n2. Urgent Treatment Centres:\n- Royal London Urgent Treatment Centre: Ground Floor, Royal London Hospital, Whitechapel Road, E1 1FR (co-located with A&E).\n\n3. Local Hazard Notes:\n- Low-Lying River Risk: Thames riverfront and the Isle of Dogs are low-lying; River Lea tidal basin presents flood risks around Bow and Poplar.\n- High-Rise Vulnerabilities: Dense tower blocks across Canary Wharf, Blackwall, and Isle of Dogs face loss of water pressure and lift entrapment during major power cuts.\n\n4. Supplies:\n- Pharmacies and large supermarkets along Whitechapel Road, Roman Road (Bow), and Commercial Road supply emergency water, basic medicines, and first-aid provisions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible (verify locally).",
+  "keywords": [
+    "tower hamlets",
+    "whitechapel",
+    "bethnal green",
+    "bow",
+    "poplar",
+    "canary wharf",
+    "mile end",
+    "stepney",
+    "isle of dogs",
+    "e1",
+    "e2",
+    "e3",
+    "e14"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

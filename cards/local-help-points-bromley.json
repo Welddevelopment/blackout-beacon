@@ -1,0 +1,25 @@
+{
+  "id": "local-help-points-bromley",
+  "title": "Bromley Emergency Help Points",
+  "category": "local",
+  "summary": "Hospital emergency services, walk-in care centres, environmental hazard notes, and supply corridors in Bromley.",
+  "content": "For life-threatening emergencies, call 999 or 112 immediately.\n\n1. Nearest 24-Hour A&E Hospitals\n- Princess Royal University Hospital (PRUH): Farnborough Common, Orpington BR6 8ND. From Bromley South station: take bus 61, 261, or 358 south along Masons Hill and Hastings Road (~20 mins), or drive ~3.5 miles south.\n\n2. Urgent Treatment Centres\n- Beckenham Beacon Urgent Treatment Centre: 379 Croydon Road, Beckenham BR3 3QL. From Beckenham Junction station: ~15 min walk south-west along Croydon Road (~0.8 miles), or take bus 54 or 352 (~6 mins).\n- Queen Mary's Hospital Urgent Treatment Centre: Frognal Avenue, Sidcup DA14 6LT (accessible for north-east Bromley). From Chislehurst War Memorial: take bus 269 north-east (~15 mins).\n\n3. Local Hazards\n- Surface water and river flood risks along the River Ravensbourne headwaters, River Pool, and River Kyd catchments in central Bromley and Beckenham.\n- Steep terrain and wooded single-lane roads around Biggin Hill and Cudham prone to storm debris blockages and severe surface runoff.\n\n4. Essential Supplies\n- Major supermarkets and dispensing pharmacies located on Bromley High Street, Beckenham High Street, and Orpington High Street stock potable water, first-aid goods, and over-the-counter medicines.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "bromley",
+    "orpington",
+    "beckenham",
+    "penge",
+    "chislehurst",
+    "biggin hill",
+    "br1",
+    "br2",
+    "br3",
+    "br4",
+    "br5",
+    "br6",
+    "br7",
+    "se20"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

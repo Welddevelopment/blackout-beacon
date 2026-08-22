@@ -1,0 +1,26 @@
+{
+  "id": "local-help-points-lewisham",
+  "title": "Lewisham Emergency Help Points",
+  "category": "local",
+  "summary": "Offline readiness guide for hospital A&E, urgent treatment centres, supply corridors, and flood hazards in Lewisham.",
+  "content": "For immediate, life-threatening medical emergencies, dial 999 or 112 before doing anything else. 1. Nearest 24-Hour A&E Hospitals: University Hospital Lewisham, Lewisham High Street, SE13 6LH. From Ladywell Station: ~10 min walk south along Ladywell Road and Lewisham High Street, or bus 47, 54, or 136 from Lewisham Station south along the A21. King's College Hospital (Major Trauma Centre), Denmark Hill, SE5 9RS. From New Cross Gate Station: bus 436 or 171 west towards Camberwell Green. 2. Urgent Treatment Centres: Lewisham Urgent Treatment Centre, University Hospital Lewisham ground floor, Lewisham High Street, SE13 6LH. Waldron Health Centre Urgent Treatment Centre, Amersham Vale, New Cross, SE14 6LD. From New Cross Station: ~3 min walk west along Amersham Vale. 3. Local Hazards: River Ravensbourne, River Quaggy, and Pool River flood zones affecting Catford town centre, Lewisham town centre, and Ladywell; tidal backflow and surge risks along Deptford Creek. 4. Essential Supplies: Pharmacies and large supermarkets along Lewisham High Street, Deptford High Street, New Cross Road, and Catford Broadway supply drinking water, batteries, and medical essentials during outages. Note: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "lewisham",
+    "deptford",
+    "catford",
+    "brockley",
+    "forest hill",
+    "sydenham",
+    "new cross",
+    "se4",
+    "se6",
+    "se8",
+    "se12",
+    "se13",
+    "se14",
+    "se23",
+    "se26"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

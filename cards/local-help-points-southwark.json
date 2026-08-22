@@ -1,0 +1,27 @@
+{
+  "id": "local-help-points-southwark",
+  "title": "Southwark Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency medical facilities, urgent care, hazard zones, and supply points in Southwark.",
+  "content": "For life-threatening emergencies, call 999 immediately.\n\n1. 24-Hour Emergency Hospitals (A&E):\n- King's College Hospital (Major Trauma Centre): Denmark Hill, SE5 9RS. From Denmark Hill station: ~3 min walk north along Denmark Hill; from Camberwell Green: ~10 min walk south along Denmark Hill, or bus 35, 40, or 42.\n- St Thomas' Hospital: Westminster Bridge Road, SE1 7EH. From Waterloo station: ~8 min walk west along York Road towards Westminster Bridge.\n\n2. Urgent Treatment Centres:\n- Guy's Urgent Treatment Centre: Ground Floor, Tabard Annexe, Great Maze Pond, SE1 9RT. From London Bridge station: ~3 min walk south via St Thomas Street and Great Maze Pond.\n\n3. Local Hazard Notes:\n- Thames Tidal Risk: Low-lying areas along Bankside, Rotherhithe Peninsula, and Bermondsey Wall are vulnerable to tidal surges if barriers are breached.\n- Surface Flooding: Risk around historic courses of the subterranean River Neckinger and River Effra, particularly around Elephant and Castle, Walworth Road, and Dulwich low ground.\n\n4. Supplies:\n- Pharmacies and large supermarkets along Rye Lane (Peckham), Walworth Road, and Borough High Street supply emergency water, basic medicines, and first-aid provisions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible (verify locally).",
+  "keywords": [
+    "southwark",
+    "peckham",
+    "camberwell",
+    "bermondsey",
+    "dulwich",
+    "rotherhithe",
+    "elephant and castle",
+    "borough",
+    "walworth",
+    "se1",
+    "se5",
+    "se15",
+    "se16",
+    "se17",
+    "se21",
+    "se22"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

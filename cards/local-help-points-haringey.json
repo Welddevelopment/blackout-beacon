@@ -1,0 +1,24 @@
+{
+  "id": "local-help-points-haringey",
+  "title": "Haringey Emergency Help Points",
+  "category": "local",
+  "summary": "24/7 emergency hospitals, urgent treatment centres, and local hazards across Haringey borough.",
+  "content": "For immediate life-threatening medical emergencies, always dial 999 first.\n\n1. 24-Hour Emergency Hospitals with A&E\n- North Middlesex University Hospital: Sterling Way, Edmonton, N18 1QX (serving eastern Haringey/Tottenham). From Tottenham Hale station: take bus 149, 259, or 279 north along High Road (A1010) to Sterling Way.\n- Whittington Hospital: Magdala Avenue, Archway, N19 5NF (serving western Haringey/Highgate/Crouch End). From Highgate station: ~15 min walk south down Archway Road (A1) and Magdala Avenue, or take bus 43, 134, or 263.\n- Major Trauma Centre: The Royal London Hospital, Whitechapel Road, Whitechapel, E1 1FR. From Seven Sisters: Victoria line south to King's Cross or Overground to Liverpool Street.\n\n2. Urgent Treatment Centres (Walk-In)\n- North Middlesex Urgent Treatment Centre: Sterling Way, N18 1QX (collocated with A&E). Open 24/7.\n- Whittington Urgent Treatment Centre: Magdala Avenue, N19 5NF (at Whittington Hospital main A&E entrance). Open 24/7.\n\n3. Local Area Hazard Notes\n- River Lea & Lee Navigation: eastern flood plain across Tottenham Hale, Tottenham Marshes, and Markfield Park.\n- Moselle Brook: culverted waterway causing high surface-water flood hazard in low spots across Wood Green, Hornsey, and Tottenham Central during prolonged downpours.\n\n4. Essential Supplies During Outages\nPharmacies and commercial supermarkets along High Road (Wood Green), High Road (Tottenham), Green Lanes (Harringay Ladder), and The Broadway (Crouch End) supply water, batteries, and first-aid provisions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "haringey",
+    "tottenham",
+    "wood green",
+    "hornsey",
+    "crouch end",
+    "muswell hill",
+    "highgate",
+    "n4",
+    "n8",
+    "n10",
+    "n15",
+    "n17",
+    "n22"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

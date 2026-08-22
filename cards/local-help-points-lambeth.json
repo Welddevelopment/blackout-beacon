@@ -1,0 +1,28 @@
+{
+  "id": "local-help-points-lambeth",
+  "title": "Lambeth Emergency Help Points",
+  "category": "local",
+  "summary": "Offline readiness guide for hospital A&E, urgent treatment centres, supply corridors, and flood hazards in Lambeth.",
+  "content": "For immediate, life-threatening medical emergencies, dial 999 or 112 before doing anything else. 1. Nearest 24-Hour A&E Hospitals: St Thomas' Hospital, Westminster Bridge Road, SE1 7EH. From Waterloo Station: ~7 min walk west along York Road and Westminster Bridge Road. King's College Hospital (Major Trauma Centre), Denmark Hill, SE5 9RS. From Brixton Station: ~25 min walk east along Coldharbour Lane, or bus 35 or 45 towards Camberwell. St George's Hospital (Major Trauma Centre), Blackshaw Road, SW17 0QT. From Streatham Station: ~35 min walk west along Tooting Bec Common or bus G1 or 249. 2. Urgent Treatment Centres: Gracefield Gardens Urgent Treatment Centre, 2-8 Gracefield Gardens, Streatham, SW16 2ST. From Streatham Hill Station: ~5 min walk south along Streatham High Road. Guy's Hospital Urgent Treatment Centre, Great Maze Pond, SE1 9RT. From London Bridge Station: ~3 min walk via St Thomas Street. 3. Local Hazards: River Thames tidal surge along Albert Embankment and South Bank; severe surface water flooding risks along the subterranean River Effra drainage corridor through Brixton, Herne Hill, and Kennington during heavy rain. 4. Essential Supplies: Pharmacies and major supermarkets along Brixton Road, Clapham High Street, Streatham High Road, and Lower Marsh supply bottled water, basic medicines, and first-aid gear during outages. Note: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "lambeth",
+    "brixton",
+    "clapham",
+    "streatham",
+    "vauxhall",
+    "kennington",
+    "stockwell",
+    "west norwood",
+    "waterloo",
+    "sw2",
+    "sw4",
+    "sw8",
+    "sw9",
+    "sw16",
+    "se11",
+    "se24",
+    "se27"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "local-help-points-hackney",
+  "title": "Hackney Emergency Help Points",
+  "category": "local",
+  "summary": "24/7 emergency hospitals, urgent treatment centres, and local hazards across Hackney borough.",
+  "content": "For immediate life-threatening medical emergencies, always dial 999 first.\n\n1. 24-Hour Emergency Hospitals with A&E\n- Homerton University Hospital: Homerton Row, Homerton, E9 6SR. From Homerton Overground station: ~5 min walk west along Wardle Street and Homerton Row.\n- Major Trauma Centre: The Royal London Hospital, Whitechapel Road, Whitechapel, E1 1FR (serving North East London). From Shoreditch High Street station: ~15 min walk south along Commercial Street and Whitechapel Road, or take bus 254 or 205.\n\n2. Urgent Treatment Centres (Walk-In)\n- Homerton Urgent Treatment Centre: Homerton Row, E9 6SR (collocated at the main entrance of Homerton Hospital). Open 24/7 for cuts, fractures, sprains, and non-fatal urgent illnesses.\n\n3. Local Area Hazard Notes\n- River Lea and Lee Navigation: flood plains run along the entire eastern border of Hackney, creating substantial flood risks around Hackney Wick, Lea Bridge, Hackney Marshes, and Springfield Park.\n- Low Embankments: canalside paths along Regent's Canal and Hertford Union Canal are vulnerable to overflow during severe surface-water surges.\n\n4. Essential Supplies During Outages\nPharmacies and food stores along Mare Street (Central Hackney), Kingsland High Street (Dalston), Stoke Newington Church Street, and Shoreditch High Street can provide bottled drinking water, over-the-counter medication, and first-aid kits.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "hackney",
+    "shoreditch",
+    "dalston",
+    "stoke newington",
+    "homerton",
+    "clapton",
+    "hoxton",
+    "e5",
+    "e8",
+    "e9",
+    "n16",
+    "n1"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}
