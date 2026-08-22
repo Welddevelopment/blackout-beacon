@@ -113,6 +113,29 @@ If the toggle flips itself off: switch the source to `Ethernet Adapter (en4)`, t
 | Phone silently leaves BEACON | Its auto-join to venue WiFi is on; disable it and rejoin. |
 | Total loss | `sudo ./run.sh` again, rejoin BEACON, http://192.168.2.1. Cold recovery is under two minutes; practising it once is worth it. |
 
+
+## Solo shoot plan (current)
+
+All recording is LOCAL (QuickTime on Mac, Samsung screen recorder on phone) because the Mac has no internet during the blackout scenes. Loom/YouTube upload happens at the end.
+
+**Cut (2:00):**
+| Time | Beat | Source |
+|---|---|---|
+| 0:00-0:08 | Title card: "When the grid dies, the cloud dies with it." | iMovie title |
+| 0:08-0:25 | Gemini briefing: `script -p evidence/briefing-run.rec` in a large-font terminal | Mac QuickTime |
+| 0:25-0:40 | google.com fails to load -> server log scrolling -> phone joins BEACON + QR scan | Mac + phone recorders |
+| 0:40-1:05 | Medical emergency -> "Someone collapsed" -> streaming grounded answer | Phone recorder |
+| 1:05-1:20 | Language pill -> Bengali/Urdu branch question -> answer in that script | Phone recorder |
+| 1:20-1:40 | Map -> SW7 2AZ -> "exact location" -> street routes to 3 A&Es | Phone recorder |
+| 1:40-1:52 | Queue (Mac browser as 2nd client, phone shows position) + webcam shot: phone beside laptop | Both + QuickTime camera |
+| 1:52-2:00 | Close-up: "Bytes sent to the internet: 0" + tagline card | Phone recorder + title |
+
+**Order of operations:** record briefing replay while online -> go offline (run.sh + Internet Sharing) -> all phone/Mac takes -> reconnect -> AirDrop clips -> iMovie assembly -> single VO pass over the cut -> export 1080p -> upload.
+
+**Prep:** Do Not Disturb on both devices; phone recorder set to "show taps"; terminal font ~18pt; charge everything; keep raw clips as proof.
+
+**VO (~150 words, calm pace):** see the beat-mapped script in the orchestration chat / below.
+
 ## Evidence kit (for the video edit)
 
 - `script -p evidence/briefing-run.rec` — replays the full Gemini briefing (cards forming live, real timing). Screen-record the replay; it is real output and needs no network.
