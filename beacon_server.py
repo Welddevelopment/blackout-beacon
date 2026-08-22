@@ -28,6 +28,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlsplit, parse_qs, unquote
 
 import llm
+import postcode_lookup
 import routes
 
 # ---------------------------------------------------------------- config
@@ -156,14 +157,23 @@ def dns_server():
                 labels.append(data[i + 1:i + 1 + n].decode(errors="replace"))
                 i += n + 1
             qname = ".".join(labels)
+            qtype = data[i + 1:i + 3]  # 2 bytes after the name's null terminator
             i += 5  # null byte + qtype(2) + qclass(2)
             question = data[12:i]
-            answer = (b"\xc0\x0c" + b"\x00\x01" + b"\x00\x01" +
-                      struct.pack(">I", 10) + b"\x00\x04" + socket.inet_aton(BEACON_IP))
-            resp = (data[:2] + b"\x81\x80" + data[4:6] + b"\x00\x01" +
-                    b"\x00\x00\x00\x00" + question + answer)
+            if qtype in (b"\x00\x01", b"\x00\xff"):  # A / ANY -> answer with us
+                answer = (b"\xc0\x0c" + b"\x00\x01" + b"\x00\x01" +
+                          struct.pack(">I", 10) + b"\x00\x04" + socket.inet_aton(BEACON_IP))
+                resp = (data[:2] + b"\x81\x80" + data[4:6] + b"\x00\x01" +
+                        b"\x00\x00\x00\x00" + question + answer)
+            else:
+                # AAAA/HTTPS/etc: clean NOERROR with zero answers, so phones
+                # fall through to their A query instead of choking on a
+                # malformed record (protocol-correct per QA finding).
+                resp = (data[:2] + b"\x81\x80" + data[4:6] + b"\x00\x00" +
+                        b"\x00\x00\x00\x00" + question)
             s.sendto(resp, addr)
-            log(f"[dns] {addr[0]} {qname} -> {BEACON_IP}")
+            qt_label = "A" if qtype == b"\x00\x01" else "other"
+            log(f"[dns] {addr[0]} {qname} ({qt_label}) -> {BEACON_IP}")
         except Exception as e:
             log(f"[dns] error: {e}")
 
@@ -230,6 +240,21 @@ class Beacon(BaseHTTPRequestHandler):
         return (self._send_json(r) if r is not None
                 else self._send_json({"error": "outside coverage"}, status=404))
 
+    def _api_postcode(self, query):
+        try:
+            q = parse_qs(query)["q"][0].strip()
+            if not q:
+                raise ValueError("empty q")
+        except (KeyError, IndexError, ValueError):
+            return self._send_json({"error": "bad params"}, status=400)
+        try:
+            r = postcode_lookup.lookup(q)
+        except Exception:
+            r = None  # sqlite missing/corrupt -> same contract as unknown code
+        self._log("postcode" if r is not None else "404 postcode")
+        return (self._send_json(r) if r is not None
+                else self._send_json({"error": "not found"}, status=404))
+
     def _route(self):
         note_client(self.client_address[0])
         path = urlsplit(self.path).path or "/"
@@ -257,6 +282,8 @@ class Beacon(BaseHTTPRequestHandler):
             return self._api_ask(query)
         if path == "/api/route":
             return self._api_route(query)
+        if path == "/api/postcode":
+            return self._api_postcode(query)
         if path.startswith("/static/"):
             return self._serve_tree(STATIC_DIR, path[len("/static/"):])
         if path.startswith("/data/"):
