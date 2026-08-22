@@ -112,12 +112,12 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
   </nav>
 
   <section class="grid" id="grid">
-    <button type="button" class="panic danger" data-key="medical"><span class="ico">🚑</span><span class="lbl">Medical emergency</span></button>
-    <button type="button" class="panic" data-key="firstaid"><span class="ico">🩹</span><span class="lbl">First aid</span></button>
-    <button type="button" class="panic" data-key="water"><span class="ico">💧</span><span class="lbl">Safe water</span></button>
-    <button type="button" class="panic" data-key="power"><span class="ico">🔌</span><span class="lbl">Power cut</span></button>
-    <button type="button" class="panic" data-key="warm"><span class="ico">🥶</span><span class="lbl">Stay warm</span></button>
-    <button type="button" class="panic" data-key="help"><span class="ico">🏥</span><span class="lbl">Find help nearby</span></button>
+    <button type="button" class="panic danger" data-key="medical" aria-label="Medical emergency"><span class="ico">🚑</span><span class="lbl">Medical emergency</span></button>
+    <button type="button" class="panic" data-key="firstaid" aria-label="First aid"><span class="ico">🩹</span><span class="lbl">First aid</span></button>
+    <button type="button" class="panic" data-key="water" aria-label="Safe water"><span class="ico">💧</span><span class="lbl">Safe water</span></button>
+    <button type="button" class="panic" data-key="power" aria-label="Power cut"><span class="ico">🔌</span><span class="lbl">Power cut</span></button>
+    <button type="button" class="panic" data-key="warm" aria-label="Stay warm"><span class="ico">🥶</span><span class="lbl">Stay warm</span></button>
+    <button type="button" class="panic" data-key="help" aria-label="Find help nearby"><span class="ico">🏥</span><span class="lbl">Find help nearby</span></button>
   </section>
 
   <form class="askrow" id="askform" autocomplete="off">
@@ -421,7 +421,7 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
     var btns = document.querySelectorAll('.panic');
     for (var j = 0; j < btns.length; j++) {
       var key = btns[j].getAttribute('data-key');
-      if (tr.b[key]) { btns[j].querySelector('.lbl').textContent = tr.b[key][0]; }
+      if (tr.b[key]) { btns[j].querySelector('.lbl').textContent = tr.b[key][0]; btns[j].setAttribute('aria-label', tr.b[key][0]); }
     }
     $('answerwrap').setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
   }
@@ -444,7 +444,13 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
         $('chip-clients').hidden = false;
       }
       var parts = [];
-      if (s.briefed_at) { parts.push('Briefed ' + s.briefed_at); }
+      if (s.briefed_at) {
+        var bd = new Date(s.briefed_at);
+        var btxt = isNaN(bd) ? s.briefed_at
+          : bd.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + ', ' +
+            bd.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+        parts.push('Briefed ' + btxt);
+      }
       if (s.location) { parts.push(s.location); }
       if (parts.length) {
         $('briefed').textContent = parts.join(' · ');
