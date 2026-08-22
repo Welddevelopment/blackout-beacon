@@ -1,0 +1,196 @@
+[
+ {
+  "name": "Barnet Hospital",
+  "lat": 51.65091,
+  "lon": -0.21456,
+  "address": "Wellhouse Lane Barnet EN5 3DJ"
+ },
+ {
+  "name": "Central Middlesex Hospital",
+  "lat": 51.53148,
+  "lon": -0.26761,
+  "address": "Acton Lane London NW10 7NS"
+ },
+ {
+  "name": "Charing Cross Hospital",
+  "lat": 51.48692,
+  "lon": -0.21976,
+  "address": "Fulham Palace Road London W6 8RF"
+ },
+ {
+  "name": "Chelsea and Westminster Hospital",
+  "lat": 51.48439,
+  "lon": -0.18144,
+  "address": "369 Fulham Road London SW10 9NH"
+ },
+ {
+  "name": "Croydon University Hospital",
+  "lat": 51.39012,
+  "lon": -0.11006,
+  "address": "530 London Road Thornton Heath CR7 7YE"
+ },
+ {
+  "name": "Darent Valley Hospital",
+  "lat": 51.43473,
+  "lon": 0.25709,
+  "address": ""
+ },
+ {
+  "name": "Ealing Hospital",
+  "lat": 51.50753,
+  "lon": -0.34532,
+  "address": "Uxbridge Road Southall UB1 3HW"
+ },
+ {
+  "name": "Epsom General Hospital",
+  "lat": 51.32515,
+  "lon": -0.27314,
+  "address": "Dorking Road Epsom KT18 7EG"
+ },
+ {
+  "name": "Evelina London Children's Hospital",
+  "lat": 51.49832,
+  "lon": -0.11839,
+  "address": "Westminster Bridge Road London SE1 7EH",
+  "note": "Children's A&E"
+ },
+ {
+  "name": "Hillingdon Hospital",
+  "lat": 51.52555,
+  "lon": -0.46146,
+  "address": "Pield Heath Road Uxbridge UB8 3NN"
+ },
+ {
+  "name": "Homerton University Hospital",
+  "lat": 51.55065,
+  "lon": -0.04551,
+  "address": ""
+ },
+ {
+  "name": "King George Hospital",
+  "lat": 51.58025,
+  "lon": 0.11126,
+  "address": "Barley Lane Ilford IG3 8YB"
+ },
+ {
+  "name": "King's College Hospital",
+  "lat": 51.46843,
+  "lon": -0.09365,
+  "address": "Denmark Hill London SE5 9RS"
+ },
+ {
+  "name": "Kingston Hospital",
+  "lat": 51.41492,
+  "lon": -0.28268,
+  "address": "Galsworthy Road Kingston upon Thames KT2 7QB"
+ },
+ {
+  "name": "Moorfields Eye Hospital (City Road campus)",
+  "lat": 51.52726,
+  "lon": -0.09022,
+  "address": "",
+  "note": "Eye emergencies only"
+ },
+ {
+  "name": "Newham University Hospital",
+  "lat": 51.5217,
+  "lon": 0.0366,
+  "address": "Glen Road, Plaistow E13 8SL"
+ },
+ {
+  "name": "North Middlesex University Hospital",
+  "lat": 51.61328,
+  "lon": -0.07354,
+  "address": ""
+ },
+ {
+  "name": "Northwick Park Hospital",
+  "lat": 51.57533,
+  "lon": -0.32153,
+  "address": "Watford Road Harrow HA1 3UJ"
+ },
+ {
+  "name": "Princess Royal University Hospital",
+  "lat": 51.3662,
+  "lon": 0.05806,
+  "address": "Farnborough Common Orpington BR6 8ND"
+ },
+ {
+  "name": "Queen Elizabeth Hospital",
+  "lat": 51.47785,
+  "lon": 0.05026,
+  "address": "Stadium Road London SE18 4QH"
+ },
+ {
+  "name": "Queens Hospital",
+  "lat": 51.56872,
+  "lon": 0.18102,
+  "address": "Rom Valley Way Romford RM7 0AG"
+ },
+ {
+  "name": "Royal Free Hospital",
+  "lat": 51.55302,
+  "lon": -0.16546,
+  "address": "Pond Street London NW3 2QG"
+ },
+ {
+  "name": "Royal London Hospital",
+  "lat": 51.51745,
+  "lon": -0.05992,
+  "address": "Whitechapel Road London E1 1BB"
+ },
+ {
+  "name": "St George's Hospital",
+  "lat": 51.42644,
+  "lon": -0.17521,
+  "address": "Blackshaw Road London SW17 0QT"
+ },
+ {
+  "name": "St Mary's Hospital",
+  "lat": 51.51748,
+  "lon": -0.17428,
+  "address": "Praed Street London W2 1NY"
+ },
+ {
+  "name": "St Thomas' Hospital",
+  "lat": 51.4991,
+  "lon": -0.11873,
+  "address": "Westminster Bridge Road London SE1 7EH"
+ },
+ {
+  "name": "St. Helier Hospital",
+  "lat": 51.38038,
+  "lon": -0.18458,
+  "address": "Wrythe Lane Carshalton SM5 1AA"
+ },
+ {
+  "name": "University College Hospital",
+  "lat": 51.52487,
+  "lon": -0.13644,
+  "address": "235 Euston Road London NW1 2BU"
+ },
+ {
+  "name": "University Hospital Lewisham",
+  "lat": 51.45378,
+  "lon": -0.01792,
+  "address": ""
+ },
+ {
+  "name": "Watford General Hospital",
+  "lat": 51.64853,
+  "lon": -0.40204,
+  "address": "Vicarage Road Watford"
+ },
+ {
+  "name": "West Middlesex University Hospital",
+  "lat": 51.47308,
+  "lon": -0.32441,
+  "address": "Twickenham Road, Isleworth TW7 6AF"
+ },
+ {
+  "name": "Whipps Cross University Hospital",
+  "lat": 51.57752,
+  "lon": 0.00204,
+  "address": "Whipps Cross Road London E11 1NR"
+ }
+]
