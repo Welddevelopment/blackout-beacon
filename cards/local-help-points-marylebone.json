@@ -1,0 +1,20 @@
+{
+  "id": "local-help-points-marylebone",
+  "title": "Marylebone Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency medical facilities, walk-in centres, hazards, and essential supplies in Marylebone.",
+  "content": "For life-threatening emergencies, call 999 or 112 immediately.\n\n1. 24-Hour Emergency Hospitals (A&E):\n- University College Hospital (UCH): 235 Euston Road, NW1 2BU. From Marylebone station: ~25 min walk east along Marylebone Road and Euston Road (approx 1.2 miles), or bus 18 or 205 east directly to Euston Square / UCH.\n- St Mary's Hospital (Major Trauma Centre): Praed Street, Paddington, W2 1NY. From Marylebone station: ~15 min walk west along Marylebone Road and south down Harewood Avenue or Chapel Street to Praed Street (approx 0.7 miles), or bus 205 west.\n\n2. Urgent Treatment Centres:\n- St Charles Urgent Treatment Centre: Exmoor Street, W10 6DZ. From Baker Street: bus 18 westbound towards Sudbury, alight at St Charles Square.\n- UCH Urgent Treatment Centre: Ground Floor, 235 Euston Road, NW1 2BU (co-located with A&E).\n\n3. Local Hazards & Infrastructure:\n- Major thoroughfares (Marylebone Road, A40 flyover) carry extremely heavy traffic, which may congest rapidly or block emergency vehicle routing during blackouts.\n- Surface water ponding can occur along lower-lying segments near Baker Street junction and Regent's Canal approaches during intense rainfall.\n\n4. Supplies & Essentials:\n- Pharmacies and large supermarkets along Marylebone High Street, Baker Street, and Edgware Road provide clean drinking water, basic medical provisions, and non-perishable food during power disruptions.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible (verify locally).",
+  "keywords": [
+    "marylebone",
+    "baker street",
+    "regents park",
+    "bond street",
+    "w1",
+    "nw1",
+    "westminster",
+    "hospital",
+    "a&e"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

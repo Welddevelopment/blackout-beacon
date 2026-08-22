@@ -1,0 +1,16 @@
+{
+  "id": "local-help-points-pimlico",
+  "title": "Pimlico Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency hospital routes, river flood dynamics, urgent care, and supplies for Pimlico.",
+  "content": "For life-threatening emergencies, dial 999 or 112 immediately.\n\n1. Nearest 24-Hour A&E Hospitals:\n- St Thomas' Hospital: Westminster Bridge Road, London SE1 7EH. 24-hour A&E. From Pimlico station: ~25 min walk northeast along Bessborough Street, Millbank, and across Lambeth Bridge (approx. 1.2 miles), or bus 87 from Vauxhall Bridge Road north to Westminster. From Victoria station: bus 11 or 211 east towards Westminster.\n- Chelsea and Westminster Hospital: 369 Fulham Road, London SW10 9NH. 24-hour A&E. From Sloane Square station: ~25 min walk west along King's Road, or bus 11 or 211 towards Fulham.\n- Major Trauma Centre: King's College Hospital, Denmark Hill, SE5 9RS or St George's Hospital, Tooting, SW17 0QT.\n\n2. Urgent Treatment Centres:\n- Chelsea and Westminster Urgent Treatment Centre: 369 Fulham Road, London SW10 9NH. Ground floor triage at main hospital.\n- St Thomas' Urgent Treatment Centre: Westminster Bridge Road, London SE1 7EH. Adjacent to main emergency entrance.\n\n3. Local Hazard Notes:\n- Direct tidal frontage along the River Thames (Grosvenor Road and Millbank). Protected by the Thames Embankment; lower basement flats and low-lying roadways near Vauxhall Bridge Road carry localized tidal backflow and surface water pooling risks.\n\n4. Essential Supplies:\n- Commercial pharmacies and food markets along Warwick Way, Lupus Street, and Wilton Road supply drinking water, bandages, and critical over-the-counter medicine.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "pimlico",
+    "victoria",
+    "sloane square",
+    "sw1",
+    "westminster"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

@@ -1,0 +1,67 @@
+==============================================================================
+  Blackout Beacon — London area briefing, wave 2 — 50 neighbourhood cards
+  model: gemini-3.7-flash
+==============================================================================
+[areas] batch 1/8 (7 areas): camden-town, kings-cross, hampstead, kentish-town, paddington, soho, pimlico
+  local-help-points-camden-town               232w  Camden Town Emergency Help Points
+  local-help-points-kings-cross               208w  King's Cross Emergency Help Points
+  local-help-points-hampstead                 212w  Hampstead Emergency Help Points
+  local-help-points-kentish-town              224w  Kentish Town Emergency Help Points
+  local-help-points-paddington                190w  Paddington Emergency Help Points
+  local-help-points-soho                      227w  Soho Emergency Help Points
+  local-help-points-pimlico                   231w  Pimlico Emergency Help Points
+[areas] batch 2/8 (7 areas): marylebone, shoreditch, dalston, stoke-newington, homerton, brixton, clapham
+  local-help-points-marylebone                227w  Marylebone Emergency Help Points
+  local-help-points-shoreditch                221w  Shoreditch Emergency Help Points
+  local-help-points-dalston                   194w  Dalston Emergency Help Points
+  local-help-points-stoke-newington           199w  Stoke Newington Emergency Help Points
+  local-help-points-homerton                  188w  Homerton Emergency Help Points
+  local-help-points-brixton                   189w  Brixton Emergency Help Points
+  local-help-points-clapham                   206w  Clapham Emergency Help Points
+[areas] batch 3/8 (6 areas): streatham, vauxhall, stratford, east-ham, canning-town, forest-gate
+  local-help-points-streatham                 222w  Streatham Emergency Help Points
+  local-help-points-vauxhall                  210w  Vauxhall Emergency Help Points
+  local-help-points-stratford                 218w  Stratford Emergency Help Points
+  local-help-points-east-ham                  213w  East Ham Emergency Help Points
+  local-help-points-canning-town              201w  Canning Town Emergency Help Points
+  local-help-points-forest-gate               199w  Forest Gate Emergency Help Points
+[areas] batch 4/8 (6 areas): whitechapel, canary-wharf, bethnal-green, peckham, bermondsey, camberwell
+  local-help-points-whitechapel               231w  Whitechapel Emergency Help Points
+  local-help-points-canary-wharf              241w  Canary Wharf Emergency Help Points
+  local-help-points-bethnal-green             226w  Bethnal Green Emergency Help Points
+  local-help-points-peckham                   220w  Peckham Emergency Help Points
+  local-help-points-bermondsey                221w  Bermondsey Emergency Help Points
+  local-help-points-camberwell                204w  Camberwell Emergency Help Points
+[areas] batch 5/8 (6 areas): angel, holloway, finsbury-park, notting-hill, earls-court, chelsea
+  local-help-points-angel                     263w  Angel Emergency Help Points
+  local-help-points-holloway                  259w  Holloway Emergency Help Points
+  local-help-points-finsbury-park             272w  Finsbury Park Emergency Help Points
+  local-help-points-notting-hill              284w  Notting Hill Emergency Help Points
+  local-help-points-earls-court               276w  Earl's Court Emergency Help Points
+  local-help-points-chelsea                   279w  Chelsea Emergency Help Points
+[areas] batch 6/8 (6 areas): battersea, putney, tooting, tottenham, wood-green, crouch-end
+  local-help-points-battersea                 271w  Battersea Emergency Help Points
+  local-help-points-putney                    242w  Putney Emergency Help Points
+  local-help-points-tooting                   225w  Tooting Emergency Help Points
+  local-help-points-tottenham                 233w  Tottenham Emergency Help Points
+  local-help-points-wood-green                242w  Wood Green Emergency Help Points
+  local-help-points-crouch-end                217w  Crouch End Emergency Help Points
+[areas] batch 7/8 (6 areas): deptford, catford, new-cross, crystal-palace, purley, thornton-heath
+  local-help-points-deptford                  246w  Deptford Emergency Help Points
+  local-help-points-catford                   236w  Catford Emergency Help Points
+  local-help-points-new-cross                 236w  New Cross Emergency Help Points
+  local-help-points-crystal-palace            223w  Crystal Palace Emergency Help Points
+  local-help-points-purley                    231w  Purley Emergency Help Points
+  local-help-points-thornton-heath            218w  Thornton Heath Emergency Help Points
+[areas] batch 8/8 (6 areas): acton, southall, ealing-broadway, wembley, kilburn, willesden
+  local-help-points-acton                     216w  Acton Emergency Help Points
+  local-help-points-southall                  196w  Southall Emergency Help Points
+  local-help-points-ealing-broadway           205w  Ealing Broadway Emergency Help Points
+  local-help-points-wembley                   215w  Wembley Emergency Help Points
+  local-help-points-kilburn                   204w  Kilburn Emergency Help Points
+  local-help-points-willesden                 232w  Willesden Emergency Help Points
+------------------------------------------------------------------------------
+[areas] wave 2 complete: 50/50 cards written
+[areas] validated 84 area card files against the Card schema
+[areas] meta.json: card_count=99 area_cards=84 location='London, UK — borough & neighbourhood coverage'
+[areas] no failures
