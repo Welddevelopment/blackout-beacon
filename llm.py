@@ -102,6 +102,39 @@ def _tokens(text):
     return set(_WORD_RE.findall(text.lower()))
 
 
+def _needs_translation(question, lang):
+    """Card text is English; non-English questions would miss every keyword."""
+    if lang and lang != "en":
+        return True
+    non_ascii = sum(1 for ch in question if ord(ch) > 127)
+    return non_ascii > len(question) * 0.3
+
+
+def _translate_for_retrieval(question):
+    """One quick local Gemma call so retrieval sees English. Never raises."""
+    try:
+        body = json.dumps({
+            "model": OLLAMA_MODEL,
+            "messages": [
+                {"role": "system", "content":
+                 "Translate the user's message to English. Output ONLY the "
+                 "English translation - no explanations, no quotes."},
+                {"role": "user", "content": question},
+            ],
+            "stream": False,
+            "think": False,
+        })
+        req = urllib.request.Request(
+            OLLAMA_URL + "/api/chat", data=body.encode("utf-8"),
+            headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        text = (data.get("message") or {}).get("content", "").strip()
+        return text or None
+    except Exception:
+        return None
+
+
 def _score_card(card, q_lower, q_tok):
     score = 0
     for kw in card["keywords"]:
@@ -170,9 +203,20 @@ def select_cards(question, cards=None, k=4, lang=None):
     # Pick exactly one area card: question mention > BEACON_AREA env > generic.
     area_pick = None
     if area:
-        a_scored = sorted(((_score_card(c, q_lower, q_tok), c) for c in area),
+        # Place-name evidence only (keywords + title) — content tokens like
+        # "water"/"hospital" appear in every area card and cause false matches.
+        def _area_score(c):
+            s = 0
+            for kw in c["keywords"]:
+                kw_l = kw.lower().strip()
+                if kw_l and kw_l in q_lower:
+                    s += 5
+                s += 2 * len(_tokens(kw_l) & q_tok)
+            s += 4 * len(_tokens(c["title"]) & q_tok)
+            return s
+        a_scored = sorted(((_area_score(c), c) for c in area),
                           key=lambda pair: -pair[0])
-        if a_scored[0][0] > 0:
+        if a_scored[0][0] >= 5:
             area_pick = a_scored[0][1]
         else:
             default_slug = os.environ.get("BEACON_AREA", "kensington-chelsea")
@@ -311,7 +355,12 @@ def ask_stream(question, lang="en", k=4):
     try:
         _assert_loopback(OLLAMA_URL)
         cards = load_cards()
-        picked = select_cards(question, cards, k=k, lang=lang)
+        retrieval_q = question
+        if _needs_translation(question, lang):
+            translated = _translate_for_retrieval(question)
+            if translated:
+                retrieval_q = question + "\n" + translated
+        picked = select_cards(retrieval_q, cards, k=k, lang=lang)
         yield ("start", {"cards": [{"id": c["id"], "title": c["title"]} for c in picked]})
 
         body = json.dumps({
