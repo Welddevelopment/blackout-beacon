@@ -1,0 +1,89 @@
+==============================================================================
+  Blackout Beacon — London area briefing, wave 3 — 70 district cards
+  model: gemini-3.7-flash
+==============================================================================
+[areas] batch 1/10 (7 areas): barking, dagenham, becontree, golders-green, finchley, hendon, edgware
+  local-help-points-barking                   241w  Barking Emergency Help Points
+  local-help-points-dagenham                  227w  Dagenham Emergency Help Points
+  local-help-points-becontree                 198w  Becontree Emergency Help Points
+  local-help-points-golders-green             235w  Golders Green Emergency Help Points
+  local-help-points-finchley                  233w  Finchley Emergency Help Points
+  local-help-points-hendon                    224w  Hendon Emergency Help Points
+  local-help-points-edgware                   229w  Edgware Emergency Help Points
+[areas] batch 2/10 (7 areas): mill-hill, bexleyheath, sidcup, erith, welling, bromley-town, orpington
+  local-help-points-mill-hill                 250w  Mill Hill Emergency Help Points
+  local-help-points-bexleyheath               251w  Bexleyheath Emergency Help Points
+  local-help-points-sidcup                    233w  Sidcup Emergency Help Points
+  local-help-points-erith                     237w  Erith Emergency Help Points
+  local-help-points-welling                   231w  Welling Emergency Help Points
+  local-help-points-bromley-town              214w  Bromley Town Emergency Help Points
+  local-help-points-orpington                 226w  Orpington Emergency Help Points
+[areas] batch 3/10 (7 areas): beckenham, penge, enfield-town, edmonton, palmers-green, southgate, woolwich
+  local-help-points-beckenham                 244w  Beckenham Emergency Help Points
+  local-help-points-penge                     235w  Penge Emergency Help Points
+  local-help-points-enfield-town              229w  Enfield Town Emergency Help Points
+  local-help-points-edmonton                  231w  Edmonton Emergency Help Points
+  local-help-points-palmers-green             249w  Palmers Green Emergency Help Points
+  local-help-points-southgate                 241w  Southgate Emergency Help Points
+  local-help-points-woolwich                  255w  Woolwich Emergency Help Points
+[areas] batch 4/10 (7 areas): eltham, charlton, thamesmead, hammersmith, fulham, shepherds-bush, harrow-on-the-hill
+  local-help-points-eltham                    275w  Eltham Emergency Help Points
+  local-help-points-charlton                  232w  Charlton Emergency Help Points
+  local-help-points-thamesmead                237w  Thamesmead Emergency Help Points
+  local-help-points-hammersmith               258w  Hammersmith Emergency Help Points
+  local-help-points-fulham                    241w  Fulham Emergency Help Points
+  local-help-points-shepherds-bush            263w  Shepherd's Bush Emergency Help Points
+  local-help-points-harrow-on-the-hill        274w  Harrow on the Hill Emergency Help Points
+[areas] batch 5/10 (7 areas): wealdstone, pinner, romford, hornchurch, upminster, rainham, uxbridge
+  local-help-points-wealdstone                235w  Wealdstone Emergency Help Points
+  local-help-points-pinner                    228w  Pinner Emergency Help Points
+  local-help-points-romford                   222w  Romford Emergency Help Points
+  local-help-points-hornchurch                215w  Hornchurch Emergency Help Points
+  local-help-points-upminster                 212w  Upminster Emergency Help Points
+  local-help-points-rainham                   216w  Rainham Emergency Help Points
+  local-help-points-uxbridge                  219w  Uxbridge Emergency Help Points
+[areas] batch 6/10 (7 areas): hayes, ruislip, west-drayton, hounslow-west, chiswick, brentford, feltham
+  local-help-points-hayes                     214w  Hayes Emergency Help Points
+  local-help-points-ruislip                   237w  Ruislip Emergency Help Points
+  local-help-points-west-drayton              188w  West Drayton Emergency Help Points
+  local-help-points-hounslow-west             201w  Hounslow West Emergency Help Points
+  local-help-points-chiswick                  218w  Chiswick Emergency Help Points
+  local-help-points-brentford                 192w  Brentford Emergency Help Points
+  local-help-points-feltham                   207w  Feltham Emergency Help Points
+[areas] batch 7/10 (7 areas): surbiton, new-malden, chessington, wimbledon, mitcham, morden, colliers-wood
+  local-help-points-surbiton                  207w  Surbiton Emergency Help Points
+  local-help-points-new-malden                213w  New Malden Emergency Help Points
+  local-help-points-chessington               200w  Chessington Emergency Help Points
+  local-help-points-wimbledon                 206w  Wimbledon Emergency Help Points
+  local-help-points-mitcham                   215w  Mitcham Emergency Help Points
+  local-help-points-morden                    195w  Morden Emergency Help Points
+  local-help-points-colliers-wood             209w  Colliers Wood Emergency Help Points
+[areas] batch 8/10 (7 areas): ilford, wanstead, woodford, twickenham, teddington, kew, barnes
+  local-help-points-ilford                    230w  Ilford Emergency Help Points
+  local-help-points-wanstead                  191w  Wanstead Emergency Help Points
+  local-help-points-woodford                  201w  Woodford Emergency Help Points
+  local-help-points-twickenham                204w  Twickenham Emergency Help Points
+  local-help-points-teddington                201w  Teddington Emergency Help Points
+  local-help-points-kew                       206w  Kew Emergency Help Points
+  local-help-points-barnes                    208w  Barnes Emergency Help Points
+[areas] batch 9/10 (7 areas): cheam, carshalton, wallington, walthamstow, leyton, chingford, leytonstone
+  local-help-points-cheam                     218w  Cheam Emergency Help Points
+  local-help-points-carshalton                188w  Carshalton Emergency Help Points
+  local-help-points-wallington                191w  Wallington Emergency Help Points
+  local-help-points-walthamstow               185w  Walthamstow Emergency Help Points
+  local-help-points-leyton                    195w  Leyton Emergency Help Points
+  local-help-points-chingford                 185w  Chingford Emergency Help Points
+  local-help-points-leytonstone               186w  Leytonstone Emergency Help Points
+[areas] batch 10/10 (7 areas): highgate, st-johns-wood, kennington, dulwich, elephant-and-castle, balham, muswell-hill
+  local-help-points-highgate                  186w  Highgate Emergency Help Points
+  local-help-points-st-johns-wood             175w  St John's Wood Emergency Help Points
+  local-help-points-kennington                180w  Kennington Emergency Help Points
+  local-help-points-dulwich                   178w  Dulwich Emergency Help Points
+  local-help-points-elephant-and-castle       185w  Elephant and Castle Emergency Help Points
+  local-help-points-balham                    149w  Balham Emergency Help Points
+  local-help-points-muswell-hill              191w  Muswell Hill Emergency Help Points
+------------------------------------------------------------------------------
+[areas] wave 3 complete: 70/70 cards written
+[areas] validated 154 area card files against the Card schema
+[areas] meta.json: card_count=169 area_cards=154 location='London, UK — borough & neighbourhood coverage'
+[areas] no failures

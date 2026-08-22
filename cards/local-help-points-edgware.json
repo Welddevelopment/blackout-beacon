@@ -1,0 +1,20 @@
+{
+  "id": "local-help-points-edgware",
+  "title": "Edgware Emergency Help Points",
+  "category": "local",
+  "summary": "Emergency hospitals, urgent care, hazards, and supply points for Edgware, Burnt Oak, and Canons Park.",
+  "content": "For life-threatening emergencies, always call 999 immediately.\n\n1. Nearest 24-hour A&E Hospitals:\n- Barnet Hospital: Wellhouse Lane, Barnet EN5 3DJ. Full 24-hour A&E. From Edgware Station: ~4.5 miles northeast via A410 / A1 / Wood Street, or bus 107 direct to Barnet Hospital.\n- Northwick Park Hospital: Watford Road, Harrow HA1 3UJ. 24-hour A&E and acute trauma services. From Canons Park Station: ~4 miles southwest via A4140 / Watford Road, or bus 186 / 79 towards Harrow.\n- Royal Free Hospital: Pond Street, Hampstead NW3 2QG. 24-hour A&E reachable south down the A41 / Northern line.\n\n2. Urgent Treatment Centres:\n- Edgware Community Hospital Walk-in Centre: Burnt Oak Broadway, Edgware HA8 0AD. From Burnt Oak Station: ~8 min walk north along Burnt Oak Broadway (~0.4 miles). From Edgware Station: ~15 min walk south along High Street / Burnt Oak Broadway (~0.8 miles), or bus 32 / 142 / 288.\n\n3. Local Hazards & Flood Risks:\n- The Silk Stream and Edgware Brook converge near Edgware and Burnt Oak; heavy rain creates surface flooding risks across low points on the A5 corridor and local rail underpasses.\n\n4. Supplies & Essentials:\n- Pharmacies, chemists, and large supermarkets along Edgware Station Road, Broadwalk Shopping Centre, and Burnt Oak Broadway provide clean water, sanitary items, first-aid equipment, and medications.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "edgware",
+    "burnt oak",
+    "canons park",
+    "ha8",
+    "barnet",
+    "edgware brook",
+    "silk stream",
+    "a&e",
+    "urgent care"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

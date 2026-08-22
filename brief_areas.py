@@ -421,6 +421,192 @@ NEIGHBOURHOODS: List[dict] = [
 WAVE2_CAP = 50
 assert len(NEIGHBOURHOODS) <= WAVE2_CAP, "wave 2 exceeds the 50-card cap"
 
+# --------------------------------------------------------------------------
+# WAVE 3 — full district-level coverage: ~70 further districts, prioritising
+# (a) boroughs with zero wave-2 neighbourhood cards, (b) district names
+# people actually say. Same schema/prompt machinery as wave 2.
+# --------------------------------------------------------------------------
+
+WAVE3_DISTRICTS: List[dict] = [
+    # Barking and Dagenham (3)
+    {"slug": "barking", "name": "Barking", "borough": "Barking and Dagenham",
+     "stations": ["barking", "upney"], "postcodes": ["ig11"]},
+    {"slug": "dagenham", "name": "Dagenham", "borough": "Barking and Dagenham",
+     "stations": ["dagenham heathway", "dagenham east", "dagenham dock"],
+     "postcodes": ["rm9", "rm10"]},
+    {"slug": "becontree", "name": "Becontree", "borough": "Barking and Dagenham",
+     "stations": ["becontree", "chadwell heath"], "postcodes": ["rm8", "rm9"]},
+    # Barnet (5)
+    {"slug": "golders-green", "name": "Golders Green", "borough": "Barnet",
+     "stations": ["golders green", "brent cross"], "postcodes": ["nw11"]},
+    {"slug": "finchley", "name": "Finchley", "borough": "Barnet",
+     "stations": ["finchley central", "east finchley", "west finchley"],
+     "postcodes": ["n3", "n2", "n12"]},
+    {"slug": "hendon", "name": "Hendon", "borough": "Barnet",
+     "stations": ["hendon", "hendon central", "colindale"], "postcodes": ["nw4", "nw9"]},
+    {"slug": "edgware", "name": "Edgware", "borough": "Barnet",
+     "stations": ["edgware", "burnt oak", "canons park"], "postcodes": ["ha8"]},
+    {"slug": "mill-hill", "name": "Mill Hill", "borough": "Barnet",
+     "stations": ["mill hill broadway", "mill hill east"], "postcodes": ["nw7"]},
+    # Bexley (4)
+    {"slug": "bexleyheath", "name": "Bexleyheath", "borough": "Bexley",
+     "stations": ["bexleyheath", "barnehurst"], "postcodes": ["da6", "da7"]},
+    {"slug": "sidcup", "name": "Sidcup", "borough": "Bexley",
+     "stations": ["sidcup", "albany park"], "postcodes": ["da14", "da15"]},
+    {"slug": "erith", "name": "Erith", "borough": "Bexley",
+     "stations": ["erith", "slade green"], "postcodes": ["da8"]},
+    {"slug": "welling", "name": "Welling", "borough": "Bexley",
+     "stations": ["welling", "falconwood"], "postcodes": ["da16"]},
+    # Bromley (4)
+    {"slug": "bromley-town", "name": "Bromley Town", "borough": "Bromley",
+     "stations": ["bromley south", "bromley north"], "postcodes": ["br1", "br2"]},
+    {"slug": "orpington", "name": "Orpington", "borough": "Bromley",
+     "stations": ["orpington", "petts wood"], "postcodes": ["br5", "br6"]},
+    {"slug": "beckenham", "name": "Beckenham", "borough": "Bromley",
+     "stations": ["beckenham junction", "clock house", "eden park"], "postcodes": ["br3"]},
+    {"slug": "penge", "name": "Penge", "borough": "Bromley",
+     "stations": ["penge east", "penge west", "anerley"], "postcodes": ["se20"]},
+    # Enfield (4)
+    {"slug": "enfield-town", "name": "Enfield Town", "borough": "Enfield",
+     "stations": ["enfield town", "enfield chase", "bush hill park"],
+     "postcodes": ["en1", "en2"]},
+    {"slug": "edmonton", "name": "Edmonton", "borough": "Enfield",
+     "stations": ["edmonton green", "silver street"], "postcodes": ["n9", "n18"]},
+    {"slug": "palmers-green", "name": "Palmers Green", "borough": "Enfield",
+     "stations": ["palmers green"], "postcodes": ["n13"]},
+    {"slug": "southgate", "name": "Southgate", "borough": "Enfield",
+     "stations": ["southgate", "arnos grove", "oakwood"], "postcodes": ["n14"]},
+    # Greenwich (4)
+    {"slug": "woolwich", "name": "Woolwich", "borough": "Greenwich",
+     "stations": ["woolwich arsenal", "woolwich dockyard"], "postcodes": ["se18"]},
+    {"slug": "eltham", "name": "Eltham", "borough": "Greenwich",
+     "stations": ["eltham", "mottingham", "new eltham"], "postcodes": ["se9"]},
+    {"slug": "charlton", "name": "Charlton", "borough": "Greenwich",
+     "stations": ["charlton"], "postcodes": ["se7"]},
+    {"slug": "thamesmead", "name": "Thamesmead", "borough": "Greenwich",
+     "stations": ["abbey wood", "plumstead"], "postcodes": ["se28", "se2"]},
+    # Hammersmith and Fulham (3)
+    {"slug": "hammersmith", "name": "Hammersmith", "borough": "Hammersmith and Fulham",
+     "stations": ["hammersmith", "ravenscourt park"], "postcodes": ["w6"]},
+    {"slug": "fulham", "name": "Fulham", "borough": "Hammersmith and Fulham",
+     "stations": ["fulham broadway", "parsons green", "putney bridge"],
+     "postcodes": ["sw6"]},
+    {"slug": "shepherds-bush", "name": "Shepherd's Bush", "borough": "Hammersmith and Fulham",
+     "stations": ["shepherds bush", "shepherds bush market", "white city", "wood lane"],
+     "postcodes": ["w12"]},
+    # Harrow (3)
+    {"slug": "harrow-on-the-hill", "name": "Harrow on the Hill", "borough": "Harrow",
+     "stations": ["harrow on the hill", "harrow and wealdstone"], "postcodes": ["ha1"]},
+    {"slug": "wealdstone", "name": "Wealdstone", "borough": "Harrow",
+     "stations": ["harrow and wealdstone", "kenton"], "postcodes": ["ha3"]},
+    {"slug": "pinner", "name": "Pinner", "borough": "Harrow",
+     "stations": ["pinner", "north harrow"], "postcodes": ["ha5"]},
+    # Havering (4)
+    {"slug": "romford", "name": "Romford", "borough": "Havering",
+     "stations": ["romford", "gidea park"], "postcodes": ["rm1", "rm2"]},
+    {"slug": "hornchurch", "name": "Hornchurch", "borough": "Havering",
+     "stations": ["hornchurch", "elm park", "upminster bridge"],
+     "postcodes": ["rm11", "rm12"]},
+    {"slug": "upminster", "name": "Upminster", "borough": "Havering",
+     "stations": ["upminster", "upminster bridge"], "postcodes": ["rm14"]},
+    {"slug": "rainham", "name": "Rainham", "borough": "Havering",
+     "stations": ["rainham"], "postcodes": ["rm13"]},
+    # Hillingdon (4)
+    {"slug": "uxbridge", "name": "Uxbridge", "borough": "Hillingdon",
+     "stations": ["uxbridge", "hillingdon"], "postcodes": ["ub8", "ub10"]},
+    {"slug": "hayes", "name": "Hayes", "borough": "Hillingdon",
+     "stations": ["hayes and harlington"], "postcodes": ["ub3", "ub4"]},
+    {"slug": "ruislip", "name": "Ruislip", "borough": "Hillingdon",
+     "stations": ["ruislip", "ruislip manor", "eastcote", "south ruislip"],
+     "postcodes": ["ha4"]},
+    {"slug": "west-drayton", "name": "West Drayton", "borough": "Hillingdon",
+     "stations": ["west drayton"], "postcodes": ["ub7"]},
+    # Hounslow (4)
+    {"slug": "hounslow-west", "name": "Hounslow West", "borough": "Hounslow",
+     "stations": ["hounslow west", "hounslow central", "hounslow east"],
+     "postcodes": ["tw3", "tw4"]},
+    {"slug": "chiswick", "name": "Chiswick", "borough": "Hounslow",
+     "stations": ["chiswick park", "turnham green", "gunnersbury"], "postcodes": ["w4"]},
+    {"slug": "brentford", "name": "Brentford", "borough": "Hounslow",
+     "stations": ["brentford", "syon lane"], "postcodes": ["tw8"]},
+    {"slug": "feltham", "name": "Feltham", "borough": "Hounslow",
+     "stations": ["feltham", "hanworth"], "postcodes": ["tw13", "tw14"]},
+    # Kingston upon Thames (3)
+    {"slug": "surbiton", "name": "Surbiton", "borough": "Kingston upon Thames",
+     "stations": ["surbiton", "berrylands"], "postcodes": ["kt5", "kt6"]},
+    {"slug": "new-malden", "name": "New Malden", "borough": "Kingston upon Thames",
+     "stations": ["new malden", "motspur park"], "postcodes": ["kt3"]},
+    {"slug": "chessington", "name": "Chessington", "borough": "Kingston upon Thames",
+     "stations": ["chessington north", "chessington south", "tolworth"],
+     "postcodes": ["kt9"]},
+    # Merton (4)
+    {"slug": "wimbledon", "name": "Wimbledon", "borough": "Merton",
+     "stations": ["wimbledon", "south wimbledon", "wimbledon park"],
+     "postcodes": ["sw19"]},
+    {"slug": "mitcham", "name": "Mitcham", "borough": "Merton",
+     "stations": ["mitcham", "mitcham junction", "mitcham eastfields"],
+     "postcodes": ["cr4"]},
+    {"slug": "morden", "name": "Morden", "borough": "Merton",
+     "stations": ["morden", "morden south", "st helier"], "postcodes": ["sm4"]},
+    {"slug": "colliers-wood", "name": "Colliers Wood", "borough": "Merton",
+     "stations": ["colliers wood"], "postcodes": ["sw19"]},
+    # Redbridge (3)
+    {"slug": "ilford", "name": "Ilford", "borough": "Redbridge",
+     "stations": ["ilford", "seven kings", "goodmayes"], "postcodes": ["ig1", "ig3"]},
+    {"slug": "wanstead", "name": "Wanstead", "borough": "Redbridge",
+     "stations": ["wanstead", "snaresbrook"], "postcodes": ["e11"]},
+    {"slug": "woodford", "name": "Woodford", "borough": "Redbridge",
+     "stations": ["woodford", "south woodford", "woodford green"],
+     "postcodes": ["ig8", "e18"]},
+    # Richmond upon Thames (4)
+    {"slug": "twickenham", "name": "Twickenham", "borough": "Richmond upon Thames",
+     "stations": ["twickenham", "strawberry hill", "st margarets"],
+     "postcodes": ["tw1", "tw2"]},
+    {"slug": "teddington", "name": "Teddington", "borough": "Richmond upon Thames",
+     "stations": ["teddington", "hampton wick"], "postcodes": ["tw11"]},
+    {"slug": "kew", "name": "Kew", "borough": "Richmond upon Thames",
+     "stations": ["kew gardens", "kew bridge"], "postcodes": ["tw9"]},
+    {"slug": "barnes", "name": "Barnes", "borough": "Richmond upon Thames",
+     "stations": ["barnes", "barnes bridge", "mortlake"], "postcodes": ["sw13", "sw14"]},
+    # Sutton (3)
+    {"slug": "cheam", "name": "Cheam", "borough": "Sutton",
+     "stations": ["cheam"], "postcodes": ["sm3", "sm2"]},
+    {"slug": "carshalton", "name": "Carshalton", "borough": "Sutton",
+     "stations": ["carshalton", "carshalton beeches"], "postcodes": ["sm5"]},
+    {"slug": "wallington", "name": "Wallington", "borough": "Sutton",
+     "stations": ["wallington", "hackbridge"], "postcodes": ["sm6"]},
+    # Waltham Forest (4)
+    {"slug": "walthamstow", "name": "Walthamstow", "borough": "Waltham Forest",
+     "stations": ["walthamstow central", "walthamstow queens road",
+                  "st james street", "blackhorse road"], "postcodes": ["e17"]},
+    {"slug": "leyton", "name": "Leyton", "borough": "Waltham Forest",
+     "stations": ["leyton", "leyton midland road"], "postcodes": ["e10"]},
+    {"slug": "chingford", "name": "Chingford", "borough": "Waltham Forest",
+     "stations": ["chingford", "highams park"], "postcodes": ["e4"]},
+    {"slug": "leytonstone", "name": "Leytonstone", "borough": "Waltham Forest",
+     "stations": ["leytonstone", "leytonstone high road"], "postcodes": ["e11"]},
+    # Well-known gaps in already-covered boroughs (7)
+    {"slug": "highgate", "name": "Highgate", "borough": "Camden",
+     "stations": ["highgate", "archway", "gospel oak"], "postcodes": ["n6", "n19"]},
+    {"slug": "st-johns-wood", "name": "St John's Wood", "borough": "Westminster",
+     "stations": ["st johns wood", "maida vale", "swiss cottage"], "postcodes": ["nw8"]},
+    {"slug": "kennington", "name": "Kennington", "borough": "Lambeth",
+     "stations": ["kennington", "oval"], "postcodes": ["se11"]},
+    {"slug": "dulwich", "name": "Dulwich", "borough": "Southwark",
+     "stations": ["north dulwich", "east dulwich", "west dulwich"],
+     "postcodes": ["se21", "se22"]},
+    {"slug": "elephant-and-castle", "name": "Elephant and Castle", "borough": "Southwark",
+     "stations": ["elephant and castle", "borough"], "postcodes": ["se1", "se17"]},
+    {"slug": "balham", "name": "Balham", "borough": "Wandsworth",
+     "stations": ["balham"], "postcodes": ["sw12"]},
+    {"slug": "muswell-hill", "name": "Muswell Hill", "borough": "Haringey",
+     "stations": ["highgate", "alexandra palace", "east finchley"], "postcodes": ["n10"]},
+]
+
+_all_slugs = ([s["slug"] for s in BOROUGHS] + [s["slug"] for s in NEIGHBOURHOODS]
+              + [s["slug"] for s in WAVE3_DISTRICTS])
+assert len(_all_slugs) == len(set(_all_slugs)), "duplicate area slug across waves"
+
 
 # --------------------------------------------------------------------------
 # Prompt builders
@@ -671,8 +857,8 @@ def validate_area_files() -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="London area-card briefing")
-    parser.add_argument("--wave", type=int, choices=(1, 2), required=True,
-                        help="1 = boroughs, 2 = neighbourhoods")
+    parser.add_argument("--wave", type=int, choices=(1, 2, 3), required=True,
+                        help="1 = boroughs, 2 = neighbourhoods, 3 = full district coverage")
     args = parser.parse_args()
 
     api_key = load_api_key()
@@ -690,9 +876,12 @@ def main() -> int:
 
     if args.wave == 1:
         label, specs, prompt_fn = "wave 1 — 33 borough cards", BOROUGHS, borough_prompt
-    else:
+    elif args.wave == 2:
         label, specs, prompt_fn = (f"wave 2 — {len(NEIGHBOURHOODS)} neighbourhood cards",
                                    NEIGHBOURHOODS, neighbourhood_prompt)
+    else:
+        label, specs, prompt_fn = (f"wave 3 — {len(WAVE3_DISTRICTS)} district cards",
+                                   WAVE3_DISTRICTS, neighbourhood_prompt)
 
     print("=" * 78)
     print(f"  Blackout Beacon — London area briefing, {label}")

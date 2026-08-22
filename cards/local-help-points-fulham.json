@@ -1,0 +1,18 @@
+{
+  "id": "local-help-points-fulham",
+  "title": "Fulham Emergency Help Points",
+  "category": "local",
+  "summary": "Offline emergency medical, travel, and hazard information for Fulham and SW6.",
+  "content": "For life-threatening emergencies, dial 999 or 112 immediately. During power cuts call 105; for gas leaks call 0800 111 999.\n\n1. Nearest 24-Hour A&E Hospitals:\n- Chelsea and Westminster Hospital: 369 Fulham Road, Chelsea, SW10 9NH. From Fulham Broadway station: ~15 min walk east along Fulham Road (A304) (~0.7 miles), or bus 14, 211, or 414.\n- Charing Cross Hospital: Fulham Palace Road, Hammersmith, W6 8RF. From Putney Bridge station: ~20 min walk north along Fulham Palace Road (A219) (~1 mile), or bus 220 or 430.\n- St George's Hospital (Major Trauma Centre): Blackshaw Road, Tooting, SW17 0QT. From Putney Bridge: ~4.5 miles south across Putney Bridge via A219/A214.\n\n2. Urgent Treatment Centres:\n- Parsons Green Walk-in Centre: 5-7 Parsons Green, SW6 4UL. From Parsons Green station: ~2 min walk north-east across Parsons Green lane.\n- Chelsea and Westminster Urgent Treatment Centre: 369 Fulham Road, SW10 9NH (integrated with main emergency department).\n\n3. Local Hazard Notes:\n- Fulham is enclosed on three sides by the River Thames. Riverside embankments along Fulham Reach, Hurlingham, and Sands End sit in low-lying tidal flood plain zones.\n- Bridges across the Thames (Putney Bridge, Wandsworth Bridge) represent key choke points in transport outages.\n\n4. Essential Supplies:\nPharmacies and retail supermarkets along Fulham Road, North End Road, and Fulham Broadway supply first-aid provisions, hygiene items, and packaged drinking water during network outages.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
+  "keywords": [
+    "fulham",
+    "fulham broadway",
+    "parsons green",
+    "putney bridge",
+    "sw6",
+    "chelsea and westminster",
+    "hammersmith and fulham"
+  ],
+  "lang": "en",
+  "source": "gemini"
+}

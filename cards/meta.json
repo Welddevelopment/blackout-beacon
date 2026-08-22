@@ -1,7 +1,7 @@
 {
-  "briefed_at": "2026-08-22T14:32:03.195776+00:00",
+  "briefed_at": "2026-08-22T14:38:53.644311+00:00",
   "location": "London, UK — borough & neighbourhood coverage",
   "briefing_model": "gemini-3.7-flash",
-  "card_count": 99,
-  "area_cards": 84
+  "card_count": 169,
+  "area_cards": 154
 }
