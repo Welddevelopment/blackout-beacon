@@ -1,19 +1,19 @@
 {
   "id": "emergency-numbers",
-  "title": "UK Emergency Numbers and Contacts",
+  "title": "UK Emergency and Essential Numbers",
   "category": "comms",
-  "summary": "Essential emergency phone numbers and reporting procedures in the United Kingdom.",
-  "content": "1. LIFE-THREATENING EMERGENCIES (999 or 112): Call 999 or 112 immediately for severe medical emergencies, fires, crimes in progress, or threats to life. Both numbers are free, operate 24/7, and connect across any mobile network even without SIM credit or local network signal.\n\n2. SILENT SOLUTION (55): If calling 999 from a mobile and speaking would put you in danger, stay on the line until prompted, then press 55. This alerts the police dispatcher that you are in real danger without you having to speak.\n\n3. URGENT MEDICAL ADVICE (NHS 111): Dial 111 or visit 111.nhs.uk (if internet is working) for urgent but non-life-threatening health concerns. Qualified advisors direct you to out-of-hours GPs, urgent treatment centres, or emergency care.\n\n4. POWER CUTS (105): Call 105 to report electricity loss or damage to power lines. It connects automatically to your local distribution network operator (UK Power Networks covers London - verify locally).\n\n5. GAS EMERGENCY (0800 111 999): Call immediately if you smell gas. Extinguish flames, open windows, do not touch electrical switches, and evacuate.\n\n6. POLICE NON-EMERGENCY (101): Call 101 to report non-urgent crimes, minor damage, or pass non-urgent information.\n\n7. FLOODLINE (0345 988 1188): Call for 24-hour flood warnings, live river updates, and local flood advice.\n\n8. EMERGENCY SMS (TEXT 999): Deaf, hard-of-hearing, or speech-impaired individuals can text 999. You must register in advance by sending the word 'register' via SMS to 999 and following the automated reply instructions.",
+  "summary": "Core UK emergency and public utility telephone numbers for immediate assistance during a crisis.",
+  "content": "Keep these official UK emergency numbers accessible offline:\n\n1. 999 and 112 (Emergency Services):\n- Call for immediate life-threatening situations, crimes in progress, severe medical emergencies, or active fires.\n- Both numbers are free, operate on any mobile network even with zero credit, and connect even if your carrier shows no signal (emergency roaming).\n- Silent Solution: If you are in danger, dial 999 and cannot speak, listen to the call handler and press '55' when prompted to alert police without making noise.\n- emergencySMS: Deaf or speech-impaired users can text 999 in an emergency. You must register in advance by texting 'register' to 999.\n\n2. NHS 111 (Urgent Medical Advice):\n- Call 111 or visit 111.nhs.uk (if internet is available) for urgent medical advice when life is not in immediate danger.\n- Free from landlines and mobiles, open 24 hours a day, 7 days a week.\n\n3. 105 (Power Cut & Electricity Emergency):\n- Call 105 to report power cuts or damaged electrical power lines.\n- Routes automatically to your local network operator (UK Power Networks covers London).\n\n4. 0800 111 999 (National Gas Emergency):\n- Call immediately if you smell natural gas, suspect a leak, or suspect carbon monoxide poisoning.\n- Do not touch light switches, open windows and doors, and evacuate.\n\n5. 101 (Non-Emergency Police):\n- Call to report minor crimes, past incidents, or non-urgent safety concerns.\n\n6. 0345 988 1188 (Floodline):\n- Call for live flood warnings and immediate flood preparedness advice.",
   "keywords": [
+    "emergency numbers",
     "999",
     "112",
-    "111",
+    "nhs 111",
     "105",
-    "silent solution 55",
     "gas leak",
     "power cut",
-    "emergency numbers",
-    "floodline"
+    "police",
+    "silent solution"
   ],
   "lang": "en",
   "source": "gemini"

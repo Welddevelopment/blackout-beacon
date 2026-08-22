@@ -1,19 +1,18 @@
 {
   "id": "choking-cpr",
-  "title": "Choking and CPR Procedures",
+  "title": "Choking, CPR, and Defibrillator (AED) Guide",
   "category": "medical",
-  "summary": "Stepwise procedures for adult and infant choking, cardiopulmonary resuscitation (CPR), and defibrillator (AED) use.",
-  "content": "1. ADULT CHOKING:\n- Encourage coughing if the casualty can breathe or speak.\n- If airway is completely blocked: Stand to the side and slightly behind. Support their chest with one hand, lean them forward, and deliver up to 5 sharp back blows between the shoulder blades with the heel of your hand.\n- If unresolved, deliver up to 5 abdominal thrusts: Stand behind, place a fist above their navel, grasp with your other hand, and pull inward and upward sharply.\n- Alternate 5 back blows and 5 abdominal thrusts. Call 999 immediately if obstruction persists. If the casualty loses consciousness, start CPR.\n\n2. INFANT CHOKING (UNDER 1 YEAR):\n- Lay infant face down along your forearm, supporting their head and jaw with your hand.\n- Deliver up to 5 gentle back blows between the shoulder blades.\n- If unresolved, turn infant face up along your arm and give up to 5 chest thrusts using two fingers on the centre of the breastbone (compress 1/3 of chest depth). Never perform abdominal thrusts on infants.\n\n3. ADULT CPR:\n- Call 999 and put phone on speaker. Send someone to find a public defibrillator (AED).\n- Place heel of one hand on centre of casualty's chest, interlock fingers of other hand on top.\n- Press hard and fast: 5 to 6 cm deep at a rate of 100-120 beats per minute (to the beat of 'Stayin' Alive').\n- Give 30 compressions followed by 2 rescue breaths (tilt head, pinch nose, blow until chest rises). If untrained or unable to give breaths, deliver hands-only continuous compressions.\n\n4. PUBLIC DEFIBRILLATOR (AED): Open device lid or press power. Follow spoken voice prompts precisely. Attach pads to bare chest as illustrated. The AED will only deliver a shock if medically needed.",
+  "summary": "Immediate life-saving actions for adult and infant choking, chest compressions, and AED operation.",
+  "content": "1. Adult Choking:\n- Encourage coughing if the person can breathe or speak.\n- If coughing fails or airway is blocked: Lean the person forward. Give up to 5 sharp back blows between the shoulder blades with the heel of your hand.\n- If still blocked: Stand behind them, place a fist above their navel, grasp with your other hand, and pull sharply inwards and upwards (5 abdominal thrusts).\n- Alternate 5 back blows and 5 abdominal thrusts. Call 999 immediately if obstruction does not clear.\n\n2. Infant Choking (Under 1 Year):\n- Lay infant face-down along your forearm with head lower than chest.\n- Give up to 5 gentle back blows with the heel of your hand.\n- Turn infant face-up. Give up to 5 chest thrusts using two fingers on the centre of the chest. Never perform abdominal thrusts on infants.\n\n3. Adult CPR:\n- If unresponsive and not breathing normally, call 999 and request a defibrillator.\n- Place the heel of your hand in the centre of the chest, interlock your other hand on top, and lock elbows.\n- Compress the chest 5 to 6 cm deep at a rate of 100-120 beats per minute (to the rhythm of 'Stayin' Alive').\n- Give 30 compressions followed by 2 rescue breaths. If untrained in rescue breaths, deliver continuous hands-only CPR compressions without stopping.\n\n4. Public Access Defibrillator (AED):\n- Open or turn on the AED. Voice prompts will guide you.\n- Pull peel-off pads and stick them to bare, dry skin exactly as pictured on the pads.\n- Stop CPR and do not touch the patient while the machine analyses heart rhythm.\n- Press the flashing shock button only if instructed by the machine. Resume CPR immediately after shock.",
   "keywords": [
-    "choking",
     "cpr",
+    "choking",
     "defibrillator",
     "aed",
-    "back blows",
-    "chest compressions",
-    "heimlich",
-    "infant choking",
-    "heart attack"
+    "cardiac arrest",
+    "not breathing",
+    "heart attack",
+    "chest compressions"
   ],
   "lang": "en",
   "source": "gemini"

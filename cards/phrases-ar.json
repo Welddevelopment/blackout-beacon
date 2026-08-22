@@ -2,17 +2,17 @@
   "id": "phrases-ar",
   "title": "Emergency Phrases: English <-> Arabic",
   "category": "language",
-  "summary": "Essential English-Arabic bilingual communication card to point at or read during an emergency.",
-  "content": "Show this card on screen and point directly to the text if you cannot understand each other verbally.\n\n1. EN: Help! Please help me. | AR: !ساعدوني! الرجاء مساعدتي (Saa'idooni! Ar-rajaa' musaa'adati)\n2. EN: I need an ambulance and the police. | AR: أحتاج إلى سيارة إسعاف والشرطة (Ahtaaju ilaa sayyarat is'aaf wash-shurtah)\n3. EN: I am hurt / injured. | AR: أنا مصاب [male] / أنا مصابة [female] (Ana musaab / Ana musaabah)\n4. EN: I have a medical condition (diabetes / heart condition). | AR: لدي حالة طبية (مرض السكري / مشكلة في القلب) (Ladayya haalah tibbiyyah: marad as-sukkari / mushkilah fil-qalb)\n5. EN: Where is the nearest hospital? | AR: أين أقرب مستشفى؟ (Ayna aqrab mustashfa?)\n6. EN: I need clean drinking water and food. | AR: أحتاج إلى ماء صالح للشرب وطعام (Ahtaaju ilaa maa' saalih lish-shurb wa ta'aam)\n7. EN: The power and electricity are out. | AR: انقطعت الكهرباء (Inqata'at al-kahrabaa')\n8. EN: Is this water safe to drink? | AR: هل هذا الماء صالح للشرب؟ (Hal hatha al-maa' saalih lish-shurb?)\n9. EN: I need my medication immediately. | AR: أحتاج إلى دوائي فوراً (Ahtaaju ilaa dawaa'ee fawran)\n10. EN: Do you speak English or Arabic? | AR: هل تتحدث الإنجليزية أو العربية؟ (Hal tatahaddath al-ingleeziyyah aw al-arabiyyah?)\n\nTip for responders and residents: Speak slowly and clearly. Point to specific phrases, use deliberate hand gestures, point to painful areas or empty medication boxes, and write critical numbers or names clearly on paper.",
+  "summary": "Essential English-Arabic bilingual phrases and phonetic pronunciation to point to or speak during an emergency.",
+  "content": "Point directly to any phrase on this screen to communicate with emergency services, medical staff, or residents when there is a language barrier. 1. EN: Help! Please help me. | AR: النجدة! ساعدني من فضلك. (Al-najda! Sa'idni min fadlik.) 2. EN: Please call an ambulance / police (call 999 or 112). | AR: اتصل بالإسعاف / الشرطة من فضلك (اتصل بـ 999 أو 112). (Ittasil bil-is'af / al-shurta min fadlik [ittasil bi 999 aw 112].) 3. EN: I am hurt / injured and need a doctor. | AR: أنا مصاب وأحتاج إلى طبيب. (Ana musab wa ahtaj ila tabeeb.) 4. EN: I have a medical condition (diabetes / heart problem). | AR: لدي حالة طبية طارئة (مرض السكري / مشكلة في القلب). (Ladayya hala tibbiyya tari'a [marad al-sukkari / mushkila fi al-qalb].) 5. EN: Where is the nearest hospital? | AR: أين أقرب مستشفى؟ (Ayna aqrab mustashfa?) 6. EN: I need clean drinking water and food. | AR: أحتاج إلى مياه شرب نظيفة وطعام. (Ahtaj ila miyah shurb nazeera wa ta'am.) 7. EN: The power and heating are out. | AR: الكهرباء والتدفئة مقطوعتان. (Al-kahraba' wal-tadfi'a maqtoo'atan.) 8. EN: Is this tap water safe to drink? | AR: هل مياه الصنبور هذه صالحة للشرب؟ (Hal miyah al-sunboor hathihi saliha lil-shurb?) 9. EN: I need my essential medication. | AR: أحتاج إلى دوائي الضروري. (Ahtaj ila dawa'i al-daroori.) 10. EN: Do you speak English? | AR: هل تتحدث الإنجليزية؟ (Hal tatakallam al-injiliziyya?) Communication tip: Point at the Arabic and English text together on screen, use simple hand gestures, nod or shake your head clearly, and show any prescription boxes or medical ID cards you carry. In the UK, call 999 or 112 for life-threatening emergencies, or 111 for urgent medical advice (verify locally).",
   "keywords": [
     "arabic",
-    "phrasebook",
+    "phrases",
     "translation",
     "language",
-    "emergency words",
-    "medical phrases",
-    "translator",
-    "arabic english"
+    "doctor",
+    "ambulance",
+    "interpreter",
+    "help"
   ],
   "lang": "ar",
   "source": "gemini"

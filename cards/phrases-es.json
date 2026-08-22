@@ -2,18 +2,17 @@
   "id": "phrases-es",
   "title": "Emergency Phrases: English <-> Spanish",
   "category": "language",
-  "summary": "Essential bilingual English-Spanish phrases for medical needs, shelter, and emergencies during an outage.",
-  "content": "Show this card on screen and point directly to the relevant phrase if you or the person assisting you do not share a common language.\n\n1. EN: Help! Please help me. | SP: ¡Ayuda! Por favor, ayúdeme.\n2. EN: Please call an ambulance / the police (999 or 112). | SP: Por favor, llame a una ambulancia / a la policía (999 o 112).\n3. EN: I am hurt / injured / bleeding. | SP: Estoy herido / lesionado / sangrando.\n4. EN: I have a medical condition (diabetic / heart condition / asthma). | SP: Tengo una afección médica (soy diabético / del corazón / asmático).\n5. EN: I need my prescription medication urgently. | SP: Necesito mi medicación recetada con urgencia.\n6. EN: Where is the nearest hospital or emergency room? | SP: ¿Dónde está el hospital o centro de urgencias más cercano?\n7. EN: Is this tap water safe to drink? | SP: ¿Es seguro beber esta agua del grifo / es potable?\n8. EN: I need drinking water and food. | SP: Necesito agua potable y comida.\n9. EN: The power and heating are out. | SP: No hay electricidad ni calefacción.\n10. EN: Where is the emergency shelter / warm place? | SP: ¿Dónde está el refugio de emergencia / lugar cálido?\n11. EN: Do you speak Spanish? / I do not speak English. | SP: ¿Habla español? / No hablo inglés.\n\nEmergency Communication Tips:\n- Speak slowly and clearly without raising your voice.\n- Point at the lines above to communicate immediate needs.\n- Use distinct body gestures (e.g., pointing to your chest, head, or empty water bottle).\n- UK Emergency Services: Dial 999 or 112 for police, fire, or ambulance. For urgent non-emergency medical advice, call NHS 111.\n- Major nearby A&E hospitals include Chelsea and Westminster Hospital and St Mary's Hospital, Paddington (verify locally for operational status during major disruptions).",
+  "summary": "Essential two-way emergency phrases in English and Spanish for urgent communication.",
+  "content": "Show this card on your screen and point directly to the phrase you need if you cannot communicate verbally.\n\n1. EN: Help! / Please help me. | SP: ¡Ayuda! / Por favor, ayúdeme.\n2. EN: I need an ambulance / the police. | SP: Necesito una ambulancia / la policía.\n3. EN: I am hurt / injured / bleeding. | SP: Estoy herido/a / lesionado/a / sangrando.\n4. EN: I have a medical condition (diabetic / heart condition). | SP: Tengo una condición médica (soy diabético/a / tengo problemas del corazón).\n5. EN: Where is the nearest hospital? | SP: ¿Dónde está el hospital más cercano?\n6. EN: I need clean drinking water / food. | SP: Necesito agua potable / comida.\n7. EN: The power is out / there is no electricity. | SP: Se ha ido la luz / no hay electricidad.\n8. EN: Is the tap water safe to drink? | SP: ¿Es seguro beber el agua del grifo?\n9. EN: I urgently need my prescription medication. | SP: Necesito mi medicación recetada con urgencia.\n10. EN: Do you speak English? / I do not speak English. | SP: ¿Habla inglés? / No hablo inglés.\n11. EN: Where is the emergency shelter? | SP: ¿Dónde está el refugio de emergencia?\n12. EN: Please call 999 or 112 for me. | SP: Por favor, llame al 999 o al 112 por mí.\n\nPractical communication tips:\n- If communication is difficult, point to the exact phrase on the screen.\n- Speak slowly and clearly without raising your voice.\n- Use simple gestures to indicate location of pain or needs.\n- UK emergency dispatchers (999 / 112) can provide official language interpreters on the phone if you state 'Spanish' clearly.",
   "keywords": [
     "spanish",
     "espanol",
+    "phrases",
+    "translation",
     "ayuda",
     "ambulance",
     "hospital",
-    "medication",
-    "phrases",
-    "translator",
-    "emergency words"
+    "interpreter"
   ],
   "lang": "es",
   "source": "gemini"

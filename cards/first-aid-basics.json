@@ -1,18 +1,18 @@
 {
   "id": "first-aid-basics",
-  "title": "First Aid Basics and Primary Survey",
+  "title": "Essential First Aid and Primary Survey",
   "category": "medical",
-  "summary": "Step-by-step guidance for conducting a primary survey, managing bleeding, burns, shock, and seizures.",
-  "content": "1. PRIMARY SURVEY (DR ABC):\n- Danger: Ensure the scene is safe for you and the casualty before approaching.\n- Response: Gently shake shoulders and ask loudly, 'Are you alright?'\n- Airway: Tilt the head back gently and lift the chin to open the airway.\n- Breathing: Look, listen, and feel for normal breathing for up to 10 seconds. (If unresponsive and not breathing normally, start CPR immediately and call 999).\n- Circulation: Check for severe, uncontrolled bleeding.\n\n2. RECOVERY POSITION: If unresponsive but breathing normally, place them on their side with the top leg bent at a right angle and head tilted back to keep the airway clear. Monitor breathing continuously.\n\n3. SEVERE BLEEDING: Apply direct, firm pressure over the wound using a clean cloth or sterile dressing. Maintain constant pressure. If blood soaks through, add another pad on top—do not remove the first layer. Call 999.\n\n4. BURNS AND SCALDS: Cool the burn immediately under cold running water for at least 20 full minutes. Remove jewellery or loose clothing near the burn unless stuck to the skin. Cover loosely with clean cling film or a clean plastic bag. Never apply ice, butter, oils, or creams.\n\n5. SHOCK (CIRCULATORY): Keep the person lying flat, elevate their legs above heart level if no fractures are suspected, and keep them warm with coats or blankets. Do not give food or drink. Call 999.\n\n6. SEIZURES: Protect the person from surrounding hazards. Cushion their head with something soft. Do not restrain them, and never place anything in their mouth. Time the seizure. Call 999 if the seizure lasts longer than 5 minutes, is their first seizure, or repeats.",
+  "summary": "Step-by-step guidance for conducting a primary survey, managing severe bleeding, burns, shock, and seizures.",
+  "content": "Follow these standard NHS and St John Ambulance first-aid steps:\n\n1. DR ABC Primary Survey:\n- Danger: Check surroundings for hazards (electrical wires, gas, falling debris) before approaching.\n- Response: Gently shake shoulders and ask loudly, 'Are you alright?'\n- Airway: Tilt the head back gently and lift the chin to open the airway.\n- Breathing: Look, listen, and feel for normal breathing for up to 10 seconds. (If not breathing, start CPR immediately).\n- Circulation: Check for life-threatening severe external bleeding.\n\n2. Recovery Position:\n- If unresponsive but breathing normally, roll the person onto their side.\n- Tilt their head back to keep the airway open. Bend their top leg at a right angle for stability. Monitor breathing continuously.\n\n3. Severe Bleeding:\n- Apply firm, direct pressure over the wound using a sterile dressing or clean cloth.\n- Keep pressure continuous. Do not remove soaked dressings; apply another dressing firmly on top.\n- Call 999 immediately.\n\n4. Burns and Scalds:\n- Cool the burn immediately under cool running tap water for at least 20 minutes.\n- Remove clothing or jewellery near the burn, unless stuck to the skin.\n- Cover loosely with clean cling film or a clean plastic bag. Do not apply ice, butter, or creams.\n\n5. Shock:\n- Help them lie flat and raise their legs above heart level if possible.\n- Keep them warm with coats or blankets. Do not give them anything to eat or drink.\n\n6. Seizures:\n- Clear hard objects away. Cushion the head. Time the seizure.\n- Do not restrain the person or put anything in their mouth.\n- Call 999 if the seizure lasts over 5 minutes, is their first seizure, or repeats.",
   "keywords": [
     "first aid",
-    "dr abc",
     "bleeding",
     "burns",
-    "shock",
-    "seizure",
     "recovery position",
-    "unconscious"
+    "seizure",
+    "shock",
+    "unconscious",
+    "dr abc"
   ],
   "lang": "en",
   "source": "gemini"

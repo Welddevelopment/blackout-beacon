@@ -1,18 +1,18 @@
 {
   "id": "comms-when-networks-down",
-  "title": "Communications During Network and Power Outages",
+  "title": "Communications During Network Outages",
   "category": "comms",
-  "summary": "Preserving device battery, alternative communication channels, broadcast radio, and digital landline limitations.",
-  "content": "1. BATTERY DISCIPLINE:\n- Immediately switch phones to 'Low Power Mode' / 'Battery Saver'. Lower screen brightness, disable Wi-Fi, Bluetooth, location services, and background apps.\n- If in a household, turn off all phones except one. Rotate usage between devices to conserve battery.\n- Charge phones safely via car 12V USB adaptors outdoors in open air (never run car engines inside closed garages).\n\n2. SMS OVER CALLS:\n- When cellular networks are overloaded, text messages (SMS) transmit far more reliably than voice calls because they require minimal bandwidth.\n- Keep text messages brief and factual (e.g. 'Safe at home, battery low, phone off until 18:00').\n\n3. EMERGENCY ROAMING:\n- If your primary mobile network provider loses signal, 999 / 112 calls automatically roam onto any available working network in the area.\n\n4. BROADCAST RADIO:\n- Keep a battery-operated or wind-up FM/AM radio accessible for public emergency broadcasts.\n- Tune to BBC Radio London on 94.9 FM (verify locally) or national emergency broadcasts on BBC Radio 4 (92-95 FM / 198 LW - verify locally).\n\n5. DIGITAL LANDLINE LIMITATION:\n- Note that modern UK landlines (Digital Voice / VoIP) rely on home broadband routers and will NOT work during a mains power cut without a dedicated battery backup unit.\n\n6. FAMILY MEETING PLANS: Pre-agree on an offline family meeting location and maintain a written paper copy of all essential phone numbers.",
+  "summary": "Phone battery conservation, alternative communication channels, and offline emergency plans.",
+  "content": "1. Smartphone Battery Discipline:\n- Switch devices to 'Low Power Mode' / 'Battery Saver Mode'.\n- Turn screen brightness down to minimum. Turn off Wi-Fi, Bluetooth, location services/GPS, and close background applications.\n- Turn off redundant household phones. Keep one master phone switched on and preserve others as reserve units.\n\n2. SMS Over Voice Calls:\n- Send text messages (SMS) rather than placing voice calls. SMS requires significantly less network bandwidth and will automatically queue and send when signal pulses momentarily.\n\n3. 999 Emergency Roaming:\n- If your personal network shows 'No Service', dial 999 or 112. Mobile phones automatically switch to any working UK carrier (EE, Vodafone, O2, Three) to transmit emergency distress calls.\n\n4. Digital Landline Warning:\n- Modern digital fibre/VoIP landlines connected via broadband routers stop working during power cuts. Keep mobile devices or battery backups ready.\n\n5. In-Car Device Charging:\n- Charge phones using vehicle USB ports if available. Only run the engine in a well-ventilated outdoor open driveway or street. Never run a car inside an enclosed garage.\n\n6. Battery or Wind-Up Radio:\n- Keep an analogue FM/AM/DAB radio with spare batteries.\n- Local news & alerts: BBC Radio London (94.9 FM - verify locally).\n- National news & emergency broadcasts: BBC Radio 4 (92-95 FM / 198 LW).\n\n7. Offline Coordination:\n- Agree on a physical local meeting point with family in case networks collapse entirely.\n- Keep written paper copies of essential phone numbers, medical notes, and family contacts.",
   "keywords": [
     "network down",
-    "no signal",
     "phone battery",
-    "radio",
-    "sms",
-    "digital voice",
+    "no signal",
+    "comms",
+    "radio frequencies",
     "bbc radio london",
-    "comms"
+    "emergency roaming",
+    "offline communication"
   ],
   "lang": "en",
   "source": "gemini"

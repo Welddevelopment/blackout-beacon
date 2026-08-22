@@ -1,18 +1,18 @@
 {
   "id": "staying-warm-no-power",
-  "title": "Staying Warm and Safe Without Power",
+  "title": "Staying Warm Without Mains Heating",
   "category": "shelter",
-  "summary": "Heat retention techniques, single-room strategy, hypothermia prevention, and indoor safety precautions.",
-  "content": "1. CREATE A 'WARM ROOM':\n- Gather all occupants and pets into a single, centrally located room with the fewest exterior walls and windows.\n- Close doors to unused rooms. Hang blankets or heavy curtains over windows and place rolled towels at door bases to eliminate draughts.\n\n2. DRESS IN LAYERS:\n- Wear multiple loose, warm layers rather than one heavy layer. Use thermal base layers, fleece or wool mid-layers, and a wind-resistant outer layer.\n- Wear a warm hat, scarf, gloves, and thick dry socks; significant body heat escapes through the head and extremities.\n\n3. HEATING AND BEDDING:\n- Use sleeping bags, heavy duvets, and layered blankets. Sleep together or close together to share body heat.\n- Fill hot water bottles using safely heated water, ensuring caps are tightly secured and wrapped in a cover to prevent skin burns.\n\n4. CARBON MONOXIDE AND FIRE SAFETY:\n- NEVER use gas cookers, ovens, BBQs, charcoal heaters, or camping stoves indoors to heat rooms. Carbon monoxide is deadly and undetectable without an alarm.\n- Avoid candles where possible; use battery-powered or wind-up LED torches. If using candles, secure them in stable holders away from curtains, bedding, and children. Never leave candles burning unattended.\n\n5. HYPOTHERMIA SIGNS:\n- Watch for intense shivering, slurred speech, confusion, clumsiness, pale/cold skin, and extreme lethargy.\n- Warm casualty gently with blankets; do not apply direct intense heat. Offer warm sips if conscious.\n\n6. VULNERABLE NEIGHBOURS: Check on elderly, isolated, or disabled neighbours on your street.",
+  "summary": "Strategies for heat conservation, room isolation, hypothermia prevention, and indoor fire safety.",
+  "content": "1. Create a 'Warm Room':\n- Choose a single, small, interior room or the room with the fewest exterior walls and windows.\n- Close all interior doors throughout the home to trap heat in that space.\n- Draw curtains, blinds, and hang blankets over windows and drafty doorways to insulate against cold glass.\n\n2. Personal Layering:\n- Wear multiple loose, warm layers rather than one heavy layer (e.g., thermal base layer, wool or fleece mid-layer, outer layer).\n- Wear warm socks, sturdy slippers, and a knit hat (significant body heat is lost from the head).\n- Use sleeping bags, heavy duvets, and thermal blankets.\n\n3. Hot Water Bottles and Heat Packs:\n- Fill hot water bottles with hot water (not boiling water) and use a protective cover or towel to prevent contact burns.\n\n4. Fire and Carbon Monoxide Safety:\n- NEVER use gas ovens, gas hobs, camping stoves, or barbecues to heat a room. This generates lethal carbon monoxide gas.\n- Use battery-powered LED lanterns or torches for light. If using candles, keep them in secure, fireproof holders, away from children, pets, or curtains, and blow them out before sleeping.\n\n5. Hypothermia Warning Signs:\n- Watch for shivering, pale cold skin, slurred speech, confusion, clumsiness, or extreme drowsiness.\n- Reheat gently with warm blankets and warm, sweet drinks. Call 999 if the person becomes confused, unresponsive, or stops shivering while still cold.\n\n6. Community Care:\n- Check regularly on elderly neighbours and individuals living alone.",
   "keywords": [
     "staying warm",
-    "hypothermia",
     "no heating",
+    "cold weather",
+    "hypothermia",
     "power cut",
-    "warm room",
     "candles",
     "carbon monoxide",
-    "winter outage"
+    "winter emergency"
   ],
   "lang": "en",
   "source": "gemini"

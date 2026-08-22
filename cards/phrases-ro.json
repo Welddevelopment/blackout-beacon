@@ -2,17 +2,17 @@
   "id": "phrases-ro",
   "title": "Emergency Phrases: English <-> Romanian",
   "category": "language",
-  "summary": "Essential two-way emergency communication phrases in English and Romanian.",
-  "content": "Show this card on your phone screen and point directly to the phrase you need to communicate with emergency responders or local residents. 1. EN: Help! / I need help. | RO: Ajutor! / Am nevoie de ajutor. 2. EN: Please call an ambulance / the police (call 999 or 112). | RO: Vă rog să chemați o ambulanță / poliția (sunați la 999 sau 112). 3. EN: I am hurt / injured. | RO: Sunt rănit(ă) / Am suferit o accidentare. 4. EN: I have a medical condition (diabetic / heart condition). | RO: Am o problemă medicală (diabet / afecțiune cardiacă). 5. EN: Where is the nearest hospital? | RO: Unde este cel mai apropiat spital? 6. EN: I need water / food. | RO: Am nevoie de apă / mâncare. 7. EN: The power is out. | RO: S-a întrerupt curentul electric / Nu avem electricitate. 8. EN: Is the water safe to drink? | RO: Apa este potabilă / sigură de băut? 9. EN: I need my medication urgently. | RO: Am nevoie urgentă de medicamentele mele. 10. EN: Do you speak English / Romanian? | RO: Vorbiți engleză / Vorbiți română? Communication tip: Point directly to the relevant line on screen. Speak slowly, use simple gestures, and confirm understanding with thumbs up or down. Call 999 or 112 for life-threatening emergencies, or 111 for urgent NHS medical advice (verify locally).",
+  "summary": "Essential bilingual English-Romanian communication phrases for medical, rescue, and utility emergencies.",
+  "content": "Show this card directly on screen and point to the relevant phrase if you or the person you are assisting do not speak the same language.\n\n1. EN: Help! / I need help immediately. | RO: Ajutor! / Am nevoie de ajutor imediat.\n2. EN: Please call an ambulance / police on 999 or 112. | RO: Vă rog să chemați o ambulanță / poliția la 999 sau 112.\n3. EN: I am hurt / injured / bleeding. | RO: Sunt rănit(ă) / sângerez.\n4. EN: I have a medical condition (diabetic / heart condition). | RO: Am o afecțiune medicală (sunt diabetic(ă) / am probleme cu inima).\n5. EN: Where is the nearest hospital or emergency room? | RO: Unde este cel mai apropiat spital sau serviciu de urgență?\n6. EN: I need drinking water and food. | RO: Am nevoie de apă de băut și mâncare.\n7. EN: The power is out / There is no electricity. | RO: S-a oprit curentul / Nu este electricitate.\n8. EN: Is this tap water safe to drink? | RO: Este sigură apa de la robinet pentru băut?\n9. EN: I need my prescription medication urgently. | RO: Am nevoie urgentă de medicamentele mele prescrise.\n10. EN: Do you speak English? / I do not speak English well. | RO: Vorbiți engleză? / Nu vorbesc bine limba engleză.\n11. EN: Where is the safe shelter or evacuation point? | RO: Unde este adăpostul sigur sau punctul de evacuare?\n\nClosing tip: Point with your finger directly at the sentence you need. Speak slowly in short, calm words, use hand gestures to clarify meaning, and write numbers or names down on paper if necessary.\n\nNote: addresses and opening hours may have changed — confirm on arrival where possible.",
   "keywords": [
     "romanian",
-    "phrases",
-    "translator",
     "language",
+    "phrases",
     "ajutor",
-    "ambulance",
-    "hospital",
-    "emergency"
+    "limba romana",
+    "translator",
+    "spital",
+    "medical help"
   ],
   "lang": "ro",
   "source": "gemini"

@@ -1,18 +1,18 @@
 {
   "id": "flood-safety",
-  "title": "Flood Preparedness and Safety",
+  "title": "Flood Safety and Water Hazards",
   "category": "shelter",
-  "summary": "Protective actions before, during, and after flood incidents, electrical safety, and contamination hazards.",
-  "content": "1. MONITOR WARNINGS: Call Floodline (0345 988 1188) or check the Environment Agency service if internet is available. Follow advice from emergency services immediately.\n\n2. SECURE UTILITIES AND PROPERTY:\n- If floodwater is imminent and it is safe to do so, switch off electricity at the mains consumer unit and turn off the gas supply and main water stopcock.\n- NEVER touch electrical switches, plugs, or circuit boxes while standing in water or if equipment is wet.\n- Move essential valuables, medication, warm clothing, electronics, and documents upstairs or to high shelving.\n\n3. PROTECT YOURSELF INDOORS:\n- If trapped inside a building, move upstairs or to high ground with essentials and charged phones.\n- Do not enter enclosed attics unless an exit to the roof exists, to prevent getting trapped by rising water.\n\n4. AVOID FLOODWATER OUTDOORS:\n- NEVER walk, swim, or drive through floodwater.\n- Just 15 cm (6 inches) of fast-moving water can knock an adult off their feet.\n- Just 30 cm (12 inches) of moving water will float most passenger cars.\n- Hidden dangers include open manhole covers, submerged debris, and electrical currents.\n\n5. CONTAMINATION AND HYGIENE:\n- Floodwater commonly contains raw sewage, harmful chemicals, and bacteria.\n- Avoid skin contact. If exposed, wash hands and skin with clean water and soap immediately.\n- Discard any food, drinks, or medications that have come into contact with floodwater.",
+  "summary": "Essential life-safety procedures during heavy surface water, basement flooding, or drainage failure.",
+  "content": "1. Early Warnings and Floodline:\n- Monitor Environment Agency updates or call Floodline at 0345 988 1188 for current local alerts.\n\n2. Avoid Floodwater Completely:\n- Never walk, wade, or swim through moving or standing floodwater.\n- Just 15 cm (6 inches) of fast-moving water can knock an adult off their feet.\n- Just 30 cm (1 foot) of water can float and disable most passenger cars.\n- Surface water frequently hides missing manhole covers, deep drainage voids, and sharp debris.\n\n3. Electrical and Gas Isolation:\n- If safe to do so before water enters your premises, switch off electricity at the main consumer unit/fuse board and turn off the gas valve at the meter.\n- NEVER touch switches, cables, electrical appliances, or fuse boards if you are standing in water or if the equipment is wet. Call UK Power Networks (105) or 999 if immediate electrical danger arises.\n\n4. Vertical Evacuation (Basement and Ground Flats):\n- South Kensington contains many basement flats prone to surface runoff pooling. If water begins to enter, move people, pets, essential medications, and warm clothing immediately upstairs or to higher ground.\n\n5. Contamination Precautions:\n- Assume all urban floodwater contains hazardous raw sewage, road oils, and harmful bacteria.\n- Wash skin immediately with clean water and soap if contact occurs. Discard all food items that have touched floodwater.",
   "keywords": [
     "flood",
     "floodline",
-    "floodwater",
-    "sewage",
-    "electrical safety",
+    "flooding",
+    "surface water",
+    "electrical danger",
     "evacuation",
-    "high ground",
-    "water rescue"
+    "water damage",
+    "sewage"
   ],
   "lang": "en",
   "source": "gemini"

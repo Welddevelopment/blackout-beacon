@@ -2,17 +2,17 @@
   "id": "phrases-pl",
   "title": "Emergency Phrases: English <-> Polish",
   "category": "language",
-  "summary": "Essential two-way emergency phrases in English and Polish to show on screen during a crisis.",
-  "content": "Show this card on your screen and point directly to the phrase you need if you cannot understand each other.\n\n1. EN: Help! / I need help. | PO: Pomocy! / Potrzebuję pomocy.\n2. EN: Please call an ambulance / the police (Dial 999 or 112). | PO: Proszę wezwać pogotowie ratunkowe / policję (Numer 999 lub 112).\n3. EN: I am hurt / injured / bleeding. | PO: Jestem ranny (male) / ranna (female) / krwawię.\n4. EN: I have a heart condition / I am diabetic. | PO: Mam chorobę serca / Mam cukrzycę.\n5. EN: Where is the nearest hospital or emergency room? | PO: Gdzie jest najbliższy szpital lub ostry dyżur (A&E)? (verify locally)\n6. EN: I urgently need clean drinking water and food. | PO: Pilnie potrzebuję czystej wody pitnej i jedzenia.\n7. EN: The power and electricity are completely out. | PO: Nie ma prądu / zasilania elektrycznego.\n8. EN: Is the tap water safe to drink right now? | PO: Czy ta woda z kranu nadaje się teraz do picia?\n9. EN: I need my daily prescription medication. | PO: Potrzebuję moich leków na receptę.\n10. EN: Do you speak English? / I do not speak Polish. | PO: Czy mówisz po angielsku? / Nie mówię po polsku.\n\nCommunication Tip: Speak slowly, use calm body language, and point directly at the translated text. For UK emergency services, call 999 or 112. For non-life-threatening urgent medical advice, call NHS 111 (verify network connectivity locally).",
+  "summary": "Key Polish-English emergency communication phrases to point to or read aloud during an outage or crisis.",
+  "content": "Show this card on screen and point to the relevant phrase to communicate with emergency responders or neighbours.\n\n1. EN: Help! / I need help. | PO: Pomocy! / Potrzebuję pomocy.\n2. EN: Please call an ambulance / the police (999 or 112). | PO: Proszę wezwać pogotowie / policję (999 lub 112).\n3. EN: I am hurt / injured. | PO: Jestem ranny / Jestem poszkodowany.\n4. EN: I have a heart condition / I am diabetic. | PO: Mam chorobę serca / Mam cukrzycę.\n5. EN: Where is the nearest hospital? | PO: Gdzie jest najbliższy szpital?\n6. EN: I need water / food. | PO: Potrzebuję wody / jedzenia.\n7. EN: The power is out here. | PO: Nie ma prądu / Brakuje zasilania.\n8. EN: Is the tap water safe to drink? | PO: Czy woda z kranu nadaje się do picia?\n9. EN: I urgently need my medication. | PO: Pilnie potrzebuję moich leków.\n10. EN: Do you speak English? / Do you speak Polish? | PO: Czy mówisz po angielsku? / Czy mówisz po polsku?\n11. EN: Where is the local emergency rest centre? | PO: Gdzie jest lokalny punkt pomocy kryzysowej? (verify locally)\n\nTip for responders and residents: Point directly to the required phrase on the screen. Speak slowly and calmly, use clear hand gestures, and display any physical medication boxes, prescriptions, or medical alert bracelets. If calling 999 or 112, state 'Polish interpreter' immediately to request phone translation assistance.",
   "keywords": [
     "polish",
     "polski",
-    "phrasebook",
-    "translation",
-    "pomoc",
+    "phrases",
     "language",
+    "pomoc",
+    "translation",
     "szpital",
-    "ambulance"
+    "interpreter"
   ],
   "lang": "pl",
   "source": "gemini"
