@@ -42,6 +42,10 @@ LANG_NAMES = {
     "zh": "Chinese (Simplified)",
     "pl": "Polish",
     "ro": "Romanian",
+    "pt": "Portuguese",
+    "tr": "Turkish",
+    "bn": "Bengali",
+    "ur": "Urdu",
 }
 
 _LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
@@ -159,6 +163,10 @@ _LANG_NAMES = {
     "zh": ("chinese", "mandarin", "中文"),
     "pl": ("polish", "polski"),
     "ro": ("romanian", "română", "romana"),
+    "pt": ("portuguese", "português", "portugues"),
+    "tr": ("turkish", "türkçe", "turkce"),
+    "bn": ("bengali", "bangla", "বাংলা"),
+    "ur": ("urdu", "اردو"),
 }
 
 

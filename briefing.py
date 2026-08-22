@@ -44,7 +44,7 @@ except ImportError:  # pragma: no cover
 # --------------------------------------------------------------------------
 
 LOCATION = "South Kensington, London, UK"
-LANGS = ["en", "es", "fr", "ar", "zh", "pl", "ro"]
+LANGS = ["en", "es", "fr", "ar", "zh", "pl", "ro", "pt", "tr", "bn", "ur"]
 
 # MODEL is discovered at runtime (see discover_model()): we list the models
 # available to this API key, pick the id matching MODEL_FAMILY (preferring a
@@ -63,6 +63,10 @@ LANG_NAMES = {
     "zh": "Chinese (Simplified)",
     "pl": "Polish",
     "ro": "Romanian",
+    "pt": "Portuguese",
+    "tr": "Turkish",
+    "bn": "Bengali",
+    "ur": "Urdu",
 }
 
 # Card ids that MUST exist after a successful cloud briefing.
