@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#041207">
+<meta name="format-detection" content="telephone=no">
+<title>Beacon — Offline Map</title>
+<link rel="stylesheet" href="/static/vendor/maplibre-gl.css">
+<style>
+:root{
+  --bg:#041207;
+  --line:rgba(74,222,128,.22);
+  --line-strong:rgba(74,222,128,.45);
+  --green:#4ade80;
+  --green-soft:#bbf7d0;
+  --green-tint:rgba(74,222,128,.08);
+  --red:#ef4444;
+  --red-tint:rgba(239,68,68,.13);
+  --text:#f0fdf4;
+  --muted:rgba(220,252,231,.62);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.4;
+  overflow:hidden;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+#app{display:flex;flex-direction:column;height:100%}
+
+/* ---- top bar ---- */
+.top{flex:0 0 auto;padding:10px 12px 8px;border-bottom:1px solid var(--line);background:var(--bg)}
+.toprow{display:flex;align-items:center;gap:10px}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:600;color:var(--green-soft);text-decoration:none;white-space:nowrap}
+.back:active{background:var(--green-tint)}
+.toptitle{font-size:16px;font-weight:800;letter-spacing:.08em}
+.topsub{font-size:11px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+
+.searchrow{display:flex;gap:8px;margin-top:9px}
+#pc{flex:1;min-width:0;height:52px;padding:0 14px;font-family:inherit;font-size:18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:13px;outline:none;-webkit-appearance:none;appearance:none}
+#pc:focus{border-color:var(--line-strong)}
+#pc::placeholder{color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0}
+#go{height:52px;padding:0 18px;background:var(--green);color:#052e16;font-size:16px;font-weight:700;border-radius:13px;white-space:nowrap}
+#go:active{transform:scale(.97)}
+.hint{margin-top:7px;font-size:13px;color:var(--muted)}
+.hint.err{color:#fecaca}
+.hint b{color:var(--green-soft)}
+
+/* ---- POI layer toggle chips ---- */
+.layers{display:flex;gap:7px;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:9px;padding-bottom:2px}
+.laychip{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;color:var(--muted);background:none}
+.laychip.on{color:var(--text);background:var(--green-tint);border-color:var(--line-strong)}
+.laychip .sw{width:9px;height:9px;border-radius:50%;background:currentColor;opacity:.35}
+.laychip.on .sw{opacity:1}
+
+/* ---- map ---- */
+#mapwrap{flex:1 1 auto;position:relative;min-height:120px}
+#map{position:absolute;inset:0;background:#0a1a10}
+.mapfail{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:var(--muted);font-size:15px}
+
+/* maplibre chrome, restyled dark */
+.maplibregl-ctrl-attrib{background:rgba(4,18,7,.75) !important;color:var(--muted) !important;font-size:10px}
+.maplibregl-ctrl-attrib a{color:var(--muted) !important}
+.maplibregl-popup-content{background:#06210f !important;color:var(--text) !important;border:1px solid var(--line-strong);border-radius:12px;padding:10px 12px;font-size:13px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.maplibregl-popup-close-button{color:var(--muted) !important;font-size:18px;padding:2px 6px}
+.maplibregl-popup-tip{border-top-color:#06210f !important;border-bottom-color:#06210f !important}
+.pop-t{font-weight:700;font-size:14px;color:var(--green-soft);margin-bottom:2px;padding-right:14px}
+.pop-l{margin-top:2px;color:var(--muted)}
+.pop-l a{color:var(--green)}
+.pop-note{margin-top:3px;color:#fca5a5;font-weight:600}
+
+/* user + hospital DOM markers */
+.mk-user{width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid #052e16;box-shadow:0 0 0 3px rgba(74,222,128,.45),0 0 18px var(--green);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(74,222,128,.12),0 0 18px var(--green)}}
+.mk-ae{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--red);border:2px solid #fff;color:#fff;font-size:15px;font-weight:800;box-shadow:0 2px 10px rgba(0,0,0,.55)}
+
+/* ---- results sheet ---- */
+.sheet{flex:0 0 auto;max-height:38%;overflow-y:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--line);background:var(--bg);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.sheet h2{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.hosp{display:flex;align-items:center;gap:11px;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:var(--green-tint);margin-bottom:8px}
+.hosp:active{background:rgba(74,222,128,.16)}
+.hosp .n{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-size:14px;font-weight:800}
+.hosp .body{flex:1;min-width:0}
+.hosp .name{display:block;font-size:15px;font-weight:700;color:var(--text)}
+.hosp .meta{display:block;font-size:13px;color:var(--muted);margin-top:1px}
+.hosp .meta b{color:var(--green-soft);font-weight:700}
+.hosp .note{display:block;font-size:12px;color:#fca5a5;font-weight:600;margin-top:1px}
+.hosp .walk{flex:0 0 auto;text-align:right}
+.hosp .walk .t{display:block;font-size:17px;font-weight:800;color:var(--green)}
+.hosp .walk .d{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.routetag{font-size:11px;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){.mk-user{animation:none}}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div class="top">
+    <div class="toprow">
+      <a class="back" href="/">&#8592; Beacon</a>
+      <div>
+        <div class="toptitle">&#128506; OFFLINE MAP</div>
+        <div class="topsub">A&amp;E finder &mdash; no internet needed</div>
+      </div>
+    </div>
+    <form class="searchrow" id="pcform" autocomplete="off">
+      <input id="pc" type="text" inputmode="text" autocomplete="postal-code" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="search" placeholder="Postcode, e.g. SW7 or E8 4PH" aria-label="Postcode">
+      <button type="submit" id="go">Find A&amp;E</button>
+    </form>
+    <p class="hint" id="hint">Type a London postcode &mdash; just the first part works (SW7, N1, SE15&hellip;)</p>
+    <nav class="layers" id="layers" aria-label="Map layers" hidden></nav>
+  </div>
+
+  <div id="mapwrap">
+    <div id="map"></div>
+    <div class="mapfail" id="mapfail" hidden>Map view isn&rsquo;t supported on this phone &mdash; the nearest-hospital list below still works.</div>
+  </div>
+
+  <div class="sheet" id="sheet" hidden>
+    <h2 id="sheettitle">Nearest A&amp;E departments</h2>
+    <div id="hosplist"></div>
+  </div>
+
+</div>
+
+<noscript><p style="padding:16px;color:#fecaca">The offline map needs JavaScript enabled.</p></noscript>
+
+<script src="/static/vendor/maplibre-gl.js"></script>
+<script src="/static/vendor/pmtiles.js"></script>
+<script src="/static/vendor/basemaps.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* Everything below talks ONLY to this beacon (relative URLs).
+     Assets: /static/vendor/*  Data: /data/*  — zero internet. */
+
+  var ORIGIN = window.location.origin ||
+    (window.location.protocol + '//' + window.location.host);
+  var WALK_KMH = 5;                       // walking-time estimate basis
+  var LONDON = { lon: -0.09, lat: 51.505 };
+
+  var state = {
+    map: null, mapOk: false,
+    postcodes: null, hospitals: null,
+    userMarker: null, aeMarkers: [],
+    pois: {},                             // category -> geojson (lazy)
+    layerOn: {}
+  };
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function hint(msg, isErr) {
+    var el = $('hint');
+    el.innerHTML = msg;
+    el.className = isErr ? 'hint err' : 'hint';
+  }
+  function getJSON(url, ok, fail) {
+    /* redirect:'error' — our data endpoints answer 200 directly; a redirect
+       means the captive portal intercepted the path (e.g. /api/route before
+       the routing engine lands) and must count as a miss, not be followed. */
+    fetch(url, { cache: 'no-store', redirect: 'error' }).then(function (r) {
+      if (!r.ok) { throw new Error('HTTP ' + r.status); }
+      var ct = (r.headers.get('Content-Type') || '');
+      if (ct.indexOf('json') === -1) { throw new Error('not json'); } // captive 302->HTML guard
+      return r.json();
+    }).then(ok)['catch'](fail || function () {});
+  }
+
+  /* ---------------- geometry ---------------- */
+  function haversineKm(a, b) {
+    var R = 6371, rad = Math.PI / 180;
+    var dLat = (b.lat - a.lat) * rad, dLon = (b.lon - a.lon) * rad;
+    var s = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(a.lat * rad) * Math.cos(b.lat * rad) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 2 * R * Math.asin(Math.sqrt(s));
+  }
+  function fmtKm(km) { return km < 10 ? km.toFixed(1) : Math.round(km); }
+  function fmtMin(min) {
+    min = Math.ceil(min);
+    if (min < 60) { return min + ' min'; }
+    return Math.floor(min / 60) + ' h ' + (min % 60) + ' min';
+  }
+
+  /* ---------------- postcode parsing ---------------- */
+  function parseOutcode(raw) {
+    var s = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (!s) { return null; }
+    if (/^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/.test(s)) { s = s.slice(0, -3); } // full postcode -> outward
+    if (!/^[A-Z]{1,2}\d[A-Z\d]?$/.test(s)) { return null; }
+    return s;
+  }
+  /* exact -> parent district -> average of lettered sub-districts (W1 -> W1B..W1W) */
+  function lookupOutcode(oc) {
+    var pc = state.postcodes;
+    if (pc[oc]) { return { code: oc, lat: pc[oc].lat, lon: pc[oc].lon, area: pc[oc].area }; }
+    var base = /[A-Z]$/.test(oc) ? oc.slice(0, -1) : oc;
+    if (base !== oc && pc[base]) { return { code: base, lat: pc[base].lat, lon: pc[base].lon, area: pc[base].area }; }
+    var subs = [], k;
+    for (k in pc) {
+      if (pc.hasOwnProperty(k) && k.length === base.length + 1 &&
+          k.indexOf(base) === 0 && /[A-Z]/.test(k.charAt(k.length - 1))) {
+        subs.push(k);
+      }
+    }
+    if (subs.length) {
+      var lat = 0, lon = 0, i;
+      for (i = 0; i < subs.length; i++) { lat += pc[subs[i]].lat; lon += pc[subs[i]].lon; }
+      return { code: base, lat: lat / subs.length, lon: lon / subs.length, area: pc[subs[0]].area };
+    }
+    return null;
+  }
+
+  /* ---------------- map bootstrap ---------------- */
+  function initMap() {
+    try {
+      var protocol = new pmtiles.Protocol();
+      maplibregl.addProtocol('pmtiles', protocol.tile);
+      var style = {
+        version: 8,
+        glyphs: ORIGIN + '/static/vendor/fonts/{fontstack}/{range}.pbf',
+        sprite: ORIGIN + '/static/vendor/sprites/v4/dark',
+        sources: {
+          protomaps: {
+            type: 'vector',
+            url: 'pmtiles://' + ORIGIN + '/data/london.pmtiles',
+            attribution: '&copy; OpenStreetMap'
+          }
+        },
+        layers: basemaps.layers('protomaps', basemaps.namedFlavor('dark'), { lang: 'en' })
+      };
+      state.map = new maplibregl.Map({
+        container: 'map',
+        style: style,
+        center: [LONDON.lon, LONDON.lat],
+        zoom: 9.3,
+        minZoom: 7.5,
+        maxZoom: 17.5,
+        attributionControl: { compact: true }
+      });
+      state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
+      window.__beaconMap = state.map;   // debug/testing handle (harmless)
+      state.map.on('load', function () {
+        state.mapOk = true;
+        addOverlayLayers();
+        loadPoiLayers();
+        if (state.pendingRender) {       // user searched before tiles were ready
+          renderMap(state.pendingRender[0], state.pendingRender[1]);
+          state.pendingRender = null;
+        }
+      });
+      state.map.on('error', function (e) {
+        // tile/glyph errors are non-fatal; only log
+        if (window.console) { console.warn('map error', e && e.error); }
+      });
+    } catch (err) {
+      state.map = null;
+      $('map').style.display = 'none';
+      $('mapfail').hidden = false;
+      if (window.console) { console.warn('map init failed', err); }
+    }
+  }
+
+  function emptyFC() { return { type: 'FeatureCollection', features: [] }; }
+
+  function addOverlayLayers() {
+    var m = state.map;
+    /* user -> hospital connections (solid = real walking route, dashed = straight-line estimate) */
+    m.addSource('connections', { type: 'geojson', data: emptyFC() });
+    m.addLayer({
+      id: 'conn-straight', type: 'line', source: 'connections',
+      filter: ['==', ['get', 'kind'], 'straight'],
+      paint: { 'line-color': '#4ade80', 'line-width': 2.5, 'line-opacity': .8, 'line-dasharray': [1.2, 1.6] }
+    });
+    m.addLayer({
+      id: 'conn-route', type: 'line', source: 'connections',
+      filter: ['==', ['get', 'kind'], 'route'],
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': '#4ade80', 'line-width': 3.5, 'line-opacity': .9 }
+    });
+    /* every A&E as a red dot + label (nearest 3 get big numbered markers on top) */
+    m.addSource('ae', { type: 'geojson', data: emptyFC() });
+    m.addLayer({
+      id: 'ae-dot', type: 'circle', source: 'ae',
+      paint: {
+        'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 3.5, 14, 6],
+        'circle-color': '#ef4444', 'circle-stroke-width': 1.5, 'circle-stroke-color': '#041207'
+      }
+    });
+    m.addLayer({
+      id: 'ae-label', type: 'symbol', source: 'ae', minzoom: 11,
+      layout: {
+        'text-field': ['get', 'name'], 'text-font': ['Noto Sans Medium'],
+        'text-size': 11, 'text-offset': [0, 1.1], 'text-anchor': 'top',
+        'text-optional': true
+      },
+      paint: { 'text-color': '#fca5a5', 'text-halo-color': '#041207', 'text-halo-width': 1.6 }
+    });
+    if (state.hospitals) { setAeSource(); }
+    m.on('click', 'ae-dot', function (e) {
+      var p = e.features[0].properties || {};
+      poiPopup(e.lngLat, p.name, {
+        address: p.address, note: p.note
+      });
+    });
+  }
+
+  function setAeSource() {
+    if (!state.mapOk || !state.map.getSource('ae')) { return; }
+    var feats = [], i, h;
+    for (i = 0; i < state.hospitals.length; i++) {
+      h = state.hospitals[i];
+      feats.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [h.lon, h.lat] },
+        properties: { name: h.name, address: h.address || '', note: h.note || '' }
+      });
+    }
+    state.map.getSource('ae').setData({ type: 'FeatureCollection', features: feats });
+  }
+
+  function poiPopup(lngLat, title, extra) {
+    var html = '<div class="pop-t">' + esc(title || 'Unnamed') + '</div>';
+    if (extra.note) { html += '<div class="pop-note">' + esc(extra.note) + '</div>'; }
+    if (extra.address) { html += '<div class="pop-l">' + esc(extra.address) + '</div>'; }
+    if (extra.opening_hours) { html += '<div class="pop-l">Hours: ' + esc(extra.opening_hours) + '</div>'; }
+    if (extra.phone) {
+      html += '<div class="pop-l">&#9742; <a href="tel:' + esc(String(extra.phone).replace(/[^+0-9]/g, '')) + '">' + esc(extra.phone) + '</a></div>';
+    }
+    if (extra.wheelchair) { html += '<div class="pop-l">Wheelchair: ' + esc(extra.wheelchair) + '</div>'; }
+    new maplibregl.Popup({ maxWidth: '260px' }).setLngLat(lngLat).setHTML(html).addTo(state.map);
+  }
+
+  /* ---------------- POI layers (spec: POIS-INTEGRATION.md; all optional) ---------------- */
+  var POI_DEFS = [
+    { cat: 'pharmacies',     label: '&#128138; Pharmacies', color: '#4ade80', on: true,  cluster: true },
+    { cat: 'defibrillators', label: '&#9889; AEDs',         color: '#facc15', on: true,  cluster: true, title: 'Defibrillator (AED)' },
+    { cat: 'hospitals_all',  label: '&#129658; All hospitals', color: '#f87171', on: false, opacity: .6, note: 'No A&amp;E confirmed', minzoom: 10 },
+    { cat: 'police',         label: '&#128659; Police',     color: '#60a5fa', on: false, minzoom: 10 },
+    { cat: 'fire_stations',  label: '&#128658; Fire',       color: '#fb923c', on: false, minzoom: 10 }
+  ];
+
+  function loadPoiLayers() {
+    var row = $('layers');
+    POI_DEFS.forEach(function (def) {
+      var chip = addToggleChip(def);      // pre-created in spec order,
+      chip.hidden = true;                 // revealed only if its data loads
+      getJSON('/data/pois/' + def.cat + '.json', function (data) {
+        if (!data || !data.items || !data.items.length) { return; }
+        addPoiLayer(def, data.items);
+        chip.hidden = false;
+        row.hidden = false;
+      });
+    });
+  }
+
+  function addToggleChip(def) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'laychip' + (def.on ? ' on' : '');
+    b.style.color = def.color;
+    b.innerHTML = '<span class="sw"></span>' + def.label;
+    b.setAttribute('aria-pressed', def.on ? 'true' : 'false');
+    b.addEventListener('click', function () {
+      var on = !(state.layerOn[def.cat]);
+      state.layerOn[def.cat] = on;
+      b.className = 'laychip' + (on ? ' on' : '');
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      ['poi-' + def.cat, 'poi-' + def.cat + '-cluster', 'poi-' + def.cat + '-count']
+        .forEach(function (id) {
+          if (state.mapOk && state.map.getLayer(id)) {
+            state.map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none');
+          }
+        });
+    });
+    $('layers').appendChild(b);
+    return b;
+  }
+
+  function addPoiLayer(def, items) {
+    var m = state.map, feats = [], i, it;
+    state.layerOn[def.cat] = def.on;
+    for (i = 0; i < items.length; i++) {
+      it = items[i];
+      feats.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [it.lon, it.lat] },
+        properties: it
+      });
+    }
+    var src = { type: 'geojson', data: { type: 'FeatureCollection', features: feats } };
+    if (def.cluster) { src.cluster = true; src.clusterRadius = 45; src.clusterMaxZoom = 13; }
+    m.addSource('poi-' + def.cat, src);
+    var vis = def.on ? 'visible' : 'none';
+
+    if (def.cluster) {
+      m.addLayer({
+        id: 'poi-' + def.cat + '-cluster', type: 'circle', source: 'poi-' + def.cat,
+        filter: ['has', 'point_count'], layout: { visibility: vis },
+        paint: {
+          'circle-color': def.color, 'circle-opacity': .78,
+          'circle-radius': ['step', ['get', 'point_count'], 11, 25, 15, 100, 19],
+          'circle-stroke-width': 1.5, 'circle-stroke-color': '#041207'
+        }
+      }, 'ae-dot');
+      m.addLayer({
+        id: 'poi-' + def.cat + '-count', type: 'symbol', source: 'poi-' + def.cat,
+        filter: ['has', 'point_count'],
+        layout: {
+          visibility: vis, 'text-field': ['get', 'point_count_abbreviated'],
+          'text-font': ['Noto Sans Medium'], 'text-size': 11
+        },
+        paint: { 'text-color': '#041207' }
+      }, 'ae-dot');
+      m.on('click', 'poi-' + def.cat + '-cluster', function (e) {
+        var f = e.features[0];
+        m.getSource('poi-' + def.cat).getClusterExpansionZoom(f.properties.cluster_id)
+          .then(function (z) { m.easeTo({ center: f.geometry.coordinates, zoom: z + 0.5 }); })
+          ['catch'](function () {});
+      });
+    }
+    m.addLayer({
+      id: 'poi-' + def.cat, type: 'circle', source: 'poi-' + def.cat,
+      filter: def.cluster ? ['!', ['has', 'point_count']] : ['all'],
+      minzoom: def.minzoom || 0,
+      layout: { visibility: vis },
+      paint: {
+        'circle-color': def.color, 'circle-opacity': def.opacity || .95,
+        'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 3, 14, 5.5],
+        'circle-stroke-width': 1.5, 'circle-stroke-color': '#041207'
+      }
+    }, 'ae-dot');
+    m.on('click', 'poi-' + def.cat, function (e) {
+      var p = e.features[0].properties || {};
+      poiPopup(e.lngLat, p.name || def.title || def.label.replace(/&[^;]+;\s*/, ''), {
+        opening_hours: p.opening_hours, phone: p.phone, wheelchair: p.wheelchair,
+        note: def.note ? def.note.replace(/&amp;/g, '&') : ''
+      });
+    });
+  }
+
+  /* ---------------- search flow ---------------- */
+  function clearResults() {
+    var i;
+    for (i = 0; i < state.aeMarkers.length; i++) { state.aeMarkers[i].remove(); }
+    state.aeMarkers = [];
+    if (state.userMarker) { state.userMarker.remove(); state.userMarker = null; }
+    if (state.mapOk && state.map.getSource('connections')) {
+      state.map.getSource('connections').setData(emptyFC());
+    }
+  }
+
+  function search(raw) {
+    if (!state.postcodes || !state.hospitals) {
+      hint('Still loading map data&hellip; try again in a second.', true);
+      return;
+    }
+    var oc = parseOutcode(raw);
+    if (!oc) {
+      hint('That doesn&rsquo;t look like a postcode. Try the first part only &mdash; like <b>SW7</b> or <b>E8</b>.', true);
+      return;
+    }
+    var loc = lookupOutcode(oc);
+    if (!loc) {
+      hint('<b>' + esc(oc) + '</b> isn&rsquo;t in this map&rsquo;s London coverage. Try a nearby London postcode (SW7, N1, SE15&hellip;).', true);
+      return;
+    }
+    hint('<b>' + esc(loc.code) + '</b>' + (loc.area ? ' &mdash; ' + esc(loc.area) : '') + '. Nearest A&amp;E departments below.');
+
+    /* nearest 3 general A&Es (specialist eye/children units excluded from top-3) */
+    var ranked = [], i, h, km;
+    for (i = 0; i < state.hospitals.length; i++) {
+      h = state.hospitals[i];
+      if (h.note) { continue; }
+      km = haversineKm(loc, h);
+      ranked.push({ h: h, km: km });
+    }
+    ranked.sort(function (a, b) { return a.km - b.km; });
+    var top = ranked.slice(0, 3);
+
+    renderList(loc, top);
+    renderMap(loc, top);
+    routeAll(loc, top);
+    try { $('pc').blur(); } catch (e) {}
+  }
+
+  function renderList(loc, top) {
+    var html = '', i, t, mins;
+    for (i = 0; i < top.length; i++) {
+      t = top[i];
+      mins = t.km / WALK_KMH * 60;
+      html +=
+        '<button type="button" class="hosp" data-i="' + i + '">' +
+          '<span class="n">' + (i + 1) + '</span>' +
+          '<span class="body">' +
+            '<span class="name">' + esc(t.h.name) + '</span>' +
+            '<span class="meta" id="meta-' + i + '"><b>' + fmtKm(t.km) + ' km</b> away' +
+              (t.h.address ? ' &middot; ' + esc(t.h.address) : '') + '</span>' +
+          '</span>' +
+          '<span class="walk"><span class="t" id="walk-' + i + '">' + fmtMin(mins) + '</span>' +
+          '<span class="d" id="wtag-' + i + '">walk est.</span></span>' +
+        '</button>';
+    }
+    $('hosplist').innerHTML = html;
+    $('sheet').hidden = false;
+    var btns = $('hosplist').querySelectorAll('.hosp');
+    for (i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () {
+        var t = top[parseInt(this.getAttribute('data-i'), 10)];
+        if (state.mapOk) {
+          var b = new maplibregl.LngLatBounds();
+          b.extend([loc.lon, loc.lat]); b.extend([t.h.lon, t.h.lat]);
+          state.map.fitBounds(b, { padding: 56, maxZoom: 15 });
+        }
+      });
+    }
+  }
+
+  function renderMap(loc, top) {
+    if (!state.mapOk) { state.pendingRender = [loc, top]; return; }
+    clearResults();
+
+    var ud = document.createElement('div');
+    ud.className = 'mk-user';
+    state.userMarker = new maplibregl.Marker({ element: ud })
+      .setLngLat([loc.lon, loc.lat]).addTo(state.map);
+
+    var feats = [], i, t, el;
+    for (i = 0; i < top.length; i++) {
+      t = top[i];
+      el = document.createElement('div');
+      el.className = 'mk-ae';
+      el.textContent = String(i + 1);
+      state.aeMarkers.push(new maplibregl.Marker({ element: el })
+        .setLngLat([t.h.lon, t.h.lat]).addTo(state.map));
+      feats.push(connFeature(loc, t.h, 'straight', i));
+    }
+    state.map.getSource('connections').setData({ type: 'FeatureCollection', features: feats });
+
+    var b = new maplibregl.LngLatBounds();
+    b.extend([loc.lon, loc.lat]);
+    for (i = 0; i < top.length; i++) { b.extend([top[i].h.lon, top[i].h.lat]); }
+    /* the results sheet has just (re)appeared and shrinks the map container;
+       resize first so fitBounds targets the final viewport */
+    state.map.resize();
+    state.map.fitBounds(b, { padding: 48, maxZoom: 14.5 });
+  }
+
+  function connFeature(loc, h, kind, idx) {
+    return {
+      type: 'Feature',
+      geometry: { type: 'LineString', coordinates: [[loc.lon, loc.lat], [h.lon, h.lat]] },
+      properties: { kind: kind, idx: idx }
+    };
+  }
+
+  /* Walking routes add-on (ROUTES-INTEGRATION contract): try /api/route per
+     hospital; on success draw the real polyline + exact time, otherwise keep
+     the dashed straight line + 5 km/h estimate. Any error falls back. */
+  function routeAll(loc, top) {
+    var feats = [], i;
+    for (i = 0; i < top.length; i++) { feats.push(connFeature(loc, top[i].h, 'straight', i)); }
+    function apply() {
+      if (state.mapOk && state.map.getSource('connections')) {
+        state.map.getSource('connections').setData({ type: 'FeatureCollection', features: feats });
+      }
+    }
+    top.forEach(function (t, i) {
+      getJSON('/api/route?from=' + loc.lat + ',' + loc.lon + '&to=' + t.h.lat + ',' + t.h.lon,
+        function (r) {
+          if (!r || !r.polyline || !r.polyline.length || r.polyline.length < 2) { return; }
+          var coords = [], j;
+          for (j = 0; j < r.polyline.length; j++) {
+            coords.push([r.polyline[j][1], r.polyline[j][0]]);   // [lat,lon] -> [lon,lat]
+          }
+          feats[i] = {
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates: coords },
+            properties: { kind: 'route', idx: i }
+          };
+          apply();
+          if (typeof r.duration_min === 'number' && $('walk-' + i)) {
+            $('walk-' + i).textContent = fmtMin(r.duration_min);
+            $('wtag-' + i).textContent = 'walk route';
+          }
+          if (typeof r.distance_m === 'number' && $('meta-' + i)) {
+            var kmEl = $('meta-' + i).querySelector('b');
+            if (kmEl) { kmEl.textContent = fmtKm(r.distance_m / 1000) + ' km'; }
+          }
+        });
+    });
+  }
+
+  /* ---------------- boot ---------------- */
+  $('pcform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    search($('pc').value);
+  });
+
+  getJSON('/data/postcodes.json', function (d) { state.postcodes = d; },
+    function () { hint('Couldn&rsquo;t load postcode data &mdash; reload the page.', true); });
+  getJSON('/data/hospitals.json', function (d) {
+    state.hospitals = d;
+    setAeSource();
+  }, function () { hint('Couldn&rsquo;t load hospital data &mdash; reload the page.', true); });
+
+  if (window.maplibregl && window.pmtiles && window.basemaps) {
+    initMap();
+  } else {
+    $('map').style.display = 'none';
+    $('mapfail').hidden = false;
+  }
+})();
+</script>
+</body>
+</html>

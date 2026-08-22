@@ -115,10 +115,6 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
     <button type="button" class="lang" data-lang="zh">中文</button>
     <button type="button" class="lang" data-lang="pl">PL</button>
     <button type="button" class="lang" data-lang="ro">RO</button>
-    <button type="button" class="lang" data-lang="pt">PT</button>
-    <button type="button" class="lang" data-lang="tr">TR</button>
-    <button type="button" class="lang" data-lang="bn">বাংলা</button>
-    <button type="button" class="lang" data-lang="ur">اردو</button>
   </nav>
 
   <section class="grid" id="grid">
@@ -159,66 +155,6 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
   'use strict';
 
   var I18N = {
-    pt: {
-      subtitle: 'Assistente de Emergência Offline',
-      placeholder: 'Escreva a sua pergunta…',
-      ask: 'Perguntar',
-      queue: 'Está na fila — posição {n}. As respostas chegam a todos, uma de cada vez.',
-      error: 'Algo correu mal — tente novamente.',
-      b: {
-        medical:  ['Emergência médica', 'O que faço numa emergência médica? Instruções claras passo a passo.'],
-        firstaid: ['Primeiros socorros', 'Instruções básicas de primeiros socorros para ferimentos comuns.'],
-        water:    ['Água potável', 'Como torno a água segura para beber sem eletricidade?'],
-        power:    ['Corte de energia', 'O que faço durante um corte de energia? Como fico em segurança?'],
-        warm:     ['Manter o calor', 'Como me mantenho quente em segurança sem eletricidade?'],
-        help:     ['Ajuda próxima', 'Onde encontro ajuda, abrigo ou serviços de emergência por perto?']
-      }
-    },
-    tr: {
-      subtitle: 'Çevrimdışı Acil Durum Asistanı',
-      placeholder: 'Sorunuzu yazın…',
-      ask: 'Sor',
-      queue: 'Sıradasınız — konum {n}. Yanıtlar herkese sırayla gelir.',
-      error: 'Bir şeyler ters gitti — lütfen tekrar deneyin.',
-      b: {
-        medical:  ['Tıbbi acil durum', 'Tıbbi acil durumda ne yapmalıyım? Adım adım net talimat ver.'],
-        firstaid: ['İlk yardım', 'Yaygın yaralanmalar için temel ilk yardım talimatları ver.'],
-        water:    ['Güvenli su', 'Elektrik yokken suyu içmek için nasıl güvenli hale getiririm?'],
-        power:    ['Elektrik kesintisi', 'Elektrik kesintisinde ne yapmalıyım? Nasıl güvende kalırım?'],
-        warm:     ['Sıcak kalın', 'Elektrik olmadan güvenle nasıl sıcak kalırım?'],
-        help:     ['Yakında yardım', 'Yakınlarda yardım, barınak veya acil servisleri nerede bulurum?']
-      }
-    },
-    bn: {
-      subtitle: 'অফলাইন জরুরি সহায়ক',
-      placeholder: 'আপনার প্রশ্ন লিখুন…',
-      ask: 'জিজ্ঞাসা করুন',
-      queue: 'আপনি লাইনে আছেন — অবস্থান {n}। উত্তর সবাইকে একে একে দেওয়া হয়।',
-      error: 'কিছু ভুল হয়েছে — আবার চেষ্টা করুন।',
-      b: {
-        medical:  ['জরুরি চিকিৎসা', 'চিকিৎসা জরুরি অবস্থায় কী করব? ধাপে ধাপে স্পষ্ট নির্দেশনা দিন।'],
-        firstaid: ['প্রাথমিক চিকিৎসা', 'সাধারণ আঘাতের জন্য প্রাথমিক চিকিৎসার মৌলিক নির্দেশনা দিন।'],
-        water:    ['নিরাপদ পানি', 'বিদ্যুৎ ছাড়া পানি কীভাবে পান করার উপযোগী করব?'],
-        power:    ['বিদ্যুৎ বিভ্রাট', 'বিদ্যুৎ বিভ্রাটের সময় কী করব? কীভাবে নিরাপদ থাকব?'],
-        warm:     ['উষ্ণ থাকুন', 'বিদ্যুৎ ছাড়া নিরাপদে কীভাবে উষ্ণ থাকব?'],
-        help:     ['কাছাকাছি সাহায্য', 'কাছাকাছি সাহায্য, আশ্রয় বা জরুরি সেবা কোথায় পাব?']
-      }
-    },
-    ur: {
-      subtitle: 'آف لائن ہنگامی معاون',
-      placeholder: 'اپنا سوال لکھیں…',
-      ask: 'پوچھیں',
-      queue: 'آپ قطار میں ہیں — نمبر {n}۔ جواب سب کو باری باری ملتے ہیں۔',
-      error: 'کچھ غلط ہو گیا — دوبارہ کوشش کریں۔',
-      b: {
-        medical:  ['طبی ایمرجنسی', 'طبی ایمرجنسی میں کیا کروں؟ قدم بہ قدم واضح ہدایات دیں۔'],
-        firstaid: ['ابتدائی طبی امداد', 'عام چوٹوں کے لیے بنیادی ابتدائی طبی امداد کی ہدایات دیں۔'],
-        water:    ['محفوظ پانی', 'بجلی کے بغیر پانی کو پینے کے قابل کیسے بناؤں؟'],
-        power:    ['بجلی بند', 'بجلی بند ہونے پر کیا کروں؟ کیسے محفوظ رہوں؟'],
-        warm:     ['گرم رہیں', 'بجلی کے بغیر محفوظ طریقے سے گرم کیسے رہوں؟'],
-        help:     ['قریبی مدد', 'قریب میں مدد، پناہ یا ہنگامی خدمات کہاں ملیں گی؟']
-      }
-    },
     en: {
       subtitle: 'Offline Emergency Assistant',
       placeholder: 'Type your question…',
@@ -496,8 +432,8 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
       var key = btns[j].getAttribute('data-key');
       if (tr.b[key]) { btns[j].querySelector('.lbl').textContent = tr.b[key][0]; btns[j].setAttribute('aria-label', tr.b[key][0]); }
     }
-    $('answerwrap').setAttribute('dir', (code === 'ar' || code === 'ur') ? 'rtl' : 'ltr');
-    $('subs').setAttribute('dir', (code === 'ar' || code === 'ur') ? 'rtl' : 'ltr');
+    $('answerwrap').setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
+    $('subs').setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
     if (typeof renderBranch === 'function') { renderBranch(); }
   }
 
@@ -545,106 +481,6 @@ footer .tiny{margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:u
   }
   /* ---- branch sub-options: tapping a card opens specifics, never auto-asks ---- */
   var SUBS = {
-    pt: { hint: 'Escolha o que se aplica — ou escreva a sua situação abaixo.',
-      medical:  [['Alguém desmaiou', 'Alguém caiu e não responde. O que faço agora, passo a passo?'],
-                 ['Engasgamento', 'Alguém está engasgado e não consegue respirar. Ajuda imediata passo a passo.'],
-                 ['Hemorragia grave', 'Como paro uma hemorragia grave agora?'],
-                 ['Dor no peito', 'Alguém tem uma dor forte no peito. O que faço?']],
-      firstaid: [['Queimaduras', 'Como trato uma queimadura sem ajuda médica por perto?'],
-                 ['Cortes e feridas', 'Como limpo e trato uma ferida corretamente?'],
-                 ['Osso partido', 'Acho que alguém partiu um osso. O que devo fazer?'],
-                 ['Pancada na cabeça', 'Alguém bateu com a cabeça. Que sinais devo vigiar?']],
-      water:    [['Purificar água', 'Como purifico a água para beber em segurança?'],
-                 ['Água da torneira?', 'É seguro beber água da torneira durante um apagão?'],
-                 ['Abastecimento parou', 'O abastecimento de água parou completamente. O que faço?'],
-                 ['Quanta água precisamos?', 'De quanta água potável cada pessoa precisa por dia?']],
-      power:    [['Frigorífico e comida', 'A comida do meu frigorífico e congelador ainda está segura?'],
-                 ['Dispositivos médicos', 'Um dispositivo médico em casa precisa de eletricidade, como insulina refrigerada. O que faço?'],
-                 ['Luz e calor seguros', 'Quais são as formas seguras de iluminar e aquecer a casa num corte de energia?'],
-                 ['Poupar bateria', 'Como faço a bateria do telemóvel durar o máximo possível?']],
-      warm:     [['Sem aquecimento', 'Como mantenho a casa e a família quentes sem aquecimento?'],
-                 ['Bebés e idosos', 'Como mantenho um bebé ou um idoso quente em segurança?'],
-                 ['Sinais de hipotermia', 'Quais são os sinais de hipotermia e o que faço?'],
-                 ['Dormir em segurança', 'Como dormimos em segurança numa casa muito fria?']],
-      help:     [['Urgências mais próximas', 'Onde ficam as urgências mais próximas e como chego lá?'],
-                 ['Farmácia', 'Onde encontro uma farmácia perto de mim?'],
-                 ['Abrigo e calor', 'Onde encontro abrigo ou um espaço público aquecido por perto?'],
-                 ['Pedir ajuda', 'Como contacto os serviços de emergência agora?']] },
-    tr: { hint: 'Uygun olanı seçin — ya da durumunuzu aşağıya yazın.',
-      medical:  [['Biri bayıldı', 'Biri yere yığıldı ve tepki vermiyor. Şimdi adım adım ne yapmalıyım?'],
-                 ['Nefes tıkanması', 'Birinin boğazına bir şey kaçtı, nefes alamıyor. Hemen adım adım yardım et.'],
-                 ['Şiddetli kanama', 'Şiddetli kanamayı hemen nasıl durdururum?'],
-                 ['Göğüs ağrısı', 'Birinin göğsünde şiddetli ağrı var. Ne yapmalıyım?']],
-      firstaid: [['Yanıklar', 'Yakında tıbbi yardım yokken yanığı nasıl tedavi ederim?'],
-                 ['Kesik ve yaralar', 'Bir yarayı nasıl doğru temizler ve sararım?'],
-                 ['Kırık kemik', 'Sanırım biri kemiğini kırdı. Ne yapmalıyım?'],
-                 ['Kafa travması', 'Biri kafasını çarptı. Hangi belirtilere dikkat etmeliyim?']],
-      water:    [['Suyu arıtma', 'İçmek için suyu nasıl arıtırım?'],
-                 ['Musluk suyu güvenli mi?', 'Elektrik kesintisinde musluk suyu içmek güvenli mi?'],
-                 ['Su kesildi', 'Su tamamen kesildi. Ne yapmalıyım?'],
-                 ['Ne kadar su gerek?', 'Her kişinin günde ne kadar içme suyuna ihtiyacı var?']],
-      power:    [['Buzdolabı ve yiyecek', 'Buzdolabımdaki ve dondurucudaki yiyecekler hâlâ güvenli mi?'],
-                 ['Tıbbi cihazlar', 'Evdeki bir tıbbi cihazın elektriğe ihtiyacı var, örneğin buzdolabındaki insülin. Ne yapmalıyım?'],
-                 ['Güvenli ışık ve ısınma', 'Elektrik kesintisinde evi aydınlatmanın ve ısıtmanın güvenli yolları neler?'],
-                 ['Pil tasarrufu', 'Telefonun şarjını olabildiğince uzun nasıl kullanırım?']],
-      warm:     [['Isıtma yok', 'Isıtma olmadan evi ve ailemi nasıl sıcak tutarım?'],
-                 ['Bebekler ve yaşlılar', 'Bir bebeği veya yaşlıyı güvenle nasıl sıcak tutarım?'],
-                 ['Hipotermi belirtileri', 'Hipotermi belirtileri neler ve ne yapmalıyım?'],
-                 ['Güvenli uyku', 'Çok soğuk bir evde güvenle nasıl uyuruz?']],
-      help:     [['En yakın acil servis', 'En yakın acil servis (A&E) nerede ve oraya nasıl giderim?'],
-                 ['Eczane', 'Yakınımda eczane nerede bulurum?'],
-                 ['Barınak ve sıcaklık', 'Yakında barınak veya sıcak bir kamu alanı nerede bulurum?'],
-                 ['Yardım çağır', 'Acil servislere şimdi nasıl ulaşırım?']] },
-    bn: { hint: 'যেটা মিলে যায় বেছে নিন — অথবা নিচে আপনার পরিস্থিতি লিখুন।',
-      medical:  [['কেউ অজ্ঞান হয়ে গেছে', 'কেউ পড়ে গেছে এবং সাড়া দিচ্ছে না। এখন ধাপে ধাপে কী করব?'],
-                 ['শ্বাসরোধ', 'কারো গলায় কিছু আটকে গেছে, শ্বাস নিতে পারছে না। এখনই ধাপে ধাপে সাহায্য করুন।'],
-                 ['গুরুতর রক্তপাত', 'গুরুতর রক্তপাত এখনই কীভাবে বন্ধ করব?'],
-                 ['বুকে ব্যথা', 'কারো বুকে তীব্র ব্যথা হচ্ছে। কী করব?']],
-      firstaid: [['পোড়া', 'কাছে চিকিৎসা সহায়তা ছাড়া পোড়ার চিকিৎসা কীভাবে করব?'],
-                 ['কাটা ও ক্ষত', 'ক্ষত কীভাবে সঠিকভাবে পরিষ্কার ও ব্যান্ডেজ করব?'],
-                 ['হাড় ভাঙা', 'মনে হচ্ছে কারো হাড় ভেঙেছে। কী করা উচিত?'],
-                 ['মাথায় আঘাত', 'কেউ মাথায় আঘাত পেয়েছে। কোন লক্ষণগুলো খেয়াল করব?']],
-      water:    [['পানি বিশুদ্ধ করা', 'পান করার জন্য পানি কীভাবে বিশুদ্ধ করব?'],
-                 ['কলের পানি কি নিরাপদ?', 'ব্ল্যাকআউটের সময় কলের পানি পান করা কি নিরাপদ?'],
-                 ['পানি সরবরাহ বন্ধ', 'পানি সরবরাহ পুরোপুরি বন্ধ হয়ে গেছে। কী করব?'],
-                 ['কতটুকু পানি দরকার?', 'প্রতিদিন প্রতি ব্যক্তির কতটুকু খাবার পানি দরকার?']],
-      power:    [['ফ্রিজ ও খাবার', 'আমার ফ্রিজ ও ফ্রিজারের খাবার কি এখনও নিরাপদ?'],
-                 ['চিকিৎসা যন্ত্র', 'বাড়ির একটি চিকিৎসা যন্ত্রের বিদ্যুৎ দরকার, যেমন ফ্রিজে রাখা ইনসুলিন। কী করব?'],
-                 ['নিরাপদ আলো ও তাপ', 'বিদ্যুৎ বিভ্রাটে ঘর আলোকিত ও গরম রাখার নিরাপদ উপায় কী?'],
-                 ['ফোনের চার্জ বাঁচান', 'ফোনের ব্যাটারি যত বেশি সম্ভব কীভাবে টেকাব?']],
-      warm:     [['হিটিং নেই', 'কোনো হিটিং ছাড়া ঘর ও পরিবার কীভাবে গরম রাখব?'],
-                 ['শিশু ও বয়স্ক', 'শিশু বা বয়স্ক ব্যক্তিকে নিরাপদে কীভাবে গরম রাখব?'],
-                 ['হাইপোথার্মিয়ার লক্ষণ', 'হাইপোথার্মিয়ার লক্ষণ কী কী এবং তখন কী করব?'],
-                 ['নিরাপদে ঘুম', 'খুব ঠান্ডা ঘরে কীভাবে নিরাপদে ঘুমাব?']],
-      help:     [['নিকটতম জরুরি বিভাগ', 'নিকটতম A&E হাসপাতাল কোথায় এবং কীভাবে যাব?'],
-                 ['ফার্মেসি', 'কাছাকাছি ফার্মেসি কোথায় পাব?'],
-                 ['আশ্রয় ও উষ্ণতা', 'কাছে আশ্রয় বা উষ্ণ পাবলিক জায়গা কোথায় পাব?'],
-                 ['সাহায্যের জন্য কল', 'এখনই জরুরি সেবার সাথে কীভাবে যোগাযোগ করব?']] },
-    ur: { hint: 'جو مناسب ہو منتخب کریں — یا نیچے اپنی صورتحال لکھیں۔',
-      medical:  [['کوئی بے ہوش ہو گیا', 'کوئی گر گیا ہے اور جواب نہیں دے رہا۔ ابھی قدم بہ قدم کیا کروں؟'],
-                 ['گلے میں پھنسنا', 'کسی کے گلے میں کچھ پھنس گیا ہے اور سانس نہیں لے پا رہا۔ فوری قدم بہ قدم مدد کریں۔'],
-                 ['شدید خون بہنا', 'شدید خون بہنا فوراً کیسے روکوں؟'],
-                 ['سینے میں درد', 'کسی کے سینے میں شدید درد ہے۔ کیا کروں؟']],
-      firstaid: [['جلنا', 'قریب طبی مدد کے بغیر جلنے کا علاج کیسے کروں؟'],
-                 ['زخم', 'زخم کو صحیح طریقے سے صاف اور پٹی کیسے کروں؟'],
-                 ['ہڈی ٹوٹنا', 'لگتا ہے کسی کی ہڈی ٹوٹ گئی ہے۔ کیا کروں؟'],
-                 ['سر کی چوٹ', 'کسی کے سر پر چوٹ لگی ہے۔ کن علامات پر نظر رکھوں؟']],
-      water:    [['پانی صاف کرنا', 'پینے کے لیے پانی کیسے صاف کروں؟'],
-                 ['کیا نل کا پانی محفوظ ہے؟', 'بجلی بند ہونے کے دوران کیا نل کا پانی پینا محفوظ ہے؟'],
-                 ['پانی بند ہو گیا', 'پانی کی فراہمی مکمل بند ہو گئی ہے۔ کیا کروں؟'],
-                 ['کتنا پانی چاہیے؟', 'ہر شخص کو روزانہ کتنا پینے کا پانی چاہیے؟']],
-      power:    [['فریج اور کھانا', 'کیا میرے فریج اور فریزر کا کھانا اب بھی محفوظ ہے؟'],
-                 ['طبی آلات', 'گھر میں ایک طبی آلے کو بجلی چاہیے، جیسے فریج میں رکھی انسولین۔ کیا کروں؟'],
-                 ['محفوظ روشنی و گرمی', 'بجلی بند ہونے پر گھر کو روشن اور گرم رکھنے کے محفوظ طریقے کیا ہیں؟'],
-                 ['بیٹری بچائیں', 'فون کی بیٹری زیادہ سے زیادہ دیر کیسے چلاؤں؟']],
-      warm:     [['ہیٹنگ نہیں', 'بغیر ہیٹنگ کے گھر اور خاندان کو گرم کیسے رکھوں؟'],
-                 ['بچے اور بزرگ', 'بچے یا بزرگ کو محفوظ طریقے سے گرم کیسے رکھوں؟'],
-                 ['ہائپوتھرمیا کی علامات', 'جسم کا درجہ حرارت خطرناک حد تک گرنے کی علامات کیا ہیں اور کیا کروں؟'],
-                 ['محفوظ نیند', 'بہت ٹھنڈے گھر میں محفوظ طریقے سے کیسے سوئیں؟']],
-      help:     [['قریب ترین ایمرجنسی', 'قریب ترین A&E ہسپتال کہاں ہے اور وہاں کیسے پہنچوں؟'],
-                 ['فارمیسی', 'قریب فارمیسی کہاں ملے گی؟'],
-                 ['پناہ اور گرمی', 'قریب پناہ یا گرم عوامی جگہ کہاں ملے گی؟'],
-                 ['مدد کے لیے کال', 'ابھی ہنگامی خدمات سے کیسے رابطہ کروں؟']] },
     en: { hint: 'Pick what fits — or just type your situation below.',
       medical:  [['Someone collapsed', 'Someone has collapsed and is not responding. What do I do right now, step by step?'],
                  ['Choking', 'Someone is choking and cannot breathe. Give me immediate step-by-step help.'],

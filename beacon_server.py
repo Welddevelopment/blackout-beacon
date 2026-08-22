@@ -24,7 +24,7 @@ import threading
 import time
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import urlsplit, parse_qs
+from urllib.parse import urlsplit, parse_qs, unquote
 
 import llm
 
@@ -37,7 +37,9 @@ DNS_PORT = int(os.environ.get("BEACON_DNS_PORT", "53"))  # override for non-root
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(HERE, "static")
+DATA_DIR = os.path.join(HERE, "data")  # offline map data (tiles, postcodes, POIs)
 INDEX_PATH = os.path.join(STATIC_DIR, "index.html")
+MAP_PATH = os.path.join(STATIC_DIR, "map.html")
 CARDS_DIR = llm.CARDS_DIR
 META_PATH = os.path.join(CARDS_DIR, "meta.json")
 
@@ -68,7 +70,14 @@ MIME = {
     ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg",
     ".jpeg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon",
     ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8",
+    # offline map assets: vector tiles + glyph PBFs
+    ".pmtiles": "application/octet-stream", ".pbf": "application/x-protobuf",
 }
+
+# Extensions safe to cache on phones (immutable briefing-phase assets).
+# HTML/JSON stay no-store so UI + data iterations reach clients immediately.
+CACHEABLE_EXTS = {".js", ".css", ".pmtiles", ".pbf", ".png", ".woff2",
+                  ".jpg", ".jpeg", ".webp", ".svg"}
 
 PLACEHOLDER_PAGE = """<!DOCTYPE html><html><head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -216,6 +225,9 @@ class Beacon(BaseHTTPRequestHandler):
         if path in ("/", "/index.html"):
             self._log("200 index")
             return self._serve_index()
+        if path in ("/map", "/map.html"):
+            self._log("200 map")
+            return self._serve_page(MAP_PATH)
         if path == "/api/status":
             self._log("200 status")
             return self._api_status()
@@ -225,7 +237,10 @@ class Beacon(BaseHTTPRequestHandler):
         if path == "/api/ask":
             return self._api_ask(query)
         if path.startswith("/static/"):
-            return self._serve_static(path)
+            return self._serve_tree(STATIC_DIR, path[len("/static/"):])
+        if path.startswith("/data/"):
+            # map data (london.pmtiles is fetched by byte range — see _serve_file)
+            return self._serve_tree(DATA_DIR, path[len("/data/"):])
         return self._redirect("302 unknown-path")
 
     do_GET = _route
@@ -242,21 +257,101 @@ class Beacon(BaseHTTPRequestHandler):
             body = PLACEHOLDER_PAGE.encode("utf-8")
         self._send_bytes(body)
 
-    def _serve_static(self, path):
-        rel = os.path.normpath(path[len("/static/"):])
-        full = os.path.realpath(os.path.join(STATIC_DIR, rel))
-        if not full.startswith(os.path.realpath(STATIC_DIR) + os.sep):
-            return self._redirect("302 traversal")
+    def _serve_page(self, full_path):
+        """A whole static HTML page (e.g. /map) read fresh from disk."""
         try:
-            with open(full, "rb") as f:
+            with open(full_path, "rb") as f:
                 body = f.read()
         except OSError:
-            self._log("404 static")
+            body = PLACEHOLDER_PAGE.encode("utf-8")
+        self._send_bytes(body)
+
+    def _serve_tree(self, base_dir, rel_path):
+        """Serve a file under base_dir (path-traversal safe), with HTTP Range
+        support — the pmtiles JS client reads data/london.pmtiles by byte
+        range, so large files are never loaded into memory whole."""
+        # decode %-escapes: glyph dirs contain spaces ("Noto Sans Regular")
+        rel = os.path.normpath(unquote(rel_path))
+        full = os.path.realpath(os.path.join(base_dir, rel))
+        if not full.startswith(os.path.realpath(base_dir) + os.sep):
+            return self._redirect("302 traversal")
+        if not os.path.isfile(full):
+            self._log("404 file")
             return self._send_bytes(b"not found", status=404,
                                     ctype="text/plain; charset=utf-8")
+        self._serve_file(full)
+
+    @staticmethod
+    def _parse_range(header, size):
+        """Parse a single-range 'bytes=' header -> (start, end) inclusive,
+        None if absent/malformed (=> serve full 200), or 'unsatisfiable'."""
+        if not header or not header.startswith("bytes="):
+            return None
+        spec = header[len("bytes="):].strip()
+        if "," in spec:  # multipart ranges not supported -> full response
+            return None
+        start_s, _, end_s = spec.partition("-")
+        try:
+            if start_s == "":            # suffix form: bytes=-N (last N bytes)
+                n = int(end_s)
+                if n <= 0:
+                    return "unsatisfiable"
+                return (max(size - n, 0), size - 1)
+            start = int(start_s)
+            end = int(end_s) if end_s else size - 1
+        except ValueError:
+            return None
+        if start >= size or start > end:
+            return "unsatisfiable"
+        return (start, min(end, size - 1))
+
+    def _serve_file(self, full):
         ext = os.path.splitext(full)[1].lower()
-        self._log("200 static")
-        self._send_bytes(body, ctype=MIME.get(ext, "application/octet-stream"))
+        ctype = MIME.get(ext, "application/octet-stream")
+        cache = ("public, max-age=86400" if ext in CACHEABLE_EXTS
+                 else "no-store")
+        try:
+            size = os.path.getsize(full)
+            rng = self._parse_range(self.headers.get("Range"), size)
+            if rng == "unsatisfiable":
+                self._log("416 range")
+                self.send_response(416)
+                self.send_header("Content-Range", f"bytes */{size}")
+                self.send_header("Content-Length", "0")
+                self.end_headers()
+                return
+            with open(full, "rb") as f:
+                if rng:
+                    start, end = rng
+                    length = end - start + 1
+                    self.send_response(206)
+                    self.send_header("Content-Range",
+                                     f"bytes {start}-{end}/{size}")
+                    f.seek(start)
+                else:
+                    start, length = 0, size
+                    self.send_response(200)
+                self.send_header("Content-Type", ctype)
+                self.send_header("Content-Length", str(length))
+                self.send_header("Accept-Ranges", "bytes")
+                self.send_header("Cache-Control", cache)
+                self.end_headers()
+                self._log(f"{206 if rng else 200} file[{start}+{length}]")
+                if self.command == "HEAD":
+                    return
+                remaining = length  # stream in chunks — never whole-file RAM
+                while remaining > 0:
+                    chunk = f.read(min(remaining, 1 << 20))
+                    if not chunk:
+                        break
+                    self.wfile.write(chunk)
+                    remaining -= len(chunk)
+        except (BrokenPipeError, ConnectionResetError):
+            self._log("file client-gone")
+        except OSError:
+            self._log("404 file-read")
+            self._send_bytes(b"not found", status=404,
+                             ctype="text/plain; charset=utf-8")
 
     # -- APIs ------------------------------------------------------------
 
